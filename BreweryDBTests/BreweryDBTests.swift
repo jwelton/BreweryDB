@@ -32,4 +32,8 @@ class BreweryDBTests: XCTestCase {
         XCTAssertEqual(BreweryDBApiKey, apiKey)
     }
     
+    func testBreweryDBBaseURLIsNotNil() {
+        XCTAssertNotNil(BreweryDBBaseURL)
+    }
+    
 }
