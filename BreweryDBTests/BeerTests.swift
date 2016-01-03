@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BreweryDB
 
 class BeerTests: XCTestCase {
     
@@ -18,6 +19,11 @@ class BeerTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testBeerCanBeInitializedWithName() {
+        let beer: Beer? = Beer(name: "Beer name")
+        XCTAssertNotNil(beer)
     }
     
 }
