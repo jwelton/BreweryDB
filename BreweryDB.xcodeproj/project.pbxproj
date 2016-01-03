@@ -11,6 +11,7 @@
 		23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53C21C397A7B0094249C /* BreweryDB.framework */; };
 		23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53D11C397A7B0094249C /* BreweryDBTests.swift */; };
 		23FF53DD1C397ED70094249C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53DC1C397ED70094249C /* Alamofire.framework */; };
+		23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E31C39831B0094249C /* BreweryDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		23FF53D11C397A7B0094249C /* BreweryDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDBTests.swift; sourceTree = "<group>"; };
 		23FF53D31C397A7B0094249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23FF53DC1C397ED70094249C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		23FF53E31C39831B0094249C /* BreweryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				23FF53C51C397A7B0094249C /* BreweryDB.h */,
 				23FF53C71C397A7B0094249C /* Info.plist */,
+				23FF53E31C39831B0094249C /* BreweryDB.swift */,
 			);
 			path = BreweryDB;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +334,7 @@
 		23FF53D71C397A7B0094249C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -344,12 +349,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakewelton.BreweryDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		23FF53D81C397A7B0094249C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
