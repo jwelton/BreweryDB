@@ -9,10 +9,4 @@
 import Foundation
 
 class Beer {
-    init(name: String) {}
-    init(abv: String) {}
-    init(ibu: String) {}
-    init(srmId: String) {}
-    init(availabilityId: String) {}
-    init(styleId: String) {}
 }
