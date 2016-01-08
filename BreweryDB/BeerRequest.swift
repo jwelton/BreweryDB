@@ -36,4 +36,8 @@ class BeerRequest {
         
         requestParams = params
     }
+    
+    func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer])->Void)) {
+        BreweryDBApiKey
+    }
 }
