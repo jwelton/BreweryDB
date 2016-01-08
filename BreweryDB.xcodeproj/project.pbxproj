@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
 		23FF53C61C397A7B0094249C /* BreweryDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FF53C51C397A7B0094249C /* BreweryDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53C21C397A7B0094249C /* BreweryDB.framework */; };
 		23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53D11C397A7B0094249C /* BreweryDBTests.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		23FF53C21C397A7B0094249C /* BreweryDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreweryDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FF53C51C397A7B0094249C /* BreweryDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreweryDB.h; sourceTree = "<group>"; };
 		23FF53C71C397A7B0094249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				23FF53C71C397A7B0094249C /* Info.plist */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
 				23FF53E51C3985660094249C /* Beer.swift */,
+				233ECF021C4063A40050971B /* BeerRequest.swift */,
 			);
 			path = BreweryDB;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
+				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
