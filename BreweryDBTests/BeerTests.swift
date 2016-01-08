@@ -21,4 +21,15 @@ class BeerTests: XCTestCase {
         super.tearDown()
     }
     
+    func testBeerCanBeInitialized() {
+        let beer: Beer? = Beer()
+        XCTAssertNotNil(beer)
+    }
+    
+    func testBeerCanBeDeinitialized() {
+        var beer: Beer? = Beer()
+        beer = nil
+        XCTAssertNil(beer)
+    }
+    
 }
