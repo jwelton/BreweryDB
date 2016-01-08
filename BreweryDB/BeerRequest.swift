@@ -8,6 +8,23 @@
 
 import Foundation
 
+enum BeerRequestParam {
+    case Identifier
+    case Name
+    case Abv
+    case Ibu
+    case GlasswareId
+    case SrmId
+    case AvaliableId
+    case StyleId
+    case IsOrganic
+    case HasLabels
+    case Year
+    case Since
+    case Status
+    case RandomCount
+}
+
 class BeerRequest {
     
 }
