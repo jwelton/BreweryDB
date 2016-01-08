@@ -26,5 +26,14 @@ enum BeerRequestParam {
 }
 
 class BeerRequest {
+    let requestParams: [BeerRequestParam: String]
     
+    init?(requestParams params: [BeerRequestParam: String]) {
+        if params.count == 0 {
+            requestParams = [:]
+            return nil
+        }
+        
+        requestParams = params
+    }
 }
