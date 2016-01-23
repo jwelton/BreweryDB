@@ -21,8 +21,8 @@ class BeerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testBeerCanBeInitializedWithName() {
-        let beer: Beer? = Beer(name: "Beer name")
+    func testBeerCanBeInitializedWithIdentifier() {
+        let beer: Beer? = Beer(name: "Beer identifier")
         XCTAssertNotNil(beer)
     }
     
