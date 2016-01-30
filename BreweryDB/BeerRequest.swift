@@ -27,6 +27,7 @@ enum BeerRequestParam: String {
 
 class BeerRequest {
     let requestParams: [BeerRequestParam: String]
+    let requestBuilder = RequestBuilder(endPoint: .Beer)
     
     init?(requestParams params: [BeerRequestParam: String]) {
         if params.count == 0 {
@@ -38,6 +39,6 @@ class BeerRequest {
     }
     
     func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer])->Void)) {
-        
+        let url = requestBuilder.buildRequest(requestParams)
     }
 }
