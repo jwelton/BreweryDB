@@ -22,13 +22,13 @@ class BeerTests: XCTestCase {
     }
     
     func testBeerCanBeInitializedWithIdentifier() {
-        let beer: Beer? = Beer(name: "Beer identifier")
+        let beer: Beer? = Beer(identifier: "Beer identifier")
 
         XCTAssertNotNil(beer)
     }
     
     func testBeerCanBeDeinitialized() {
-        var beer: Beer? = Beer()
+        var beer: Beer? = Beer(identifier: "Beer Identifier")
         beer = nil
         XCTAssertNil(beer)
     }
@@ -36,7 +36,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetIdentifier() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.identifier = testData
         XCTAssertEqual(testData, beer.identifier)
     }
@@ -44,7 +44,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetName() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.name = testData
         XCTAssertEqual(testData, beer.name)
     }
@@ -52,7 +52,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetDescription() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.description = testData
         XCTAssertEqual(testData, beer.description)
     }
@@ -60,7 +60,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetFoodPairings() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.foodPairings = testData
         XCTAssertEqual(testData, beer.foodPairings)
     }
@@ -68,7 +68,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetOriginalGravity() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.originalGravity = testData
         XCTAssertEqual(testData, beer.originalGravity)
     }
@@ -76,7 +76,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetAbv() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.abv = testData
         XCTAssertEqual(testData, beer.abv)
     }
@@ -84,7 +84,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetIbu() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.ibu = testData
         XCTAssertEqual(testData, beer.ibu)
     }
@@ -92,7 +92,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetGlasswareId() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.glasswareId = testData
         XCTAssertEqual(testData, beer.glasswareId)
     }
@@ -100,7 +100,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetGlass() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.glass = testData
         XCTAssertEqual(testData, beer.glass)
     }
@@ -108,7 +108,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetStyleId() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.styleId = testData
         XCTAssertEqual(testData, beer.styleId)
     }
@@ -116,7 +116,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetStyle() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.style = testData
         XCTAssertEqual(testData, beer.style)
     }
@@ -124,7 +124,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetisOrganic() {
         let testData = true
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.isOrganic = testData
         XCTAssertEqual(testData, beer.isOrganic)
     }
@@ -132,7 +132,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetLabels() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.labels = testData
         XCTAssertEqual(testData, beer.labels)
     }
@@ -140,7 +140,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetServingTemperature() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.servingTemperature = testData
         XCTAssertEqual(testData, beer.servingTemperature)
     }
@@ -148,7 +148,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetServingTemperatureDisplay() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.servingTemperatureDisplay = testData
         XCTAssertEqual(testData, beer.servingTemperatureDisplay)
     }
@@ -156,7 +156,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetStatus() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.status = testData
         XCTAssertEqual(testData, beer.status)
     }
@@ -164,7 +164,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetStatusDisplay() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.statusDisplay = testData
         XCTAssertEqual(testData, beer.statusDisplay)
     }
@@ -172,7 +172,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetAvailableId() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.availableId = testData
         XCTAssertEqual(testData, beer.availableId)
     }
@@ -180,7 +180,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetAvailable() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.available = testData
         XCTAssertEqual(testData, beer.available)
     }
@@ -188,7 +188,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetBeerVariation() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.beerVariation = testData
         XCTAssertEqual(testData, beer.beerVariation)
     }
@@ -196,7 +196,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetYear() {
         let testData = "TestData"
         
-        let beer = Beer()
+        let beer = Beer(identifier: "Beer Identifier")
         beer.year = testData
         XCTAssertEqual(testData, beer.year)
     }
