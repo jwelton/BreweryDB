@@ -25,4 +25,15 @@ class RequestBuilder {
     init(endPoint: RequestEndPoint) {
         self.endPoint = endPoint
     }
+    
+    func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL {
+        let beerRequest = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
+        
+        for param in requestParams {
+            beerRequest.URLByAppendingPathComponent(param.0.rawValue)
+            beerRequest.URLByAppendingPathComponent(param.1)
+        }
+        
+        return beerRequest
+    }
 }
