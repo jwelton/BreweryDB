@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BreweryDB
 
 class RequestBuilderTests: XCTestCase {
     
@@ -20,6 +21,10 @@ class RequestBuilderTests: XCTestCase {
         super.tearDown()
     }
     
+    func testRequestBuilderInitsWithRequestEndPoint() {
+        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        XCTAssertNotNil(requestBuilder)
+    }
     
     
 }
