@@ -8,21 +8,21 @@
 
 import Foundation
 
-enum BeerRequestParam {
-    case Identifier
-    case Name
-    case Abv
-    case Ibu
-    case GlasswareId
-    case SrmId
-    case AvaliableId
-    case StyleId
-    case IsOrganic
-    case HasLabels
-    case Year
-    case Since
-    case Status
-    case RandomCount
+enum BeerRequestParam: String {
+    case Identifier = "ids"
+    case Name = "name"
+    case Abv = "abv"
+    case Ibu = "ibu"
+    case GlasswareId = "glasswareId"
+    case SrmId = "srmId"
+    case AvaliableId = "availableId"
+    case StyleId = "styleId"
+    case IsOrganic = "isOrganic"
+    case HasLabels = "hasLabels"
+    case Year = "year"
+    case Since = "since"
+    case Status = "status"
+    case RandomCount = "order"
 }
 
 class BeerRequest {
