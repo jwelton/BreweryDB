@@ -20,5 +20,9 @@ extension NSURL {
 }
 
 class RequestBuilder {
+    let endPoint: RequestEndPoint
     
+    init(endPoint: RequestEndPoint) {
+        self.endPoint = endPoint
+    }
 }
