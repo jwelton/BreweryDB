@@ -26,5 +26,11 @@ class RequestBuilderTests: XCTestCase {
         XCTAssertNotNil(requestBuilder)
     }
     
+    func testRequestBuilderNSURLExtensionReturnsURLWithRawValue() {
+        let baseURL = NSURL(string: "app.mywebservice.com")
+        let url = baseURL?.URLByAppendingPathComponent(.Beer)
+        
+        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com/beer"))
+    }
     
 }
