@@ -17,6 +17,12 @@ extension NSURL {
     func URLByAppendingPathComponent(endPoint: RequestEndPoint) -> NSURL {
         return URLByAppendingPathComponent(endPoint.rawValue)
     }
+    
+    func URLByAppendingGETVariable<T : RawRepresentable where T.RawValue == String>(param: T, value: String, isFirstVar: Bool) -> NSURL {
+        let url = isFirstVar ? "?" : "&"
+        let path = url + param.rawValue + "=" + value
+        return NSURL(string: self.path! + path)!
+    }
 }
 
 class RequestBuilder {
@@ -27,11 +33,10 @@ class RequestBuilder {
     }
     
     func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL {
-        let beerRequest = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
+        var beerRequest = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
         
-        for param in requestParams {
-            beerRequest.URLByAppendingPathComponent(param.0.rawValue)
-            beerRequest.URLByAppendingPathComponent(param.1)
+        for (index, param) in requestParams.enumerate() {
+            beerRequest = beerRequest.URLByAppendingGETVariable(param.0, value: param.1, isFirstVar: index == 0 ? true : false)
         }
         
         return beerRequest
