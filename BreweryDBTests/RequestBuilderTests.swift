@@ -47,4 +47,17 @@ class RequestBuilderTests: XCTestCase {
         
         XCTAssertEqual(url, NSURL(string: "app.mywebservice.com?ids=ID&name=beer"))
     }
+    
+    func testRequestBuilderWith1ParamBuildsRequest() {
+        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        let param = [BeerRequestParam.Identifier: "beerIdentifier"]
+        
+        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beer.rawValue
+        let expected =  baseURL + "?" + BeerRequestParam.Identifier.rawValue + "=beerIdentifier"
+        
+        let url = requestBuilder.buildRequest(param)
+        
+        XCTAssertEqual(url.absoluteString, expected)
+    }
+    
 }
