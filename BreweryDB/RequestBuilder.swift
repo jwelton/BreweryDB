@@ -12,6 +12,13 @@ enum RequestEndPoint: String {
     case Beer = "beer"
     case Beers = "beers"
 }
+
+extension NSURL {
+    func URLByAppendingPathComponent(endPoint: RequestEndPoint) -> NSURL {
+        return URLByAppendingPathComponent(endPoint.rawValue)
+    }
+}
+
 class RequestBuilder {
     
 }
