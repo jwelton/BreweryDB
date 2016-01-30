@@ -60,4 +60,17 @@ class RequestBuilderTests: XCTestCase {
         XCTAssertEqual(url.absoluteString, expected)
     }
     
+    func testRequestBuilderWith2ParamsBuildsRequest() {
+        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        let param = [BeerRequestParam.Identifier: "beerIdentifier", BeerRequestParam.Name: "beerName"]
+        
+        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beer.rawValue
+        let urlWithFirstParam =  baseURL + "?" + BeerRequestParam.Identifier.rawValue + "=" + param[.Identifier]!
+        let expected =  urlWithFirstParam + "&" + BeerRequestParam.Name.rawValue + "=" + param[.Name]!
+        
+        let url = requestBuilder.buildRequest(param)
+        
+        XCTAssertEqual(url.absoluteString, expected)
+    }
+    
 }
