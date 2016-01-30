@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
 		233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF041C4063CC0050971B /* BeerRequestTests.swift */; };
+		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23FF53C61C397A7B0094249C /* BreweryDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FF53C51C397A7B0094249C /* BreweryDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53C21C397A7B0094249C /* BreweryDB.framework */; };
 		23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53D11C397A7B0094249C /* BreweryDBTests.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		233ECF041C4063CC0050971B /* BeerRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequestTests.swift; sourceTree = "<group>"; };
+		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23FF53C21C397A7B0094249C /* BreweryDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreweryDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FF53C51C397A7B0094249C /* BreweryDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreweryDB.h; sourceTree = "<group>"; };
 		23FF53C71C397A7B0094249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
 				23FF53E51C3985660094249C /* Beer.swift */,
 				233ECF021C4063A40050971B /* BeerRequest.swift */,
+				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 			);
 			path = BreweryDB;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
+				23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
