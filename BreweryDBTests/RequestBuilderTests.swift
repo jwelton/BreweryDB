@@ -33,4 +33,18 @@ class RequestBuilderTests: XCTestCase {
         XCTAssertEqual(url, NSURL(string: "app.mywebservice.com/beer"))
     }
     
+    func testRequestBuilderNSURLExtensionGivenOneGETVarReturnsNSURL() {
+        let baseURL = NSURL(string: "app.mywebservice.com")
+        let url = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID", isFirstVar: true)
+        
+        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com?ids=ID"))
+    }
+    
+    func testRequestBuilderNSURLExtensionGivenTwoGETVarReturnsNSURL() {
+        let baseURL = NSURL(string: "app.mywebservice.com")
+        let urlWithFirst = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID", isFirstVar: true)
+        let url = urlWithFirst?.URLByAppendingGETVariable(BeerRequestParam.Name, value: "beer", isFirstVar: false)
+        
+        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com?ids=ID&name=beer"))
+    }
 }
