@@ -27,7 +27,7 @@ enum BeerRequestParam: String {
 
 class BeerRequest {
     let requestParams: [BeerRequestParam: String]
-    let requestBuilder = RequestBuilder(endPoint: .Beer)
+    let requestBuilder = RequestBuilder(endPoint: .Beers)
     
     init?(requestParams params: [BeerRequestParam: String]) {
         if params.count == 0 {
