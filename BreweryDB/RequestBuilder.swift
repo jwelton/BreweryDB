@@ -9,7 +9,6 @@
 import Foundation
 
 enum RequestEndPoint: String {
-    case Beer = "beer"
     case Beers = "beers"
 }
 
