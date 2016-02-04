@@ -17,9 +17,8 @@ extension NSURL {
         return URLByAppendingPathComponent(endPoint.rawValue)
     }
     
-    func URLByAppendingGETVariable<T : RawRepresentable where T.RawValue == String>(param: T, value: String, isFirstVar: Bool) -> NSURL {
-        let url = isFirstVar ? "?" : "&"
-        let path = url + param.rawValue + "=" + value
+    func URLByAppendingGETVariable<T : RawRepresentable where T.RawValue == String>(param: T, value: String) -> NSURL {
+        let path = "&" + param.rawValue + "=" + value
         return NSURL(string: self.absoluteString + path)!
     }
 }
