@@ -13,6 +13,9 @@ class RequestBuilderTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        BreweryDBApiKey = "testKey"
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -22,55 +25,51 @@ class RequestBuilderTests: XCTestCase {
     }
     
     func testRequestBuilderInitsWithRequestEndPoint() {
-        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        let requestBuilder = RequestBuilder(endPoint: .Beers)
         XCTAssertNotNil(requestBuilder)
     }
     
     func testRequestBuilderNSURLExtensionGivenRawValueReturnsNSURL() {
         let baseURL = NSURL(string: "app.mywebservice.com")
-        let url = baseURL?.URLByAppendingPathComponent(.Beer)
+        let url = baseURL?.URLByAppendingPathComponent(.Beers)
         
-        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com/beer"))
+        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com/beers"))
     }
     
     func testRequestBuilderNSURLExtensionGivenOneGETVarReturnsNSURL() {
         let baseURL = NSURL(string: "app.mywebservice.com")
-        let url = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID", isFirstVar: true)
+        let url = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID")
         
-        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com?ids=ID"))
-    }
-    
-    func testRequestBuilderNSURLExtensionGivenTwoGETVarReturnsNSURL() {
-        let baseURL = NSURL(string: "app.mywebservice.com")
-        let urlWithFirst = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID", isFirstVar: true)
-        let url = urlWithFirst?.URLByAppendingGETVariable(BeerRequestParam.Name, value: "beer", isFirstVar: false)
-        
-        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com?ids=ID&name=beer"))
+        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com&ids=ID"))
     }
     
     func testRequestBuilderWith1ParamBuildsRequest() {
-        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        let requestBuilder = RequestBuilder(endPoint: .Beers)
         let param = [BeerRequestParam.Identifier: "beerIdentifier"]
         
-        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beer.rawValue
-        let expected =  baseURL + "?" + BeerRequestParam.Identifier.rawValue + "=beerIdentifier"
+        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beers.rawValue
+        let withKey = baseURL + "?key=" + String(BreweryDBApiKey!)
+        let expected =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=beerIdentifier"
         
         let url = requestBuilder.buildRequest(param)
         
-        XCTAssertEqual(url.absoluteString, expected)
+        XCTAssertEqual(url?.absoluteString, expected)
     }
     
     func testRequestBuilderWith2ParamsBuildsRequest() {
-        let requestBuilder = RequestBuilder(endPoint: .Beer)
+        let requestBuilder = RequestBuilder(endPoint: .Beers)
         let param = [BeerRequestParam.Identifier: "beerIdentifier", BeerRequestParam.Name: "beerName"]
         
-        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beer.rawValue
-        let urlWithFirstParam =  baseURL + "?" + BeerRequestParam.Identifier.rawValue + "=" + param[.Identifier]!
+        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beers.rawValue
+        let withKey = baseURL + "?key=" + String(BreweryDBApiKey!)
+        let urlWithFirstParam =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=" + param[.Identifier]!
         let expected =  urlWithFirstParam + "&" + BeerRequestParam.Name.rawValue + "=" + param[.Name]!
         
         let url = requestBuilder.buildRequest(param)
         
-        XCTAssertEqual(url.absoluteString, expected)
+        XCTAssertEqual(url?.absoluteString, expected)
+    }
+    
     }
     
 }
