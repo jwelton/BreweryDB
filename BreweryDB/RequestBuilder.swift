@@ -30,11 +30,17 @@ class RequestBuilder {
         self.endPoint = endPoint
     }
     
-    func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL {
-        var beerRequest = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
+    func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL? {
+        let baseURL = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
         
-        for (index, param) in requestParams.enumerate() {
-            beerRequest = beerRequest.URLByAppendingGETVariable(param.0, value: param.1, isFirstVar: index == 0 ? true : false)
+        guard let apiKey = BreweryDBApiKey,
+            var beerRequest = NSURL(string: baseURL.absoluteString + "?key=\(apiKey)") else {
+                print("BreweryDB: Failed to build base URL. Have you set your BreweryDB API key?")
+                return nil
+        }
+        
+        for param in requestParams {
+            beerRequest = beerRequest.URLByAppendingGETVariable(param.0, value: param.1)
         }
         
         return beerRequest
