@@ -70,6 +70,14 @@ class RequestBuilderTests: XCTestCase {
         XCTAssertEqual(url?.absoluteString, expected)
     }
     
+    func testRequestBuilderWithNoAPIKeyReturnNil() {
+        let requestBuilder = RequestBuilder(endPoint: .Beers)
+        let param = [BeerRequestParam.Identifier: "beerIdentifier", BeerRequestParam.Name: "beerName"]
+        BreweryDBApiKey = nil
+        
+        let url = requestBuilder.buildRequest(param)
+        
+        XCTAssertNil(url)
     }
     
 }
