@@ -17,7 +17,7 @@
 		23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E31C39831B0094249C /* BreweryDB.swift */; };
 		23FF53E61C3985660094249C /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E51C3985660094249C /* Beer.swift */; };
 		23FF53E81C3985760094249C /* BeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E71C3985760094249C /* BeerTests.swift */; };
-		5AB5021869050C2D6C6D7938 /* libPods-BreweryDBTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */; };
+		39300FC8453F9B4B9A1322F5 /* Pods_BreweryDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +45,8 @@
 		23FF53E51C3985660094249C /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		23FF53E71C3985760094249C /* BeerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerTests.swift; sourceTree = "<group>"; };
 		6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.release.xcconfig"; sourceTree = "<group>"; };
-		717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreweryDBTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreweryDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */,
-				5AB5021869050C2D6C6D7938 /* libPods-BreweryDBTests.a in Frameworks */,
+				39300FC8453F9B4B9A1322F5 /* Pods_BreweryDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +72,7 @@
 		05A96B4A1A4D76C91CDA2DBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */,
+				A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
