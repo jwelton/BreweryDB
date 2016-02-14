@@ -14,7 +14,6 @@
 		23FF53C61C397A7B0094249C /* BreweryDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FF53C51C397A7B0094249C /* BreweryDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53C21C397A7B0094249C /* BreweryDB.framework */; };
 		23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53D11C397A7B0094249C /* BreweryDBTests.swift */; };
-		23FF53DD1C397ED70094249C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53DC1C397ED70094249C /* Alamofire.framework */; };
 		23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E31C39831B0094249C /* BreweryDB.swift */; };
 		23FF53E61C3985660094249C /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E51C3985660094249C /* Beer.swift */; };
 		23FF53E81C3985760094249C /* BeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E71C3985760094249C /* BeerTests.swift */; };
@@ -52,7 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FF53DD1C397ED70094249C /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +131,6 @@
 				23FF53BE1C397A7B0094249C /* Frameworks */,
 				23FF53BF1C397A7B0094249C /* Headers */,
 				23FF53C01C397A7B0094249C /* Resources */,
-				23FF53DE1C397F380094249C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -215,23 +212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		23FF53DE1C397F380094249C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23FF53BD1C397A7B0094249C /* Sources */ = {
