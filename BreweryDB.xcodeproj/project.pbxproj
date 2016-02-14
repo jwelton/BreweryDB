@@ -17,6 +17,7 @@
 		23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E31C39831B0094249C /* BreweryDB.swift */; };
 		23FF53E61C3985660094249C /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E51C3985660094249C /* Beer.swift */; };
 		23FF53E81C3985760094249C /* BeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E71C3985760094249C /* BeerTests.swift */; };
+		5AB5021869050C2D6C6D7938 /* libPods-BreweryDBTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,12 @@
 		23FF53CC1C397A7B0094249C /* BreweryDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreweryDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FF53D11C397A7B0094249C /* BreweryDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDBTests.swift; sourceTree = "<group>"; };
 		23FF53D31C397A7B0094249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23FF53DC1C397ED70094249C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		23FF53E31C39831B0094249C /* BreweryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDB.swift; sourceTree = "<group>"; };
 		23FF53E51C3985660094249C /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		23FF53E71C3985760094249C /* BeerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerTests.swift; sourceTree = "<group>"; };
+		6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.release.xcconfig"; sourceTree = "<group>"; };
+		717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreweryDBTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,19 +62,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */,
+				5AB5021869050C2D6C6D7938 /* libPods-BreweryDBTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A96B4A1A4D76C91CDA2DBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				717A43A5629EAA594B3F3A31 /* libPods-BreweryDBTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		23FF53B81C397A7B0094249C = {
 			isa = PBXGroup;
 			children = (
-				23FF53DC1C397ED70094249C /* Alamofire.framework */,
 				23FF53C41C397A7B0094249C /* BreweryDB */,
 				23FF53D01C397A7B0094249C /* BreweryDBTests */,
 				23FF53C31C397A7B0094249C /* Products */,
+				301A9BEC1D3A337499F5A2A8 /* Pods */,
+				05A96B4A1A4D76C91CDA2DBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +120,15 @@
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
 			);
 			path = BreweryDBTests;
+			sourceTree = "<group>";
+		};
+		301A9BEC1D3A337499F5A2A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */,
+				6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23FF53D91C397A7B0094249C /* Build configuration list for PBXNativeTarget "BreweryDBTests" */;
 			buildPhases = (
+				9A97658A2D048E026AB9384C /* Check Pods Manifest.lock */,
 				23FF53C81C397A7B0094249C /* Sources */,
 				23FF53C91C397A7B0094249C /* Frameworks */,
 				23FF53CA1C397A7B0094249C /* Resources */,
+				D7EAC6DCD8DF39174CA9FB7D /* Embed Pods Frameworks */,
+				0917E24DA1233F0CC99E6991 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +237,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0917E24DA1233F0CC99E6991 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A97658A2D048E026AB9384C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D7EAC6DCD8DF39174CA9FB7D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23FF53BD1C397A7B0094249C /* Sources */ = {
@@ -389,6 +462,7 @@
 		};
 		23FF53DA1C397A7B0094249C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -400,6 +474,7 @@
 		};
 		23FF53DB1C397A7B0094249C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
