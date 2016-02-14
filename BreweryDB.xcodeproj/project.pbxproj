@@ -33,6 +33,7 @@
 /* Begin PBXFileReference section */
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		233ECF041C4063CC0050971B /* BeerRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequestTests.swift; sourceTree = "<group>"; };
+		23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreweryDBTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23FF53C21C397A7B0094249C /* BreweryDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreweryDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +119,7 @@
 				23FF53E71C3985760094249C /* BeerTests.swift */,
 				233ECF041C4063CC0050971B /* BeerRequestTests.swift */,
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
+				23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */,
 			);
 			path = BreweryDBTests;
 			sourceTree = "<group>";
@@ -464,11 +466,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakewelton.BreweryDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BreweryDBTests/BreweryDBTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -476,11 +481,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakewelton.BreweryDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BreweryDBTests/BreweryDBTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

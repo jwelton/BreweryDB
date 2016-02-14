@@ -13,12 +13,19 @@ class BeerRequestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        stub(isHost(BreweryDBBaseURL.absoluteString)) { _ in
+            let stubData = "Hello World!".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        OHHTTPStubs.removeAllStubs()
     }
     
     func testBeerCanBeInitialized() {
