@@ -38,7 +38,12 @@ class BeerRequest {
         requestParams = params
     }
     
-    func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer])->Void)) {
-        let url = requestBuilder.buildRequest(requestParams)
+    func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
+        guard let url = requestBuilder.buildRequest(requestParams) else {
+            completionHandler(beers: nil)
+            return
+        }
+        
+        
     }
 }
