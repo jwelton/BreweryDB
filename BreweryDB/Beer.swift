@@ -9,7 +9,7 @@
 import Foundation
 
 class Beer {
-    var identifier: String?
+    let identifier: String
     var name: String?
     var description: String?
     var foodPairings: String?
@@ -31,5 +31,7 @@ class Beer {
     var beerVariation: String?
     var year: String?
     
-    init(identifier: String) {}
+    init(identifier: String) {
+        self.identifier = identifier
+    }
 }
