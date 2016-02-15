@@ -36,8 +36,7 @@ class BeerTests: XCTestCase {
     func testBeerCanSetIdentifier() {
         let testData = "TestData"
         
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.identifier = testData
+        let beer = Beer(identifier: testData)
         XCTAssertEqual(testData, beer.identifier)
     }
     
