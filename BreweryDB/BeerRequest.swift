@@ -44,6 +44,19 @@ class BeerRequest {
             return
         }
         
+        let urlRequest = NSURLRequest(URL: url)
         
+        NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { data, response, error in
+            guard let returnedData = data,
+                let response = response as? NSHTTPURLResponse where response.statusCode == 200,
+                let stringData = String(data: returnedData, encoding: NSUTF8StringEncoding) else {
+                    completionHandler(beers: nil)
+                    return
+            }
+            
+            let beer = Beer(identifier: stringData)
+            
+            completionHandler(beers: [beer])
+            }.resume()
     }
 }
