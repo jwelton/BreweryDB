@@ -55,7 +55,7 @@ class BeerRequestTests: XCTestCase {
     
     func testBeerRequestLoadBeersWithBeerIdReturnsSuccessful() {
         stub(isHost("api.brewerydb.com")) { _ in
-            let stubData = returnData.dataUsingEncoding(NSUTF8StringEncoding)
+            let stubData = self.returnData.dataUsingEncoding(NSUTF8StringEncoding)
             return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
         }
         
@@ -64,10 +64,11 @@ class BeerRequestTests: XCTestCase {
         
         guard let request = BeerRequest(requestParams: requestParams) else {
             XCTFail("Beer request initialisation should not fail")
+            return
         }
         
         request.loadBeersWithCompletionHandler() { beers in
-            XCTAssertEqual(beers![0].identifier, returnData)
+            XCTAssertEqual(beers![0].identifier, self.returnData)
             expectation.fulfill()
         }
         
