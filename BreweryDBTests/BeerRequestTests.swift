@@ -14,10 +14,7 @@ class BeerRequestTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        stub(isHost(BreweryDBBaseURL.absoluteString)) { _ in
-            let stubData = "Hello World!".dataUsingEncoding(NSUTF8StringEncoding)
-            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
-        }
+        BreweryDBApiKey = "testKey"
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
