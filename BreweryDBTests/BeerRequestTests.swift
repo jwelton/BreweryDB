@@ -10,6 +10,7 @@ import XCTest
 @testable import BreweryDB
 
 class BeerRequestTests: XCTestCase {
+    let returnData = "Test Data"
     
     override func setUp() {
         super.setUp()
@@ -50,6 +51,29 @@ class BeerRequestTests: XCTestCase {
         var request: BeerRequest? = BeerRequest(requestParams: requestParams)
         request = nil
         XCTAssertNil(request)
+    }
+    
+    func testBeerRequestLoadBeersWithBeerIdReturnsSuccessful() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let stubData = returnData.dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BeerRequest(requestParams: requestParams) else {
+            XCTFail("Beer request initialisation should not fail")
+        }
+        
+        request.loadBeersWithCompletionHandler() { beers in
+            XCTAssertEqual(beers![0].identifier, returnData)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
     }
     
 }
