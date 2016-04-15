@@ -16,34 +16,35 @@ extension NSURL {
     func URLByAppendingPathComponent(endPoint: RequestEndPoint) -> NSURL {
         return URLByAppendingPathComponent(endPoint.rawValue)
     }
-    
-    func URLByAppendingGETVariable<T : RawRepresentable where T.RawValue == String>(param: T, value: String) -> NSURL {
-        let path = "&" + param.rawValue + "=" + value
-        return NSURL(string: self.absoluteString + path)!
-    }
 }
 
 class RequestBuilder {
     let bugFix = ""
     let endPoint: RequestEndPoint
+    var apiKeyQueryItem: NSURLQueryItem {
+        return NSURLQueryItem(name: "key", value: BreweryDBApiKey)
+    }
     
     init(endPoint: RequestEndPoint) {
         self.endPoint = endPoint
     }
     
     func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL? {
+        guard let _ = BreweryDBApiKey else {
+            print("BreweryDB: No Brewery API key set. Please set a valid API key before attempting to perform a request.")
+            return nil
+        }
+        
         let baseURL = BreweryDBBaseURL.URLByAppendingPathComponent(endPoint)
         
-        guard let apiKey = BreweryDBApiKey,
-            var beerRequest = NSURL(string: baseURL.absoluteString + "?key=\(apiKey)") else {
-                print("BreweryDB: Failed to build base URL. Have you set your BreweryDB API key?")
-                return nil
-        }
+        let components = NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = [apiKeyQueryItem]
         
         for param in requestParams {
-            beerRequest = beerRequest.URLByAppendingGETVariable(param.0, value: param.1)
+            let queryItem = NSURLQueryItem(name: param.0.rawValue, value: param.1)
+            components?.queryItems?.append(queryItem)
         }
         
-        return beerRequest
+        return components?.URL
     }
 }

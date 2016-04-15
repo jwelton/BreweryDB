@@ -36,13 +36,6 @@ class RequestBuilderTests: XCTestCase {
         XCTAssertEqual(url, NSURL(string: "app.mywebservice.com/beers"))
     }
     
-    func testRequestBuilderNSURLExtensionGivenOneGETVarReturnsNSURL() {
-        let baseURL = NSURL(string: "app.mywebservice.com")
-        let url = baseURL?.URLByAppendingGETVariable(BeerRequestParam.Identifier, value: "ID")
-        
-        XCTAssertEqual(url, NSURL(string: "app.mywebservice.com&ids=ID"))
-    }
-    
     func testRequestBuilderWith1ParamBuildsRequest() {
         let requestBuilder = RequestBuilder(endPoint: .Beers)
         let param = [BeerRequestParam.Identifier: "beerIdentifier"]
