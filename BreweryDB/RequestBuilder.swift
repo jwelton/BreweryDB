@@ -24,6 +24,7 @@ extension NSURL {
 }
 
 class RequestBuilder {
+    let bugFix = ""
     let endPoint: RequestEndPoint
     
     init(endPoint: RequestEndPoint) {
