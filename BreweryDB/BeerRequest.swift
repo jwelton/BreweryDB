@@ -31,7 +31,6 @@ class BeerRequest {
     
     init?(requestParams params: [BeerRequestParam: String]) {
         if params.count == 0 {
-            requestParams = [:]
             return nil
         }
         
