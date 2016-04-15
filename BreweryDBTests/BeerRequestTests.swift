@@ -98,4 +98,28 @@ class BeerRequestTests: XCTestCase {
         }
     }
     
+    func testBeerRequestLoadBeersWithNoConnectionReturnsNil() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BeerRequest(requestParams: requestParams) else {
+            XCTFail("Beer request initialisation should not fail")
+            return
+        }
+        
+        request.loadBeersWithCompletionHandler() { beers in
+            XCTAssertNil(beers)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
 }
