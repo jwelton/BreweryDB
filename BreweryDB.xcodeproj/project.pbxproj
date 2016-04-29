@@ -113,6 +113,15 @@
 			name = Brewery;
 			sourceTree = "<group>";
 		};
+		2386460E1CD3FE1D00170B2D /* BreweryTests */ = {
+			isa = PBXGroup;
+			children = (
+				238646081CD3F81100170B2D /* BreweryTests.swift */,
+				2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */,
+			);
+			name = BreweryTests;
+			sourceTree = "<group>";
+		};
 		23FF53B81C397A7B0094249C = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +161,7 @@
 				23FF53D11C397A7B0094249C /* BreweryDBTests.swift */,
 				23FF53D31C397A7B0094249C /* Info.plist */,
 				238646021CD3F47700170B2D /* BeerTests */,
-				238646081CD3F81100170B2D /* BreweryTests.swift */,
-				2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */,
+				2386460E1CD3FE1D00170B2D /* BreweryTests */,
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
 				23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */,
 			);
