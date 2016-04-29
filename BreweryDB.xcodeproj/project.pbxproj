@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
 		233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF041C4063CC0050971B /* BeerRequestTests.swift */; };
+		238646041CD3F4CC00170B2D /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646031CD3F4CC00170B2D /* Brewery.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
 		23FF53C61C397A7B0094249C /* BreweryDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FF53C51C397A7B0094249C /* BreweryDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		233ECF041C4063CC0050971B /* BeerRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequestTests.swift; sourceTree = "<group>"; };
 		23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreweryDBTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		238646031CD3F4CC00170B2D /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23FF53C21C397A7B0094249C /* BreweryDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreweryDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		238646011CD3F47000170B2D /* Beer */ = {
+			isa = PBXGroup;
+			children = (
+				23FF53E51C3985660094249C /* Beer.swift */,
+				233ECF021C4063A40050971B /* BeerRequest.swift */,
+			);
+			name = Beer;
+			sourceTree = "<group>";
+		};
+		238646021CD3F47700170B2D /* BeerTests */ = {
+			isa = PBXGroup;
+			children = (
+				23FF53E71C3985760094249C /* BeerTests.swift */,
+				233ECF041C4063CC0050971B /* BeerRequestTests.swift */,
+			);
+			name = BeerTests;
+			sourceTree = "<group>";
+		};
 		23FF53B81C397A7B0094249C = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +124,8 @@
 				23FF53C51C397A7B0094249C /* BreweryDB.h */,
 				23FF53C71C397A7B0094249C /* Info.plist */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
-				23FF53E51C3985660094249C /* Beer.swift */,
-				233ECF021C4063A40050971B /* BeerRequest.swift */,
+				238646011CD3F47000170B2D /* Beer */,
+				238646031CD3F4CC00170B2D /* Brewery.swift */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 			);
 			path = BreweryDB;
@@ -116,8 +136,7 @@
 			children = (
 				23FF53D11C397A7B0094249C /* BreweryDBTests.swift */,
 				23FF53D31C397A7B0094249C /* Info.plist */,
-				23FF53E71C3985760094249C /* BeerTests.swift */,
-				233ECF041C4063CC0050971B /* BeerRequestTests.swift */,
+				238646021CD3F47700170B2D /* BeerTests */,
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
 				23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */,
 			);
@@ -296,6 +315,7 @@
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
+				238646041CD3F4CC00170B2D /* Brewery.swift in Sources */,
 				23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
