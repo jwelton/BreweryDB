@@ -10,6 +10,7 @@ import Foundation
 
 enum RequestEndPoint: String {
     case Beers = "beers"
+    case Breweries = "breweries"
 }
 
 extension NSURL {
