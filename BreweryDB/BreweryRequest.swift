@@ -27,7 +27,7 @@ enum BreweryRequestParam: String {
 
 class BreweryRequest {
     let requestParams: [BreweryRequestParam: String]
-    let requestBuilder = RequestBuilder(endPoint: .Brewery)
+    let requestBuilder = RequestBuilder(endPoint: .Breweries)
     
     init?(requestParams params: [BreweryRequestParam: String]) {
         if params.count == 0 {
@@ -49,7 +49,7 @@ class BreweryRequest {
             guard let returnedData = data,
                 let response = response as? NSHTTPURLResponse where response.statusCode == 200,
                 let stringData = String(data: returnedData, encoding: NSUTF8StringEncoding) else {
-                    completionHandler(beers: nil)
+                    completionHandler(breweries: nil)
                     return
             }
             
