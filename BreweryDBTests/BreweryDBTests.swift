@@ -21,4 +21,15 @@ class BreweryDBTests: XCTestCase {
         super.tearDown()
     }
     
+    func testBreweryDBApiKeyCanBeSet() {
+        let apiKey = "My API Key"
+        BreweryDBApiKey = apiKey
+        
+        XCTAssertEqual(BreweryDBApiKey, apiKey)
+    }
+    
+    func testBreweryDBBaseURLIsNotNil() {
+        XCTAssertNotNil(BreweryDBBaseURL)
+    }
+    
 }
