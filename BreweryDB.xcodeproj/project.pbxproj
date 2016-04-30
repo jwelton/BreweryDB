@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233CB5CD1CD48520000E36B7 /* testBeerJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 233CB5CC1CD48520000E36B7 /* testBeerJSON.json */; };
 		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
 		233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF041C4063CC0050971B /* BeerRequestTests.swift */; };
 		238646041CD3F4CC00170B2D /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646031CD3F4CC00170B2D /* Brewery.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233CB5CC1CD48520000E36B7 /* testBeerJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testBeerJSON.json; sourceTree = "<group>"; };
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		233ECF041C4063CC0050971B /* BeerRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequestTests.swift; sourceTree = "<group>"; };
 		23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreweryDBTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				23FF53D11C397A7B0094249C /* BreweryDBTests.swift */,
 				23FF53D31C397A7B0094249C /* Info.plist */,
+				233CB5CC1CD48520000E36B7 /* testBeerJSON.json */,
 				238646021CD3F47700170B2D /* BeerTests */,
 				2386460E1CD3FE1D00170B2D /* BreweryTests */,
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				233CB5CD1CD48520000E36B7 /* testBeerJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
