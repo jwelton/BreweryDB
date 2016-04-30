@@ -32,4 +32,13 @@ class BeerJSONParserTests: XCTestCase {
         XCTAssertNotNil(parser)
     }
     
+    func testJSOnParserFailsInitializationWithInvalidData() {
+        let parser = BeerJSONParser(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
+        XCTAssertNil(parser)
+    }
+    
+    func testBeerJSONParserSetsRawData() {
+        let parser = BeerJSONParser(rawData: testData)
+        XCTAssertEqual(parser?.rawData, testData)
+    }
 }
