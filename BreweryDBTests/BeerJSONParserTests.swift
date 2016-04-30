@@ -41,4 +41,19 @@ class BeerJSONParserTests: XCTestCase {
         let parser = BeerJSONParser(rawData: testData)
         XCTAssertEqual(parser?.rawData, testData)
     }
+    
+    func testBeerJSONParserExtractsCurrentPage() {
+        let parser = BeerJSONParser(rawData: testData)
+        
+        let expectation = expectationWithDescription("Parser should extract current page")
+        
+        parser?.extractBeersWithCompletionHandler() { beers in
+            XCTAssertEqual(parser?.currentPage, 1)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
 }
