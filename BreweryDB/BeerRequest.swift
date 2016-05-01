@@ -54,8 +54,12 @@ class BeerRequest {
             
             let jsonParser = BeerJSONParser(rawData: returnedData)
             
-            
-//            completionHandler(beers: [beer])
+            jsonParser?.extractBeersWithCompletionHandler() { beers in
+                if let beers = beers {
+                    completionHandler(beers: beers)
+                }
+            }
+
             }.resume()
     }
 }
