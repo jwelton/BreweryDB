@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		233BF36E1CD4880A00A536AB /* BeerJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */; };
-		233CB5C21CD47E10000E36B7 /* BeerJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233CB5C11CD47E10000E36B7 /* BeerJSONParser.swift */; };
+		233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233CB5C11CD47E10000E36B7 /* JSONParser.swift */; };
 		233CB5CD1CD48520000E36B7 /* testBeerJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 233CB5CC1CD48520000E36B7 /* testBeerJSON.json */; };
 		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
 		233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF041C4063CC0050971B /* BeerRequestTests.swift */; };
@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerJSONParserTests.swift; sourceTree = "<group>"; };
-		233CB5C11CD47E10000E36B7 /* BeerJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerJSONParser.swift; sourceTree = "<group>"; };
+		233CB5C11CD47E10000E36B7 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		233CB5CC1CD48520000E36B7 /* testBeerJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testBeerJSON.json; sourceTree = "<group>"; };
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 		233ECF041C4063CC0050971B /* BeerRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequestTests.swift; sourceTree = "<group>"; };
@@ -97,7 +97,6 @@
 			children = (
 				23FF53E51C3985660094249C /* Beer.swift */,
 				233ECF021C4063A40050971B /* BeerRequest.swift */,
-				233CB5C11CD47E10000E36B7 /* BeerJSONParser.swift */,
 			);
 			name = Beer;
 			sourceTree = "<group>";
@@ -156,6 +155,7 @@
 				23FF53C51C397A7B0094249C /* BreweryDB.h */,
 				23FF53C71C397A7B0094249C /* Info.plist */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
+				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				238646061CD3F6FD00170B2D /* BreweryRequest.swift in Sources */,
-				233CB5C21CD47E10000E36B7 /* BeerJSONParser.swift in Sources */,
+				233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */,
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,

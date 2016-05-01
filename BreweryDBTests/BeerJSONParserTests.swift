@@ -11,14 +11,14 @@ import XCTest
 
 class BeerJSONParserTests: XCTestCase {
     var testData: NSData!
-    var parser: BeerJSONParser!
+    var parser: JSONParser<Beer>!
     
     override func setUp() {
         super.setUp()
         
         let testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBeerJSON", withExtension: "json")!
         testData = NSData(contentsOfURL: testFileLocation)
-        parser = BeerJSONParser(rawData: testData)
+        parser = JSONParser<Beer>(rawData: testData)
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -46,7 +46,7 @@ class BeerJSONParserTests: XCTestCase {
     }
     
     func testJSONParserFailsInitializationWithInvalidData() {
-        let parser = BeerJSONParser(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
+        let parser = JSONParser<Beer>(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
         XCTAssertNil(parser)
     }
     
