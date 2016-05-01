@@ -28,11 +28,24 @@ class BeerJSONParserTests: XCTestCase {
         super.tearDown()
     }
     
+    func performJSONExtractAndWait(description: String, completionHandler: (([Beer]?)->Void)) {
+        let expectation = expectationWithDescription(description)
+        
+        parser.extractBeersWithCompletionHandler() { beers in
+            expectation.fulfill()
+            completionHandler(beers)
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
     func testBeerJSONParserCanBeInitialized() {
         XCTAssertNotNil(parser)
     }
     
-    func testJSOnParserFailsInitializationWithInvalidData() {
+    func testJSONParserFailsInitializationWithInvalidData() {
         let parser = BeerJSONParser(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
         XCTAssertNil(parser)
     }
@@ -42,41 +55,23 @@ class BeerJSONParserTests: XCTestCase {
     }
     
     func testBeerJSONParserExtractsCurrentPage() {
-        let expectation = expectationWithDescription("Parser should extract current page")
-        
-        parser.extractBeersWithCompletionHandler() { beers in
+        performJSONExtractAndWait("Parser should extract current page") { beers in
             XCTAssertEqual(self.parser.currentPage, 1)
-            expectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error)
         }
     }
     
     func testBeerJSONParserExtractsTotalPageNumber() {
-        let expectation = expectationWithDescription("Parser should extract total number of pages")
-        
-        parser.extractBeersWithCompletionHandler() { beers in
+        performJSONExtractAndWait("Parser should extract total number of pages") { beers in
             XCTAssertEqual(self.parser.totalNumberOfPages, 20)
-            expectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error)
         }
     }
     
     func testBeerJSONParserExtractsTotalResults() {
-        let expectation = expectationWithDescription("Parser should extract total results")
-        
-        parser.extractBeersWithCompletionHandler { beers in
+        performJSONExtractAndWait("Parser should extract total results") { beers in
             XCTAssertEqual(self.parser.totalResults, 964)
-            expectation.fulfill()
         }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error)
+    }
+    
         }
     }
 }
