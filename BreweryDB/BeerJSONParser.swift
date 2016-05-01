@@ -15,6 +15,7 @@ class BeerJSONParser {
     let decodedData: JSON
     var currentPage: Int?
     var totalNumberOfPages: Int?
+    var totalResults: Int?
     var extractedBeers = [Beer]()
     
     init?(rawData data: NSData) {
@@ -32,6 +33,7 @@ class BeerJSONParser {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             self.currentPage = self.decodedData["currentPage"] as? Int
             self.totalNumberOfPages = self.decodedData["numberOfPages"] as? Int
+            self.totalResults = self.decodedData["totalResults"] as? Int
             
             guard let extractedData = self.decodedData["data"] as? [JSON] else {
                 completionHandler(nil)
