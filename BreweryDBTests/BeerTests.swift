@@ -56,14 +56,6 @@ class BeerTests: XCTestCase {
         XCTAssertEqual(testData, beer.description)
     }
     
-    func testBeerCanSetFoodPairings() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.foodPairings = testData
-        XCTAssertEqual(testData, beer.foodPairings)
-    }
-    
     func testBeerCanSetOriginalGravity() {
         let testData = "TestData"
         
@@ -88,52 +80,12 @@ class BeerTests: XCTestCase {
         XCTAssertEqual(testData, beer.ibu)
     }
     
-    func testBeerCanSetGlasswareId() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.glasswareId = testData
-        XCTAssertEqual(testData, beer.glasswareId)
-    }
-    
-    func testBeerCanSetGlass() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.glass = testData
-        XCTAssertEqual(testData, beer.glass)
-    }
-    
-    func testBeerCanSetStyleId() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.styleId = testData
-        XCTAssertEqual(testData, beer.styleId)
-    }
-    
-    func testBeerCanSetStyle() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.style = testData
-        XCTAssertEqual(testData, beer.style)
-    }
-    
     func testBeerCanSetisOrganic() {
         let testData = true
         
         let beer = Beer(identifier: "Beer Identifier")
         beer.isOrganic = testData
         XCTAssertEqual(testData, beer.isOrganic)
-    }
-    
-    func testBeerCanSetLabels() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.labels = testData
-        XCTAssertEqual(testData, beer.labels)
     }
     
     func testBeerCanSetServingTemperature() {
@@ -166,37 +118,5 @@ class BeerTests: XCTestCase {
         let beer = Beer(identifier: "Beer Identifier")
         beer.statusDisplay = testData
         XCTAssertEqual(testData, beer.statusDisplay)
-    }
-    
-    func testBeerCanSetAvailableId() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.availableId = testData
-        XCTAssertEqual(testData, beer.availableId)
-    }
-    
-    func testBeerCanSetAvailable() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.available = testData
-        XCTAssertEqual(testData, beer.available)
-    }
-    
-    func testBeerCanSetBeerVariation() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.beerVariation = testData
-        XCTAssertEqual(testData, beer.beerVariation)
-    }
-    
-    func testBeerCanSetYear() {
-        let testData = "TestData"
-        
-        let beer = Beer(identifier: "Beer Identifier")
-        beer.year = testData
-        XCTAssertEqual(testData, beer.year)
     }
 }

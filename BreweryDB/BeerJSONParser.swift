@@ -48,23 +48,14 @@ class BeerJSONParser {
                 let beer = Beer(identifier: identifier)
                 beer.name = rawBeer["name"] as? String
                 beer.description = rawBeer["description"] as? String
-                beer.description = rawBeer["foodPairings"] as? String
                 beer.originalGravity = rawBeer["originalGravity"] as? String
                 beer.abv = rawBeer["abv"] as? String
-                beer.glasswareId = rawBeer["glasswareId"] as? String
-                beer.glass = rawBeer["glass"] as? String
-                beer.styleId = rawBeer["styleID"] as? String
-                beer.style = rawBeer["style"] as? String
-                beer.isOrganic = rawBeer["isOrganic"] as? Bool
-                beer.labels = rawBeer["labels"] as? String
+                beer.ibu = rawBeer["ibu"] as? String
+                beer.isOrganic = rawBeer["isOrganic"] as? String == "Y"
                 beer.servingTemperature = rawBeer["servingTemperature"] as? String
-                beer.servingTemperatureDisplay = rawBeer["servingTemperateDisplay"] as? String
+                beer.servingTemperatureDisplay = rawBeer["servingTemperatureDisplay"] as? String
                 beer.status = rawBeer["status"] as? String
                 beer.statusDisplay = rawBeer["statusDisplay"] as? String
-                beer.availableId = rawBeer["availableId"] as? String
-                beer.available = rawBeer["available"] as? String
-                beer.beerVariation = rawBeer["beerVariation"] as? String
-                beer.year = rawBeer["year"] as? String
                 
                 self.extractedBeers.append(beer)
             }
