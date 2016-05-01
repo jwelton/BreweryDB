@@ -72,6 +72,9 @@ class BeerJSONParserTests: XCTestCase {
         }
     }
     
+    func testBeerJSONParserExtractsFirstBeerName() {
+        performJSONExtractAndWait("Parser should extract first beer page") { beers in
+            XCTAssertEqual(beers?[0].name, "'Heifer' Weizen")
         }
     }
 }
