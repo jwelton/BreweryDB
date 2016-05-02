@@ -11,11 +11,13 @@ import XCTest
 
 class BreweryRequestTests: XCTestCase {
     let returnData = "Test Data"
+    var testFileLocation: NSURL!
 
     override func setUp() {
         super.setUp()
         
         BreweryDBApiKey = "testKey"
+        testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBreweryJSON", withExtension: "json")!
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -55,8 +57,7 @@ class BreweryRequestTests: XCTestCase {
     
     func testBreweryRequestLoadBeersWithBreweryIdReturnsSuccessful() {
         stub(isHost("api.brewerydb.com")) { _ in
-            let stubData = self.returnData.dataUsingEncoding(NSUTF8StringEncoding)
-            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+            return OHHTTPStubsResponse(fileAtPath: self.testFileLocation.path!, statusCode: 200, headers: nil)
         }
         
         let expectation = expectationWithDescription("URL request should return within 5 seconds")
@@ -68,7 +69,7 @@ class BreweryRequestTests: XCTestCase {
         }
         
         request.loadBreweriesWithCompletionHandler() { breweries in
-            XCTAssertEqual(breweries![0].identifier, self.returnData)
+            XCTAssertEqual(breweries![0].identifier, "sPZjl6")
             expectation.fulfill()
         }
         
