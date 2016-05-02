@@ -16,7 +16,6 @@ class Brewery {
     var description: String?
     var website: NSURL?
     var mailingListURL: NSURL?
-    var imagePaths: [String]?
     
     init(identifier: String) {
         self.identifier = identifier

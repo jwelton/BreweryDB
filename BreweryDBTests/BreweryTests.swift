@@ -81,13 +81,4 @@ class BreweryTests: XCTestCase {
         brewery.mailingListURL = testData
         XCTAssertEqual(testData, brewery.mailingListURL)
     }
-    
-    func testBeerCanSetImagePaths() {
-        let testData = ["TestData", "TestData2"]
-        
-        let brewery = Brewery(identifier: "Brewery identifier")
-        brewery.imagePaths = testData
-        XCTAssertEqual(testData, brewery.imagePaths!)
-    }
-
 }
