@@ -13,7 +13,7 @@ public class Brewery {
     public var name: String?
     public var established: String?
     public var isOrganic: Bool?
-    public var description: String?
+    public var breweryDescription: String?
     public var website: NSURL?
     public var mailingListURL: NSURL?
     public var imageURLSet: ImageURLSet?
@@ -33,7 +33,7 @@ extension Brewery: JSONParserEntity {
         brewery.name = rawBrewery["name"] as? String
         brewery.established = rawBrewery["established"] as? String
         brewery.isOrganic = rawBrewery["isOrganic"] as? String == "Y"
-        brewery.description = rawBrewery["description"] as? String
+        brewery.breweryDescription = rawBrewery["description"] as? String
         
         if let websiteURL = rawBrewery["website"] as? String {
             brewery.website = NSURL(string: websiteURL)
@@ -48,5 +48,11 @@ extension Brewery: JSONParserEntity {
         }
         
         return brewery
+    }
+}
+
+extension Brewery: CustomStringConvertible {
+    public var description: String {
+        return "Identifier: \(identifier), name: \(name), description: \(breweryDescription)"
     }
 }
