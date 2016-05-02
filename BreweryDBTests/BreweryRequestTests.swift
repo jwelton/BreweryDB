@@ -79,24 +79,13 @@ class BreweryRequestTests: XCTestCase {
     }
     
     func testBreweryRequestLoadBreweriesWithNilAPIKeyReturnsNil() {
-        let expectation = expectationWithDescription("Breweries should return nil")
         let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
         
         BreweryDBApiKey = nil
         
-        guard let request = BreweryRequest(requestParams: requestParams) else {
-            XCTFail("Brewery request initialisation should not fail")
-            return
-        }
+        let request = BreweryRequest(requestParams: requestParams)
         
-        request.loadBreweriesWithCompletionHandler { breweries in
-            XCTAssertNil(breweries)
-            expectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error)
-        }
+        XCTAssertNil(request)
     }
     
     func testBreweriesRequestLoadBreweriesWithNoConnectionReturnsNil() {
