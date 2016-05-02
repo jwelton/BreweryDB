@@ -11,7 +11,7 @@ import Foundation
 public class Beer {
     public let identifier: String
     public var name: String?
-    public var description: String?
+    public var beerDescription: String?
     public var originalGravity: String?
     public var abv: String?
     public var ibu: String?
@@ -35,7 +35,7 @@ extension Beer: JSONParserEntity {
         
         let beer = Beer(identifier: identifier)
         beer.name = rawBeer["name"] as? String
-        beer.description = rawBeer["description"] as? String
+        beer.beerDescription = rawBeer["description"] as? String
         beer.originalGravity = rawBeer["originalGravity"] as? String
         beer.abv = rawBeer["abv"] as? String
         beer.ibu = rawBeer["ibu"] as? String
@@ -50,5 +50,11 @@ extension Beer: JSONParserEntity {
         }
         
         return beer
+    }
+}
+
+extension Beer: CustomStringConvertible {
+    public var description: String {
+        return "Identifier: \(identifier), name: \(name), description: \(beerDescription), status: \(status)"
     }
 }
