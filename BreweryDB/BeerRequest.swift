@@ -21,12 +21,25 @@ public enum BeerRequestParam: String {
     case PageNumber = "p"
 }
 
+public enum BeerRequestOrderParam: String {
+    case Name = "Name"
+    case Description = "description"
+    case Abv = "abv"
+    case Ibu = "Ibu"
+    case IsOrganic = "isOrganic"
+    case Status = "status"
+    case CreateDate = "createDate"
+    case UpdateDate = "updateDate"
+    case Random = "random"
+}
+
 public class BeerRequest {
     private var pageNumber = 0
     private let requestBuilder = RequestBuilder(endPoint: .Beers)
     private var request: NSURLRequest
     
     public let requestParams: [BeerRequestParam: String]
+    public var orderParameter: (BeerRequestOrderParam, String)? = nil
     public var requestURL: NSURLRequest {
         return request
     }
@@ -34,12 +47,13 @@ public class BeerRequest {
         return pageNumber
     }
     
-    public init?(requestParams params: [BeerRequestParam: String]) {
-        guard let url = requestBuilder.buildRequest(params) where params.count != 0 else {
+    public init?(requestParams params: [BeerRequestParam: String], orderParam order: (BeerRequestOrderParam, String)?) {
+        guard let url = requestBuilder.buildRequest(params, orderParam: order) where params.count != 0 else {
             return nil
         }
         
         requestParams = params
+        orderParameter = order
         request = url
     }
     
@@ -64,7 +78,7 @@ public class BeerRequest {
         newParams[.PageNumber] = "\(newPageNumber)"
         pageNumber = newPageNumber
         
-        guard let url = requestBuilder.buildRequest(newParams) else {
+        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter) else {
             completionHandler(beers: nil)
             return
         }
