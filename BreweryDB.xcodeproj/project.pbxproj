@@ -163,9 +163,9 @@
 				23FF53C71C397A7B0094249C /* Info.plist */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
 				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
+				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
-				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 			);
 			path = BreweryDB;
 			sourceTree = "<group>";
