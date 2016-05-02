@@ -137,4 +137,22 @@ class BeerJSONParserTests: XCTestCase {
             XCTAssertEqual(beers?[0].statusDisplay, "Verified")
         }
     }
+    
+    func testBeerJSONParserExtractsFirstBeerIconImage() {
+        performJSONExtractAndWait("Parser should extract first beer icon image") { beers in
+            XCTAssertEqual(beers?[0].imageURLSet?.icon, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-icon.png"))
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerMediumImage() {
+        performJSONExtractAndWait("Parser should extract first beer icon image") { beers in
+            XCTAssertEqual(beers?[0].imageURLSet?.medium, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-medium.png"))
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerLargeImage() {
+        performJSONExtractAndWait("Parser should extract first beer large image") { beers in
+            XCTAssertEqual(beers?[0].imageURLSet?.large, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-large.png"))
+        }
+    }
 }
