@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BeerRequestParam: String {
+public enum BeerRequestParam: String {
     case Identifier = "ids"
     case Name = "name"
     case Abv = "abv"
@@ -20,11 +20,11 @@ enum BeerRequestParam: String {
     case RandomCount = "order"
 }
 
-class BeerRequest {
-    let requestParams: [BeerRequestParam: String]
-    let requestBuilder = RequestBuilder(endPoint: .Beers)
+public class BeerRequest {
+    public let requestParams: [BeerRequestParam: String]
+    public let requestBuilder = RequestBuilder(endPoint: .Beers)
     
-    init?(requestParams params: [BeerRequestParam: String]) {
+    public init?(requestParams params: [BeerRequestParam: String]) {
         if params.count == 0 {
             return nil
         }
@@ -32,7 +32,7 @@ class BeerRequest {
         requestParams = params
     }
     
-    func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
+    public func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
         guard let url = requestBuilder.buildRequest(requestParams) else {
             completionHandler(beers: nil)
             return

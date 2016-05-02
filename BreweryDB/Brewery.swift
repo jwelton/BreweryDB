@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Brewery {
-    let identifier: String
-    var name: String?
-    var established: String?
-    var isOrganic: Bool?
-    var description: String?
-    var website: NSURL?
-    var mailingListURL: NSURL?
-    var imageURLSet: ImageURLSet?
+public class Brewery {
+    public let identifier: String
+    public var name: String?
+    public var established: String?
+    public var isOrganic: Bool?
+    public var description: String?
+    public var website: NSURL?
+    public var mailingListURL: NSURL?
+    public var imageURLSet: ImageURLSet?
     
-    init(identifier: String) {
+    public init(identifier: String) {
         self.identifier = identifier
     }
 }
 
 extension Brewery: JSONParserEntity {
-    static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
+    public static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
         guard let identifier = rawBrewery["id"] as? String else {
             return nil
         }

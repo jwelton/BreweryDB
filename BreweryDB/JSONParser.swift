@@ -8,21 +8,21 @@
 
 import Foundation
 
-typealias JSON = [String: AnyObject]
+public typealias JSON = [String: AnyObject]
 
-protocol JSONParserEntity {
+public protocol JSONParserEntity {
     static func mapJSONToObject(json: JSON) -> AnyObject?
 }
 
-class JSONParser<T where T: JSONParserEntity>{
-    let rawData: NSData
-    let decodedData: JSON
-    var currentPage: Int?
-    var totalNumberOfPages: Int?
-    var totalResults: Int?
-    var extractedEntities = [T]()
+public class JSONParser<T where T: JSONParserEntity>{
+    public let rawData: NSData
+    public let decodedData: JSON
+    public var currentPage: Int?
+    public var totalNumberOfPages: Int?
+    public var totalResults: Int?
+    public var extractedEntities = [T]()
     
-    init?(rawData data: NSData) {
+    public init?(rawData data: NSData) {
         rawData = data
         
         guard let decodedJSON = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? JSON else {
@@ -33,7 +33,7 @@ class JSONParser<T where T: JSONParserEntity>{
         decodedData = decodedJSON
     }
     
-    func extractObjectsWithCompletionHandler(completionHandler: (([T]?)->Void)) {
+    public func extractObjectsWithCompletionHandler(completionHandler: (([T]?)->Void)) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             self.currentPage = self.decodedData["currentPage"] as? Int
             self.totalNumberOfPages = self.decodedData["numberOfPages"] as? Int

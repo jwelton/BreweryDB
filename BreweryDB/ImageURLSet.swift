@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ImageURLSet {
+public class ImageURLSet {
     let icon: NSURL?
     let medium: NSURL?
     let large: NSURL?
@@ -25,7 +25,7 @@ class ImageURLSet {
 }
 
 extension ImageURLSet: JSONParserEntity {
-    static func mapJSONToObject(json: JSON) -> AnyObject? {
+    public static func mapJSONToObject(json: JSON) -> AnyObject? {
         var icon: NSURL?
         var medium: NSURL?
         var large: NSURL?
