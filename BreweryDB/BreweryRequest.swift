@@ -47,15 +47,14 @@ class BreweryRequest {
         
         NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { data, response, error in
             guard let returnedData = data,
-                let response = response as? NSHTTPURLResponse where response.statusCode == 200,
-                let stringData = String(data: returnedData, encoding: NSUTF8StringEncoding) else {
+                let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
                     completionHandler(breweries: nil)
                     return
             }
             
-            let brewery = Brewery(identifier: stringData)
+            let jsonParser = JSONParser<Brewery>(rawData: returnedData)
+            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
             
-            completionHandler(breweries: [brewery])
             }.resume()
     }
 }
