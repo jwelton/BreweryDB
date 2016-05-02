@@ -12,11 +12,15 @@ class ImageURLSet {
     let icon: NSURL?
     let medium: NSURL?
     let large: NSURL?
+    let squareMedium: NSURL?
+    let squareLarge: NSURL?
     
-    init(icon: NSURL?, medium: NSURL?, large: NSURL?) {
+    init(icon: NSURL?, medium: NSURL?, large: NSURL?, squareMedium: NSURL?, squareLarge: NSURL?) {
         self.icon = icon
         self.medium = medium
         self.large = large
+        self.squareMedium = squareMedium
+        self.squareLarge = squareLarge
     }
 }
 
@@ -25,6 +29,8 @@ extension ImageURLSet: JSONParserEntity {
         var icon: NSURL?
         var medium: NSURL?
         var large: NSURL?
+        var squareMedium: NSURL?
+        var squareLarge: NSURL?
         
         if let url = json["icon"] as? String {
             icon = NSURL(string: url)
@@ -38,6 +44,14 @@ extension ImageURLSet: JSONParserEntity {
             large = NSURL(string: url)
         }
         
-        return ImageURLSet(icon: icon, medium: medium, large: large)
+        if let url = json["squareMedium"] as? String {
+            squareMedium = NSURL(string: url)
+        }
+        
+        if let url = json["squareLarge"] as? String {
+            squareLarge = NSURL(string: url)
+        }
+        
+        return ImageURLSet(icon: icon, medium: medium, large: large, squareMedium: squareMedium, squareLarge: squareLarge)
     }
 }
