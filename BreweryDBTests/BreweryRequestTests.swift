@@ -55,7 +55,7 @@ class BreweryRequestTests: XCTestCase {
         XCTAssertNil(request)
     }
     
-    func testBreweryRequestLoadBeersWithBreweryIdReturnsSuccessful() {
+    func testBreweryRequestLoadBreweryWithBreweryIdReturnsSuccessful() {
         stub(isHost("api.brewerydb.com")) { _ in
             return OHHTTPStubsResponse(fileAtPath: self.testFileLocation.path!, statusCode: 200, headers: nil)
         }
@@ -104,6 +104,58 @@ class BreweryRequestTests: XCTestCase {
         
         request.loadBreweriesWithCompletionHandler() { breweries in
             XCTAssertNil(breweries)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testBreweryRequestLoadNextPageIncrementsPageNumber() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BreweryRequest(requestParams: requestParams) else {
+            XCTFail("Brewery request initialisation should not fail")
+            return
+        }
+        
+        XCTAssertEqual(request.currentPageNumber, 0)
+        
+        request.loadNextPageWithCompletionHandler { _ in
+            XCTAssertEqual(request.currentPageNumber, 1)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testBreweryRequestLoadNextPageAttachesPageNumberToURL() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BreweryRequest(requestParams: requestParams) else {
+            XCTFail("Brewery request initialisation should not fail")
+            return
+        }
+        
+        XCTAssertEqual(request.currentPageNumber, 0)
+        
+        request.loadNextPageWithCompletionHandler { _ in
+            XCTAssertEqual(request.requestURL.URL?.absoluteString, "\(BreweryDBBaseURL)/breweries?key=\(BreweryDBApiKey!)&ids=\(requestParams[.Identifier]!)&p=1")
             expectation.fulfill()
         }
         

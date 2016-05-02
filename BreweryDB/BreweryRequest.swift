@@ -29,10 +29,13 @@ public enum BreweryRequestParam: String {
 public class BreweryRequest {
     private var pageNumber = 0
     private let requestBuilder = RequestBuilder(endPoint: .Breweries)
+    private var request: NSURLRequest
     
     public let requestParams: [BreweryRequestParam: String]
-    public let requestURL: NSURLRequest
-    var currentPageNumber: Int {
+    public var requestURL: NSURLRequest {
+        return request
+    }
+    public var currentPageNumber: Int {
         return pageNumber
     }
     
@@ -42,7 +45,7 @@ public class BreweryRequest {
         }
         
         requestParams = params
-        requestURL = url
+        request = url
     }
     
     public func loadBreweriesWithCompletionHandler(completionHandler: ((breweries: [Brewery]?)->Void)) {
@@ -57,6 +60,23 @@ public class BreweryRequest {
             jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
             
             }.resume()
+    }
+    
+    public func loadNextPageWithCompletionHandler(completionHandler: (breweries: [Brewery]?)->Void) {
+        let newPageNumber = pageNumber + 1
+        
+        var newParams = requestParams
+        newParams[.PageNumber] = "\(newPageNumber)"
+        pageNumber = newPageNumber
+        
+        guard let url = requestBuilder.buildRequest(newParams) else {
+            completionHandler(breweries: nil)
+            return
+        }
+        
+        request = url
+        
+        loadBreweriesWithCompletionHandler(completionHandler)
     }
 }
 
