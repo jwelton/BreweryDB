@@ -20,11 +20,8 @@ extension NSURL {
 }
 
 class RequestBuilder {
-    let bugFix = ""
+    let apiKeyQueryItem = NSURLQueryItem(name: "key", value: BreweryDBApiKey)
     let endPoint: RequestEndPoint
-    var apiKeyQueryItem: NSURLQueryItem {
-        return NSURLQueryItem(name: "key", value: BreweryDBApiKey)
-    }
     
     init(endPoint: RequestEndPoint) {
         self.endPoint = endPoint

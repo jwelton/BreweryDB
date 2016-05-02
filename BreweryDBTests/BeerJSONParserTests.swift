@@ -31,7 +31,7 @@ class BeerJSONParserTests: XCTestCase {
     func performJSONExtractAndWait(description: String, completionHandler: (([Beer]?)->Void)) {
         let expectation = expectationWithDescription(description)
         
-        parser.extractBeersWithCompletionHandler() { beers in
+        parser.extractObjectsWithCompletionHandler() { beers in
             expectation.fulfill()
             completionHandler(beers)
         }

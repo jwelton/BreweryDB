@@ -1,5 +1,5 @@
 //
-//  BeerJSONParser.swift
+//  JSONParser.swift
 //  BreweryDB
 //
 //  Created by Jake Welton on 30/04/2016.
@@ -33,7 +33,7 @@ class JSONParser<T where T: JSONParserEntity>{
         decodedData = decodedJSON
     }
     
-    func extractBeersWithCompletionHandler(completionHandler: (([T]?)->Void)) {
+    func extractObjectsWithCompletionHandler(completionHandler: (([T]?)->Void)) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             self.currentPage = self.decodedData["currentPage"] as? Int
             self.totalNumberOfPages = self.decodedData["numberOfPages"] as? Int

@@ -48,7 +48,7 @@ class BeerRequest {
             }
             
             let jsonParser = JSONParser<Beer>(rawData: returnedData)
-            jsonParser?.extractBeersWithCompletionHandler(completionHandler)
+            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
 
             }.resume()
     }
