@@ -16,6 +16,7 @@ class Brewery {
     var description: String?
     var website: NSURL?
     var mailingListURL: NSURL?
+    var imageURLSet: ImageURLSet?
     
     init(identifier: String) {
         self.identifier = identifier
@@ -40,6 +41,10 @@ extension Brewery: JSONParserEntity {
         
         if let mailingListURL = rawBrewery["mailingListURL"] as? String {
             brewery.mailingListURL = NSURL(string: mailingListURL)
+        }
+        
+        if let labels = rawBrewery["images"] as? JSON {
+            brewery.imageURLSet = ImageURLSet.mapJSONToObject(labels) as? ImageURLSet
         }
         
         return brewery
