@@ -8,26 +8,26 @@
 
 import Foundation
 
-enum RequestEndPoint: String {
+public enum RequestEndPoint: String {
     case Beers = "beers"
     case Breweries = "breweries"
 }
 
-extension NSURL {
+public extension NSURL {
     func URLByAppendingPathComponent(endPoint: RequestEndPoint) -> NSURL {
         return URLByAppendingPathComponent(endPoint.rawValue)
     }
 }
 
-class RequestBuilder {
+public class RequestBuilder {
     let apiKeyQueryItem = NSURLQueryItem(name: "key", value: BreweryDBApiKey)
     let endPoint: RequestEndPoint
     
-    init(endPoint: RequestEndPoint) {
+    public init(endPoint: RequestEndPoint) {
         self.endPoint = endPoint
     }
     
-    func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL? {
+    public func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL? {
         guard let _ = BreweryDBApiKey else {
             print("BreweryDB: No Brewery API key set. Please set a valid API key before attempting to perform a request.")
             return nil

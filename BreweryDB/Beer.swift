@@ -8,34 +8,34 @@
 
 import Foundation
 
-class Beer {
-    let identifier: String
-    var name: String?
-    var description: String?
-    var originalGravity: String?
-    var abv: String?
-    var ibu: String?
-    var isOrganic: Bool?
-    var servingTemperature: String?
-    var servingTemperatureDisplay: String?
-    var status: String?
-    var statusDisplay: String?
-    var imageURLSet: ImageURLSet?
+public class Beer {
+    public let identifier: String
+    public var name: String?
+    public var beerDescription: String?
+    public var originalGravity: String?
+    public var abv: String?
+    public var ibu: String?
+    public var isOrganic: Bool?
+    public var servingTemperature: String?
+    public var servingTemperatureDisplay: String?
+    public var status: String?
+    public var statusDisplay: String?
+    public var imageURLSet: ImageURLSet?
     
-    init(identifier: String) {
+    public init(identifier: String) {
         self.identifier = identifier
     }
 }
 
 extension Beer: JSONParserEntity {    
-    static func mapJSONToObject(rawBeer: JSON) -> AnyObject? {
+    public static func mapJSONToObject(rawBeer: JSON) -> AnyObject? {
         guard let identifier = rawBeer["id"] as? String else {
             return nil
         }
         
         let beer = Beer(identifier: identifier)
         beer.name = rawBeer["name"] as? String
-        beer.description = rawBeer["description"] as? String
+        beer.beerDescription = rawBeer["description"] as? String
         beer.originalGravity = rawBeer["originalGravity"] as? String
         beer.abv = rawBeer["abv"] as? String
         beer.ibu = rawBeer["ibu"] as? String
@@ -50,5 +50,11 @@ extension Beer: JSONParserEntity {
         }
         
         return beer
+    }
+}
+
+extension Beer: CustomStringConvertible {
+    public var description: String {
+        return "Identifier: \(identifier), name: \(name), description: \(beerDescription), status: \(status)"
     }
 }

@@ -52,8 +52,8 @@ class BeerTests: XCTestCase {
         let testData = "TestData"
         
         let beer = Beer(identifier: "Beer Identifier")
-        beer.description = testData
-        XCTAssertEqual(testData, beer.description)
+        beer.beerDescription = testData
+        XCTAssertEqual(testData, beer.beerDescription)
     }
     
     func testBeerCanSetOriginalGravity() {

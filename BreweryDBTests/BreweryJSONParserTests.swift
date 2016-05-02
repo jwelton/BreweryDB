@@ -98,7 +98,7 @@ class BreweryJSONParserTests: XCTestCase {
     
     func testBreweryJSONParserExtractsBreweryDescription() {
         performJSONExtractAndWait("Parser should extract brewery description") { breweries in
-            XCTAssertEqual(breweries?[0].description, "Bastone first opened its doors in May of 2004. It is named and styled after the famous Belgian city (though the spelling has been simplified). This unique restaurant and brewery is housed in a 1930’s era building, the exterior of which has been restored to it’s original art deco look in association with the State of Michigan Historical Society. Inside, the high arched ceiling, wood floors and white subway wall tiles create the comfortable yet sophisticated atmosphere of a European brasserie.")
+            XCTAssertEqual(breweries?[0].breweryDescription, "Bastone first opened its doors in May of 2004. It is named and styled after the famous Belgian city (though the spelling has been simplified). This unique restaurant and brewery is housed in a 1930’s era building, the exterior of which has been restored to it’s original art deco look in association with the State of Michigan Historical Society. Inside, the high arched ceiling, wood floors and white subway wall tiles create the comfortable yet sophisticated atmosphere of a European brasserie.")
         }
     }
     

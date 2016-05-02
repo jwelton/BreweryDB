@@ -62,8 +62,8 @@ class BreweryTests: XCTestCase {
         let testData = "TestData"
         
         let brewery = Brewery(identifier: "Brewery identifier")
-        brewery.description = testData
-        XCTAssertEqual(testData, brewery.description)
+        brewery.breweryDescription = testData
+        XCTAssertEqual(testData, brewery.breweryDescription)
     }
     
     func testBeerCanSetWebsite() {

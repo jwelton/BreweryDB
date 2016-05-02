@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BreweryRequestParam: String {
+public enum BreweryRequestParam: String {
     case Identifier = "ids"
     case Name = "name"
     case Abv = "abv"
@@ -25,11 +25,11 @@ enum BreweryRequestParam: String {
     case RandomCount = "order"
 }
 
-class BreweryRequest {
-    let requestParams: [BreweryRequestParam: String]
-    let requestBuilder = RequestBuilder(endPoint: .Breweries)
+public class BreweryRequest {
+    public let requestParams: [BreweryRequestParam: String]
+    public let requestBuilder = RequestBuilder(endPoint: .Breweries)
     
-    init?(requestParams params: [BreweryRequestParam: String]) {
+    public init?(requestParams params: [BreweryRequestParam: String]) {
         if params.count == 0 {
             return nil
         }
@@ -37,7 +37,7 @@ class BreweryRequest {
         requestParams = params
     }
     
-    func loadBreweriesWithCompletionHandler(completionHandler: ((breweries: [Brewery]?)->Void)) {
+    public func loadBreweriesWithCompletionHandler(completionHandler: ((breweries: [Brewery]?)->Void)) {
         guard let url = requestBuilder.buildRequest(requestParams) else {
             completionHandler(breweries: nil)
             return
@@ -56,5 +56,17 @@ class BreweryRequest {
             jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
             
             }.resume()
+    }
+}
+
+extension BreweryRequest: CustomStringConvertible {
+    public var description: String {
+        var items = ""
+        
+        for param in requestParams {
+            items += param.1
+        }
+        
+        return items
     }
 }

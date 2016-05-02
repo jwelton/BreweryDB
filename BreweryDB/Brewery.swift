@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Brewery {
-    let identifier: String
-    var name: String?
-    var established: String?
-    var isOrganic: Bool?
-    var description: String?
-    var website: NSURL?
-    var mailingListURL: NSURL?
-    var imageURLSet: ImageURLSet?
+public class Brewery {
+    public let identifier: String
+    public var name: String?
+    public var established: String?
+    public var isOrganic: Bool?
+    public var breweryDescription: String?
+    public var website: NSURL?
+    public var mailingListURL: NSURL?
+    public var imageURLSet: ImageURLSet?
     
-    init(identifier: String) {
+    public init(identifier: String) {
         self.identifier = identifier
     }
 }
 
 extension Brewery: JSONParserEntity {
-    static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
+    public static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
         guard let identifier = rawBrewery["id"] as? String else {
             return nil
         }
@@ -33,7 +33,7 @@ extension Brewery: JSONParserEntity {
         brewery.name = rawBrewery["name"] as? String
         brewery.established = rawBrewery["established"] as? String
         brewery.isOrganic = rawBrewery["isOrganic"] as? String == "Y"
-        brewery.description = rawBrewery["description"] as? String
+        brewery.breweryDescription = rawBrewery["description"] as? String
         
         if let websiteURL = rawBrewery["website"] as? String {
             brewery.website = NSURL(string: websiteURL)
@@ -48,5 +48,11 @@ extension Brewery: JSONParserEntity {
         }
         
         return brewery
+    }
+}
+
+extension Brewery: CustomStringConvertible {
+    public var description: String {
+        return "Identifier: \(identifier), name: \(name), description: \(breweryDescription)"
     }
 }
