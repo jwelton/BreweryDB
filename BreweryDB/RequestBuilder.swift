@@ -27,7 +27,7 @@ public class RequestBuilder {
         self.endPoint = endPoint
     }
     
-    public func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURL? {
+    public func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String]) -> NSURLRequest? {
         guard let _ = BreweryDBApiKey else {
             print("BreweryDB: No Brewery API key set. Please set a valid API key before attempting to perform a request.")
             return nil
@@ -43,6 +43,10 @@ public class RequestBuilder {
             components?.queryItems?.append(queryItem)
         }
         
-        return components?.URL
+        guard let url = components?.URL else{
+            return nil
+        }
+        
+        return NSURLRequest(URL: url)
     }
 }

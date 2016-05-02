@@ -23,29 +23,30 @@ public enum BreweryRequestParam: String {
     case Since = "since"
     case Status = "status"
     case RandomCount = "order"
+    case PageNumber = "p"
 }
 
 public class BreweryRequest {
+    private var pageNumber = 0
+    private let requestBuilder = RequestBuilder(endPoint: .Breweries)
+    
     public let requestParams: [BreweryRequestParam: String]
-    public let requestBuilder = RequestBuilder(endPoint: .Breweries)
+    public let requestURL: NSURLRequest
+    var currentPageNumber: Int {
+        return pageNumber
+    }
     
     public init?(requestParams params: [BreweryRequestParam: String]) {
-        if params.count == 0 {
+        guard let url = requestBuilder.buildRequest(params) where params.count != 0 else {
             return nil
         }
         
         requestParams = params
+        requestURL = url
     }
     
     public func loadBreweriesWithCompletionHandler(completionHandler: ((breweries: [Brewery]?)->Void)) {
-        guard let url = requestBuilder.buildRequest(requestParams) else {
-            completionHandler(breweries: nil)
-            return
-        }
-        
-        let urlRequest = NSURLRequest(URL: url)
-        
-        NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { data, response, error in
+        NSURLSession.sharedSession().dataTaskWithRequest(requestURL) { data, response, error in
             guard let returnedData = data,
                 let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
                     completionHandler(breweries: nil)
