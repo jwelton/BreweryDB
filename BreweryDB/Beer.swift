@@ -20,6 +20,7 @@ class Beer {
     var servingTemperatureDisplay: String?
     var status: String?
     var statusDisplay: String?
+    var imageURLSet: ImageURLSet?
     
     init(identifier: String) {
         self.identifier = identifier
@@ -43,6 +44,10 @@ extension Beer: JSONParserEntity {
         beer.servingTemperatureDisplay = rawBeer["servingTemperatureDisplay"] as? String
         beer.status = rawBeer["status"] as? String
         beer.statusDisplay = rawBeer["statusDisplay"] as? String
+        
+        if let labels = rawBeer["labels"] as? JSON {
+            beer.imageURLSet = ImageURLSet.mapJSONToObject(labels) as? ImageURLSet
+        }
         
         return beer
     }
