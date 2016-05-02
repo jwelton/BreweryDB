@@ -1,5 +1,5 @@
 //
-//  BeerJSONParser.swift
+//  JSONParser.swift
 //  BreweryDB
 //
 //  Created by Jake Welton on 30/04/2016.
