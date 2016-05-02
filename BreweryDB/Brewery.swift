@@ -11,7 +11,7 @@ import Foundation
 class Brewery {
     let identifier: String
     var name: String?
-    var established: Int?
+    var established: String?
     var isOrganic: Bool?
     var description: String?
     var website: NSURL?
@@ -24,13 +24,13 @@ class Brewery {
 
 extension Brewery: JSONParserEntity {
     static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
-        guard let identifier = rawBrewery["identifier"] as? String else {
+        guard let identifier = rawBrewery["id"] as? String else {
             return nil
         }
         
         let brewery = Brewery(identifier: identifier)
         brewery.name = rawBrewery["name"] as? String
-        brewery.established = rawBrewery["established"] as? Int
+        brewery.established = rawBrewery["established"] as? String
         brewery.isOrganic = rawBrewery["isOrganic"] as? String == "Y"
         brewery.description = rawBrewery["description"] as? String
         
@@ -39,7 +39,7 @@ extension Brewery: JSONParserEntity {
         }
         
         if let mailingListURL = rawBrewery["mailingListURL"] as? String {
-            brewery.website = NSURL(string: mailingListURL)
+            brewery.mailingListURL = NSURL(string: mailingListURL)
         }
         
         return brewery

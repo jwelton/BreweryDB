@@ -43,7 +43,7 @@ class BreweryTests: XCTestCase {
     }
     
     func testBeerCanSetEstablished() {
-        let testData = 1993
+        let testData = "1993"
         
         let brewery = Brewery(identifier: "Brewery identifier")
         brewery.established = testData
