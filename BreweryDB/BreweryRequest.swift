@@ -58,3 +58,15 @@ public class BreweryRequest {
             }.resume()
     }
 }
+
+extension BreweryRequest: CustomStringConvertible {
+    public var description: String {
+        var items = ""
+        
+        for param in requestParams {
+            items += param.1
+        }
+        
+        return items
+    }
+}
