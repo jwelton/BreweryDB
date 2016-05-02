@@ -45,8 +45,9 @@ class RequestBuilderTests: XCTestCase {
         let expected =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=beerIdentifier"
         
         let url = requestBuilder.buildRequest(param)
+        url?.URL?.absoluteString
         
-        XCTAssertEqual(url?.absoluteString, expected)
+        XCTAssertEqual(url?.URL?.absoluteString, expected)
     }
     
     func testRequestBuilderWith2ParamsBuildsRequest() {
@@ -60,7 +61,7 @@ class RequestBuilderTests: XCTestCase {
         
         let url = requestBuilder.buildRequest(param)
         
-        XCTAssertEqual(url?.absoluteString, expected)
+        XCTAssertEqual(url?.URL?.absoluteString, expected)
     }
     
     func testRequestBuilderWithNoAPIKeyReturnNil() {

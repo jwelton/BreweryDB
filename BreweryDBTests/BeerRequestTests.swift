@@ -79,24 +79,13 @@ class BeerRequestTests: XCTestCase {
     }
     
     func testBeerRequestLoadBeersWithNilAPIKeyReturnsNil() {
-        let expectation = expectationWithDescription("Beers should return nil")
         let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
         
         BreweryDBApiKey = nil
         
-        guard let request = BeerRequest(requestParams: requestParams) else {
-            XCTFail("Beer request initialisation should not fail")
-            return
-        }
+        let request = BeerRequest(requestParams: requestParams)
         
-        request.loadBeersWithCompletionHandler { beers in
-            XCTAssertNil(beers)
-            expectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error)
-        }
+        XCTAssertNil(request)
     }
     
     func testBeerRequestLoadBeersWithNoConnectionReturnsNil() {
@@ -115,6 +104,58 @@ class BeerRequestTests: XCTestCase {
         
         request.loadBeersWithCompletionHandler() { beers in
             XCTAssertNil(beers)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testBeerRequestLoadNextPageIncrementsPageNumber() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BeerRequest(requestParams: requestParams) else {
+            XCTFail("Beer request initialisation should not fail")
+            return
+        }
+        
+        XCTAssertEqual(request.currentPageNumber, 0)
+        
+        request.loadNextPageWithCompletionHandler { _ in
+            XCTAssertEqual(request.currentPageNumber, 1)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testBeerRequestLoadNextPageAttachesPageNumberToURL() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BeerRequest(requestParams: requestParams) else {
+            XCTFail("Beer request initialisation should not fail")
+            return
+        }
+        
+        XCTAssertEqual(request.currentPageNumber, 0)
+        
+        request.loadNextPageWithCompletionHandler { _ in
+            XCTAssertEqual(request.requestURL.URL?.absoluteString, "\(BreweryDBBaseURL)/beers?key=\(BreweryDBApiKey!)&ids=\(requestParams[.Identifier]!)&p=1")
             expectation.fulfill()
         }
         
