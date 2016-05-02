@@ -24,10 +24,13 @@ public enum BeerRequestParam: String {
 public class BeerRequest {
     private var pageNumber = 0
     private let requestBuilder = RequestBuilder(endPoint: .Beers)
+    private var request: NSURLRequest
     
     public let requestParams: [BeerRequestParam: String]
-    public let requestURL: NSURLRequest
-    var currentPageNumber: Int {
+    public var requestURL: NSURLRequest {
+        return request
+    }
+    public var currentPageNumber: Int {
         return pageNumber
     }
     
@@ -37,11 +40,11 @@ public class BeerRequest {
         }
         
         requestParams = params
-        requestURL = url
+        request = url
     }
     
     public func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
-        NSURLSession.sharedSession().dataTaskWithRequest(requestURL) { data, response, error in
+        NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard let returnedData = data,
                 let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
                     completionHandler(beers: nil)
@@ -52,6 +55,23 @@ public class BeerRequest {
             jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
 
             }.resume()
+    }
+    
+    public func loadNextPageWithCompletionHandler(completionHandler: (beers: [Beer]?)->Void) {
+        let newPageNumber = pageNumber + 1
+        
+        var newParams = requestParams
+        newParams[.PageNumber] = "\(newPageNumber)"
+        pageNumber = newPageNumber
+        
+        guard let url = requestBuilder.buildRequest(newParams) else {
+            completionHandler(beers: nil)
+            return
+        }
+        
+        request = url
+        
+        loadBeersWithCompletionHandler(completionHandler)
     }
 }
 
