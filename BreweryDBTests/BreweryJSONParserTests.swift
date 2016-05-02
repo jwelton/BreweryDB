@@ -7,11 +7,19 @@
 //
 
 import XCTest
+@testable import BreweryDB
 
 class BreweryJSONParserTests: XCTestCase {
-
+    var testData: NSData!
+    var parser: JSONParser<Brewery>!
+    
     override func setUp() {
         super.setUp()
+        
+        let testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBreweryJSON", withExtension: "json")!
+        testData = NSData(contentsOfURL: testFileLocation)
+        parser = JSONParser<Brewery>(rawData: testData)
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -20,6 +28,17 @@ class BreweryJSONParserTests: XCTestCase {
         super.tearDown()
     }
     
-    
+    func performJSONExtractAndWait(description: String, completionHandler: (([Brewery]?)->Void)) {
+        let expectation = expectationWithDescription(description)
+        
+        parser.extractObjectsWithCompletionHandler() { breweries in
+            expectation.fulfill()
+            completionHandler(breweries)
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
 
 }
