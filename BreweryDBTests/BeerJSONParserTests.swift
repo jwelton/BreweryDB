@@ -155,4 +155,10 @@ class BeerJSONParserTests: XCTestCase {
             XCTAssertEqual(beers?[0].imageURLSet?.large, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-large.png"))
         }
     }
+    
+    func testBeerJSONParserExtractsFirstBeerYear() {
+        performJSONExtractAndWait("Parser should extract first beer year") { beers in
+            XCTAssertEqual(beers?[0].year, 2010)
+        }
+    }
 }
