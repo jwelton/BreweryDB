@@ -164,4 +164,28 @@ class BeerRequestTests: XCTestCase {
         }
     }
     
+    func testBeerRequestAttachesOrderToURL() {
+        stub(isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+        
+        let expectation = expectationWithDescription("URL request should return within 5 seconds")
+        let requestParams = [ BeerRequestParam.Identifier: "NTrt0Z" ]
+        
+        guard let request = BeerRequest(requestParams: requestParams, orderBy: .Name) else {
+            XCTFail("Beer request initialisation should not fail")
+            return
+        }
+        
+        request.loadNextPageWithCompletionHandler { _ in
+            XCTAssertEqual(request.requestURL.URL?.absoluteString, "\(BreweryDBBaseURL)/beers?key=\(BreweryDBApiKey!)&ids=\(requestParams[.Identifier]!)&p=1&order=name")
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
 }
