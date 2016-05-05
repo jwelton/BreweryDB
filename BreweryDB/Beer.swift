@@ -12,9 +12,9 @@ public class Beer {
     public let identifier: String
     public var name: String?
     public var beerDescription: String?
-    public var originalGravity: String?
-    public var abv: String?
-    public var ibu: String?
+    public var originalGravity: Float?
+    public var abv: Float?
+    public var ibu: Float?
     public var isOrganic: Bool?
     public var servingTemperature: String?
     public var servingTemperatureDisplay: String?
@@ -36,9 +36,19 @@ extension Beer: JSONParserEntity {
         let beer = Beer(identifier: identifier)
         beer.name = rawBeer["name"] as? String
         beer.beerDescription = rawBeer["description"] as? String
-        beer.originalGravity = rawBeer["originalGravity"] as? String
-        beer.abv = rawBeer["abv"] as? String
-        beer.ibu = rawBeer["ibu"] as? String
+        
+        if let originalGravity = rawBeer["originalGravity"] as? String {
+            beer.originalGravity = Float(originalGravity)
+        }
+        
+        if let abv = rawBeer["abv"] as? String {
+            beer.abv = Float(abv)
+        }
+        
+        if let ibu = rawBeer["ibu"] as? String {
+            beer.ibu = Float(ibu)
+        }
+        
         beer.isOrganic = rawBeer["isOrganic"] as? String == "Y"
         beer.servingTemperature = rawBeer["servingTemperature"] as? String
         beer.servingTemperatureDisplay = rawBeer["servingTemperatureDisplay"] as? String
