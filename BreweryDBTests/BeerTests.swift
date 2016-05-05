@@ -57,7 +57,7 @@ class BeerTests: XCTestCase {
     }
     
     func testBeerCanSetOriginalGravity() {
-        let testData = "TestData"
+        let testData: Float = 5.5
         
         let beer = Beer(identifier: "Beer Identifier")
         beer.originalGravity = testData
@@ -65,7 +65,7 @@ class BeerTests: XCTestCase {
     }
     
     func testBeerCanSetAbv() {
-        let testData = "TestData"
+        let testData: Float = 5.5
         
         let beer = Beer(identifier: "Beer Identifier")
         beer.abv = testData
@@ -73,7 +73,7 @@ class BeerTests: XCTestCase {
     }
     
     func testBeerCanSetIbu() {
-        let testData = "TestData"
+        let testData: Float = 5.5
         
         let beer = Beer(identifier: "Beer Identifier")
         beer.ibu = testData

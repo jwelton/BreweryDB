@@ -86,7 +86,7 @@ class BreweryJSONParserTests: XCTestCase {
     
     func testBreweryJSONParserExtractsBreweryEstablished() {
         performJSONExtractAndWait("Parser should extract brewery established date") { breweries in
-            XCTAssertEqual(breweries?[0].established, "2004")
+            XCTAssertEqual(breweries?[0].established, 2004)
         }
     }
     

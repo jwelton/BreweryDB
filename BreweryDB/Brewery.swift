@@ -11,7 +11,7 @@ import Foundation
 public class Brewery {
     public let identifier: String
     public var name: String?
-    public var established: String?
+    public var established: Int?
     public var isOrganic: Bool?
     public var breweryDescription: String?
     public var website: NSURL?
@@ -31,7 +31,11 @@ extension Brewery: JSONParserEntity {
         
         let brewery = Brewery(identifier: identifier)
         brewery.name = rawBrewery["name"] as? String
-        brewery.established = rawBrewery["established"] as? String
+        
+        if let established = rawBrewery["established"] as? String {
+            brewery.established = Int(established)
+        }
+        
         brewery.isOrganic = rawBrewery["isOrganic"] as? String == "Y"
         brewery.breweryDescription = rawBrewery["description"] as? String
         
