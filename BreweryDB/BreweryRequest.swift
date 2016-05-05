@@ -53,7 +53,7 @@ public class BreweryRequest {
         return pageNumber
     }
     
-    public init?(requestParams params: [BreweryRequestParam: String], orderParam order: (BreweryRequestOrderParam, String)) {
+    public init?(requestParams params: [BreweryRequestParam: String], orderParam order: (BreweryRequestOrderParam, String)? = nil) {
         guard let url = requestBuilder.buildRequest(params, orderParam: order) where params.count != 0 else {
             return nil
         }

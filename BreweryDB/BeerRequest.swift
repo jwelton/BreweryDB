@@ -47,7 +47,7 @@ public class BeerRequest {
         return pageNumber
     }
     
-    public init?(requestParams params: [BeerRequestParam: String], orderParam order: (BeerRequestOrderParam, String)?) {
+    public init?(requestParams params: [BeerRequestParam: String], orderParam order: (BeerRequestOrderParam, String)? = nil) {
         guard let url = requestBuilder.buildRequest(params, orderParam: order) where params.count != 0 else {
             return nil
         }
