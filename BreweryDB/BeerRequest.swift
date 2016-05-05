@@ -22,10 +22,10 @@ public enum BeerRequestParam: String {
 }
 
 public enum BeerRequestOrderParam: String {
-    case Name = "Name"
+    case Name = "name"
     case Description = "description"
     case Abv = "abv"
-    case Ibu = "Ibu"
+    case Ibu = "ibu"
     case IsOrganic = "isOrganic"
     case Status = "status"
     case CreateDate = "createDate"
