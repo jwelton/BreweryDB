@@ -39,7 +39,7 @@ public class BeerRequest {
     private var request: NSURLRequest
     
     public let requestParams: [BeerRequestParam: String]
-    public var orderParameter: (BeerRequestOrderParam, String)? = nil
+    public var orderParameter: BeerRequestOrderParam? = nil
     public var requestURL: NSURLRequest {
         return request
     }
@@ -47,8 +47,8 @@ public class BeerRequest {
         return pageNumber
     }
     
-    public init?(requestParams params: [BeerRequestParam: String], orderParam order: (BeerRequestOrderParam, String)? = nil) {
-        guard let url = requestBuilder.buildRequest(params, orderParam: order) where params.count != 0 else {
+    public init?(requestParams params: [BeerRequestParam: String], orderParam order: BeerRequestOrderParam? = nil) {
+        guard let url = requestBuilder.buildRequest(params, orderParam: order?.rawValue) where params.count != 0 else {
             return nil
         }
         
@@ -78,7 +78,7 @@ public class BeerRequest {
         newParams[.PageNumber] = "\(newPageNumber)"
         pageNumber = newPageNumber
         
-        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter) else {
+        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter?.rawValue) else {
             completionHandler(beers: nil)
             return
         }
