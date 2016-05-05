@@ -41,6 +41,14 @@ request?.loadBeersWithCompletionHandler() { beers in
 }
 ```
 
+###### Request With Ordering
+``` swift
+let request = BeerRequest(requestParams: [.Abv: "5"], orderBy: .Name)
+request?.loadBeersWithCompletionHandler() { beers in
+  /// Access your array of beers here (or nil if nothing was found)
+}
+```
+
 ###### Parameters
 ``` swift
 public enum BeerRequestParam: String {
@@ -60,6 +68,14 @@ public enum BeerRequestParam: String {
 ###### Request
 ``` swift
 let request = BreweryRequest(requestParams: [.Name: "Brewery"])
+request?.loadBreweriesWithCompletionHandler() { breweries in
+  /// Access your array of breweries here (or nil if nothing was found)
+}
+```
+
+###### Request With Ordering
+``` swift
+let request = BreweryRequest(requestParams: [.Name: "Brewery"], orderBy: .Name)
 request?.loadBreweriesWithCompletionHandler() { breweries in
   /// Access your array of breweries here (or nil if nothing was found)
 }
