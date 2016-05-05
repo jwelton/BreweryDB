@@ -17,6 +17,7 @@
              "servingTemperatureDisplay": "Cold - (4-7C/39-45F)",
              "styleId": 48,
              "isOrganic": "N",
+             "year": 2010,
              "labels": {
              "icon": "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-icon.png",
              "medium": "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-medium.png",
