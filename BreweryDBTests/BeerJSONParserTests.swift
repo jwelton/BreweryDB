@@ -92,19 +92,19 @@ class BeerJSONParserTests: XCTestCase {
     
     func testBeerJSONParserExtractsFirstBeerOriginalGravity() {
         performJSONExtractAndWait("Parser should extract first beer original gravity") { beers in
-            XCTAssertEqual(beers?[0].originalGravity, "5.3")
+            XCTAssertEqual(beers?[0].originalGravity, 5.3)
         }
     }
     
     func testBeerJSONParserExtractsFirstBeerAbv() {
         performJSONExtractAndWait("Parser should extract first beer abv") { beers in
-            XCTAssertEqual(beers?[0].abv, "5.2")
+            XCTAssertEqual(beers?[0].abv, 5.2)
         }
     }
     
     func testBeerJSONParserExtractsFirstBeerIbu() {
         performJSONExtractAndWait("Parser should extract first beer ibu") { beers in
-            XCTAssertEqual(beers?[0].ibu, "16")
+            XCTAssertEqual(beers?[0].ibu, 16)
         }
     }
     
