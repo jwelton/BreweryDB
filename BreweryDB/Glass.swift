@@ -9,6 +9,10 @@
 import Foundation
 
 public class Glass {
-    let identifier: String?
-    let name: String?
+    let identifier: String
+    var name: String?
+    
+    init(identifier: String) {
+        self.identifier = identifier
+    }
 }
