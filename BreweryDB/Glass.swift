@@ -9,17 +9,17 @@
 import Foundation
 
 public class Glass {
-    let identifier: String
+    let identifier: Int
     var name: String?
     
-    init(identifier: String) {
+    init(identifier: Int) {
         self.identifier = identifier
     }
 }
 
 extension Glass: JSONParserEntity {
     public static func mapJSONToObject(json: JSON) -> AnyObject? {
-        guard let identifier = json["id"] as? String else {
+        guard let identifier = json["id"] as? Int else {
             return nil
         }
         
