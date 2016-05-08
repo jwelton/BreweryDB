@@ -22,6 +22,7 @@ public class Beer {
     public var statusDisplay: String?
     public var imageURLSet: ImageURLSet?
     public var year: Int?
+    public var glass: Glass?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -59,6 +60,10 @@ extension Beer: JSONParserEntity {
         
         if let labels = rawBeer["labels"] as? JSON {
             beer.imageURLSet = ImageURLSet.mapJSONToObject(labels) as? ImageURLSet
+        }
+        
+        if let glass = rawBeer["glass"] as? JSON {
+            beer.glass = Glass.mapJSONToObject(glass) as? Glass
         }
         
         return beer

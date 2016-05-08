@@ -161,4 +161,16 @@ class BeerJSONParserTests: XCTestCase {
             XCTAssertEqual(beers?[0].year, 2010)
         }
     }
+    
+    func testBeerJSONParserExtractsFirstBeerGlassID() {
+        performJSONExtractAndWait("Parser should extract first beer glass id") { beers in
+            XCTAssertEqual(beers?[0].glass?.identifier, 9)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerGlassName() {
+        performJSONExtractAndWait("Parser should extract first beer glass name") { beers in
+            XCTAssertEqual(beers?[0].glass?.name, "Weizen")
+        }
+    }
 }
