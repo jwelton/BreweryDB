@@ -21,6 +21,7 @@
 		2386460D1CD3FBB100170B2D /* BreweryRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
+		23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */; };
 		23FF53C61C397A7B0094249C /* BreweryDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FF53C51C397A7B0094249C /* BreweryDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FF53C21C397A7B0094249C /* BreweryDB.framework */; };
 		23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53D11C397A7B0094249C /* BreweryDBTests.swift */; };
@@ -56,6 +57,7 @@
 		2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRequestTests.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
+		23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
 		23FF53C21C397A7B0094249C /* BreweryDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreweryDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FF53C51C397A7B0094249C /* BreweryDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreweryDB.h; sourceTree = "<group>"; };
 		23FF53C71C397A7B0094249C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
+				23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */,
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
 			);
@@ -362,6 +365,7 @@
 				233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */,
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
+				23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
 				238646041CD3F4CC00170B2D /* Brewery.swift in Sources */,
 				23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */,
