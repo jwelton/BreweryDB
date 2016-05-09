@@ -32,7 +32,7 @@ public class Style {
 
 extension Style: JSONParserEntity {
     public static func mapJSONToObject(json: JSON) -> AnyObject? {
-        guard let identifier = json["identifier"] as? Int else {
+        guard let identifier = json["id"] as? Int else {
             return nil
         }
         
