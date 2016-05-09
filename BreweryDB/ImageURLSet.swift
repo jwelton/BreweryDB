@@ -9,13 +9,13 @@
 import Foundation
 
 public class ImageURLSet {
-    let icon: NSURL?
-    let medium: NSURL?
-    let large: NSURL?
-    let squareMedium: NSURL?
-    let squareLarge: NSURL?
+    public let icon: NSURL?
+    public let medium: NSURL?
+    public let large: NSURL?
+    public let squareMedium: NSURL?
+    public let squareLarge: NSURL?
     
-    init(icon: NSURL?, medium: NSURL?, large: NSURL?, squareMedium: NSURL?, squareLarge: NSURL?) {
+    public init(icon: NSURL?, medium: NSURL?, large: NSURL?, squareMedium: NSURL?, squareLarge: NSURL?) {
         self.icon = icon
         self.medium = medium
         self.large = large

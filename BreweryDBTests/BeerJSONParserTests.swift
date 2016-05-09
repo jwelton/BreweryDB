@@ -173,4 +173,100 @@ class BeerJSONParserTests: XCTestCase {
             XCTAssertEqual(beers?[0].glass?.name, "Weizen")
         }
     }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleID() {
+        performJSONExtractAndWait("Parser should extract first beer style ID") { beers in
+            XCTAssertEqual(beers?[0].style?.identifier, 48)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleName() {
+        performJSONExtractAndWait("Parser should extract first beer style name") { beers in
+            XCTAssertEqual(beers?[0].style?.name, "South German-Style Hefeweizen / Hefeweissbier")
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleShortName() {
+        performJSONExtractAndWait("Parser should extract first beer style short name") { beers in
+            XCTAssertEqual(beers?[0].style?.shortName, "Hefeweizen")
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleDescription() {
+        performJSONExtractAndWait("Parser should extract first beer style description") { beers in
+            XCTAssertEqual(beers?[0].style?.description, "The aroma and flavor of a Weissbier with yeast is decidedly fruity and phenolic. The phenolic characteristics are often described as clove-, nutmeg-like, mildly smoke-like or even vanilla-like. Banana-like esters should be present at low to medium-high levels. These beers are made with at least 50 percent malted wheat, and hop rates are quite low. Hop flavor and aroma are absent or present at very low levels. Weissbier is well attenuated and very highly carbonated and a medium to full bodied beer. The color is very pale to pale amber. Because yeast is present, the beer will have yeast flavor and a characteristically fuller mouthfeel and may be appropriately very cloudy. No diacetyl should be perceived.")
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleIbuMin() {
+        performJSONExtractAndWait("Parser should extract first beer style name") { beers in
+            XCTAssertEqual(beers?[0].style?.ibuMin, 10)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleIbuMax() {
+        performJSONExtractAndWait("Parser should extract first beer style ibu max") { beers in
+            XCTAssertEqual(beers?[0].style?.ibuMax, 15)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleAbvMin() {
+        performJSONExtractAndWait("Parser should extract first beer style abv min") { beers in
+            XCTAssertEqual(beers?[0].style?.abvMin, 4.9)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleAbvMax() {
+        performJSONExtractAndWait("Parser should extract first beer style abv max") { beers in
+            XCTAssertEqual(beers?[0].style?.abvMax, 5.5)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleSrmMin() {
+        performJSONExtractAndWait("Parser should extract first beer style srm min") { beers in
+            XCTAssertEqual(beers?[0].style?.srmMin, 3)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleSrmMax() {
+        performJSONExtractAndWait("Parser should extract first beer style srm max") { beers in
+            XCTAssertEqual(beers?[0].style?.srmMax, 9)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleOgMin() {
+        performJSONExtractAndWait("Parser should extract first beer style og min") { beers in
+            XCTAssertEqual(beers?[0].style?.ogMin, 1.047)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleOgMax() {
+        performJSONExtractAndWait("Parser should extract first beer style ogMax") { beers in
+            XCTAssertEqual(beers?[0].style?.ogMax, 1.050)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleFgMin() {
+        performJSONExtractAndWait("Parser should extract first beer style fg min") { beers in
+            XCTAssertEqual(beers?[0].style?.fgMin, 1.008)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleFgMax() {
+        performJSONExtractAndWait("Parser should extract first beer style fg max") { beers in
+            XCTAssertEqual(beers?[0].style?.fgMax, 1.016)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleCategoryIdentifier() {
+        performJSONExtractAndWait("Parser should extract first beer style category object identifier") { beers in
+            XCTAssertEqual(beers?[0].style?.category?.identifier, 4)
+        }
+    }
+    
+    func testBeerJSONParserExtractsFirstBeerStyleCategoryName() {
+        performJSONExtractAndWait("Parser should extract first beer style category name") { beers in
+            XCTAssertEqual(beers?[0].style?.category?.name, "German Origin Ales")
+        }
+    }
 }
