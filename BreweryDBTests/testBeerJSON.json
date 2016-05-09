@@ -18,6 +18,11 @@
              "styleId": 48,
              "isOrganic": "N",
              "year": 2010,
+             "available": {
+             "id": 4,
+             "name": "Seasonal",
+             "description": "Available at the same time of year, every year."
+             },
              "labels": {
              "icon": "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-icon.png",
              "medium": "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-medium.png",
