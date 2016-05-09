@@ -155,7 +155,10 @@ class BeerRequestTests: XCTestCase {
         XCTAssertEqual(request.currentPageNumber, 0)
         
         request.loadNextPageWithCompletionHandler { _ in
-            XCTAssertEqual(request.requestURL.URL?.absoluteString, "\(BreweryDBBaseURL)/beers?key=\(BreweryDBApiKey!)&ids=\(requestParams[.Identifier]!)&p=1")
+            let components = NSURLComponents(URL: request.requestURL.URL!, resolvingAgainstBaseURL: false)
+            let doesParamExist = components?.queryItems?.contains{ $0.name == "p" && $0.value == "1" }
+            XCTAssertTrue(doesParamExist!)
+            
             expectation.fulfill()
         }
         
@@ -179,7 +182,10 @@ class BeerRequestTests: XCTestCase {
         }
         
         request.loadNextPageWithCompletionHandler { _ in
-            XCTAssertEqual(request.requestURL.URL?.absoluteString, "\(BreweryDBBaseURL)/beers?key=\(BreweryDBApiKey!)&ids=\(requestParams[.Identifier]!)&p=1&order=name")
+            let components = NSURLComponents(URL: request.requestURL.URL!, resolvingAgainstBaseURL: false)
+            let doesParamExist = components?.queryItems?.contains{ $0.name == "order" && $0.value == "name" }
+            XCTAssertTrue(doesParamExist!)
+            
             expectation.fulfill()
         }
         
