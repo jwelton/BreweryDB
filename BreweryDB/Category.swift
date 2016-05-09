@@ -9,5 +9,10 @@
 import Foundation
 
 public class Category {
+    public let identifier: Int
+    public var name: String?
     
+    public init(identifier: Int) {
+        self.identifier = identifier
+    }
 }
