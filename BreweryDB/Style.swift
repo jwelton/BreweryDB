@@ -10,7 +10,6 @@ import Foundation
 
 public class Style {
     public let identifier: Int
-    public var categoryID: Int?
     public var category: Category?
     public var name: String?
     public var shortName: String?
@@ -38,7 +37,6 @@ extension Style: JSONParserEntity {
         }
         
         let style = Style(identifier: identifier)
-        style.categoryID = json["categoryId"] as? Int
         style.name = json["name"] as? String
         style.shortName = json["shortName"] as? String
         style.description = json["description"] as? String

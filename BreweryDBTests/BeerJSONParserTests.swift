@@ -180,12 +180,6 @@ class BeerJSONParserTests: XCTestCase {
         }
     }
     
-    func testBeerJSONParserExtractsFirstBeerStyleCategoryID() {
-        performJSONExtractAndWait("Parser should extract first beer style category ID") { beers in
-            XCTAssertEqual(beers?[0].style?.categoryID, 4)
-        }
-    }
-    
     func testBeerJSONParserExtractsFirstBeerStyleName() {
         performJSONExtractAndWait("Parser should extract first beer style name") { beers in
             XCTAssertEqual(beers?[0].style?.name, "South German-Style Hefeweizen / Hefeweissbier")
