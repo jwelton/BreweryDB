@@ -17,3 +17,17 @@ public class Available {
         self.identifier = identifier
     }
 }
+
+extension Available: JSONParserEntity {
+    public static func mapJSONToObject(json: JSON) -> AnyObject? {
+        guard let identifier = json["id"] as? Int else {
+            return nil
+        }
+        
+        let available = Available(identifier: identifier)
+        available.name = json["name"] as? String
+        available.description = json["description"] as? String
+        
+        return available
+    }
+}
