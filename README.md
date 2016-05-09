@@ -2,10 +2,10 @@
 [![Build Status](https://travis-ci.org/jwelton/BreweryDB.svg)](https://travis-ci.org/jwelton/BreweryDB)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-A Swift library for communicating with the BreweryDB api (v2). This library simplifies the task of sending and receiving data between your app and the BreweryDB server. It has been developed using Swift 2 and uses a simply block interface for maximum readability. This framework is heavily unit tested to provide a stable library. If you find any issues or have any requests, please open an issue :smiley:
+A Swift library for communicating with the BreweryDB api (v2). This library simplifies the task of sending and receiving data between your app and the BreweryDB server. It has been developed using Swift 2 and uses a simple block interface for maximum readability. This framework is heavily unit tested to provide a stable service. If you find any issues or have any requests, please open an issue :smiley:
 
 ## Installation
-Currently there is only one support method of installation, which is via Carthage (although manual installation is also possible, instructions for doing so will not be listed here). Please see below for a basic overview of installing via Carthage.
+Currently there is only one supported method of installation, which is via Carthage (although manual installation is also possible, instructions for doing so will not be listed here). Please see below for a basic overview of installing via Carthage.
 
 #### Carthage
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. Full instructions for integrating frameworks using Carthage are avaliable within the readme.md on their [GitHub Repository](https://github.com/Carthage/Carthage).
@@ -22,7 +22,7 @@ github "jwelton/BreweryDB" ~> 1.0
 Run carthage update to build the framework and drag the built BreweryDB.framework into your Xcode project. (you also need to add a custom run script too, please see the Carthage instructions for details on this)
 
 ## Usage
-This interface within this library is designed to be simple and easy to use. Below are examples of how to request beers and breweries using this service.
+The interface within this library is designed to be simple and easy to use. Below are examples of how to request beers and breweries using this service.
 
 Before attempting any requests, you need to set your API key (you will need to register on the [BreweryDB](https://www.brewerydb.com/) website to get this). You only need to set this once and its done as follows:
 
