@@ -16,3 +16,16 @@ public class Category {
         self.identifier = identifier
     }
 }
+
+extension Category: JSONParserEntity {
+    public static func mapJSONToObject(json: JSON) -> AnyObject? {
+        guard let identifier = json["id"] as? Int else {
+            return nil
+        }
+        
+        let category = Category(identifier: identifier)
+        category.name = json["name"] as? String
+        
+        return category
+    }
+}
