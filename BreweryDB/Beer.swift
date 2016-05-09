@@ -24,6 +24,7 @@ public class Beer {
     public var year: Int?
     public var glass: Glass?
     public var available: Available?
+    public var style: Style?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -69,6 +70,10 @@ extension Beer: JSONParserEntity {
         
         if let available = rawBeer["available"] as? JSON {
             beer.available = Available.mapJSONToObject(available) as? Available
+        }
+        
+        if let style = rawBeer["style"] as? JSON {
+            beer.style = Style.mapJSONToObject(style) as? Style
         }
         
         return beer
