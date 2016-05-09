@@ -11,6 +11,7 @@ import Foundation
 public class Style {
     public let identifier: Int
     public var categoryID: Int?
+    public var category: Category?
     public var name: String?
     public var shortName: String?
     public var description: String?
@@ -80,6 +81,10 @@ extension Style: JSONParserEntity {
         
         if let fgMax = json["fgMax"] as? String {
             style.fgMax = Float(fgMax)
+        }
+        
+        if let category = json["category"] as? JSON {
+            style.category = Category.mapJSONToObject(category) as? Category
         }
         
         return style
