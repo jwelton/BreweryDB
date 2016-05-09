@@ -8,30 +8,30 @@
 
 import Foundation
 
-class Style {
-    let identifier: Int
-    var categoryID: Int?
-    var name: String?
-    var shortName: String?
-    var description: String?
-    var ibuMin: Float?
-    var ibuMax: Float?
-    var abvMin: Float?
-    var abvMax: Float?
-    var srmMin: Float?
-    var srmMax: Float?
-    var ogMin: Float?
-    var ogMax: Float?
-    var fgMin: Float?
-    var fgMax: Float?
+public class Style {
+    public let identifier: Int
+    public var categoryID: Int?
+    public var name: String?
+    public var shortName: String?
+    public var description: String?
+    public var ibuMin: Float?
+    public var ibuMax: Float?
+    public var abvMin: Float?
+    public var abvMax: Float?
+    public var srmMin: Float?
+    public var srmMax: Float?
+    public var ogMin: Float?
+    public var ogMax: Float?
+    public var fgMin: Float?
+    public var fgMax: Float?
     
-    init(identifier: Int) {
+    public init(identifier: Int) {
         self.identifier = identifier
     }
 }
 
 extension Style: JSONParserEntity {
-    static func mapJSONToObject(json: JSON) -> AnyObject? {
+    public static func mapJSONToObject(json: JSON) -> AnyObject? {
         guard let identifier = json["identifier"] as? Int else {
             return nil
         }
