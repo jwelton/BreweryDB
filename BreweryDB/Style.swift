@@ -37,7 +37,7 @@ extension Style: JSONParserEntity {
         }
         
         let style = Style(identifier: identifier)
-        style.categoryID = json["categoryID"] as? Int
+        style.categoryID = json["categoryId"] as? Int
         style.name = json["name"] as? String
         style.shortName = json["shortName"] as? String
         style.description = json["description"] as? String
