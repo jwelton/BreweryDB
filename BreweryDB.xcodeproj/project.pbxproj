@@ -19,6 +19,7 @@
 		238646061CD3F6FD00170B2D /* BreweryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646051CD3F6FD00170B2D /* BreweryRequest.swift */; };
 		238646091CD3F81100170B2D /* BreweryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646081CD3F81100170B2D /* BreweryTests.swift */; };
 		2386460D1CD3FBB100170B2D /* BreweryRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */; };
+		2398559C1CE100A0001CA4AC /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398559B1CE100A0001CA4AC /* Available.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
 		23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */; };
@@ -55,6 +56,7 @@
 		238646051CD3F6FD00170B2D /* BreweryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRequest.swift; sourceTree = "<group>"; };
 		238646081CD3F81100170B2D /* BreweryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryTests.swift; sourceTree = "<group>"; };
 		2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRequestTests.swift; sourceTree = "<group>"; };
+		2398559B1CE100A0001CA4AC /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
 				23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */,
+				2398559B1CE100A0001CA4AC /* Available.swift */,
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
 			);
@@ -369,6 +372,7 @@
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
 				238646041CD3F4CC00170B2D /* Brewery.swift in Sources */,
 				23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */,
+				2398559C1CE100A0001CA4AC /* Available.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
