@@ -27,7 +27,7 @@ public class RequestBuilder {
         self.endPoint = endPoint
     }
     
-    public func buildRequest<T : RawRepresentable where T.RawValue == String>(requestParams: [T: String], orderParam: String? = nil) -> NSURLRequest? {
+    public func buildRequest(request: BreweryDBRequest) -> NSURLRequest? {
         guard let _ = BreweryDBApiKey else {
             print("BreweryDB: No Brewery API key set. Please set a valid API key before attempting to perform a request.")
             return nil
@@ -38,12 +38,14 @@ public class RequestBuilder {
         let components = NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: false)
         components?.queryItems = [apiKeyQueryItem]
         
-        for param in requestParams {
-            let queryItem = NSURLQueryItem(name: param.0.rawValue, value: param.1)
-            components?.queryItems?.append(queryItem)
+        if let params = request.params {
+            for param in params {
+                let queryItem = NSURLQueryItem(name: param.0, value: param.1)
+                components?.queryItems?.append(queryItem)
+            }
         }
         
-        if let orderParam = orderParam {
+        if let orderParam = request.orderBy {
             let queryItem = NSURLQueryItem(name: "order", value: orderParam)
             components?.queryItems?.append(queryItem)
         }

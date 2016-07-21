@@ -34,69 +34,72 @@ public enum BeerRequestOrderParam: String {
 }
 
 public class BeerRequest {
-    private var pageNumber = 0
-    private let requestBuilder = RequestBuilder(endPoint: .Beers)
-    private var request: NSURLRequest
     
-    public let requestParams: [BeerRequestParam: String]
-    public var orderParameter: BeerRequestOrderParam? = nil
-    public var requestURL: NSURLRequest {
-        return request
-    }
-    public var currentPageNumber: Int {
-        return pageNumber
-    }
     
-    public init?(requestParams params: [BeerRequestParam: String], orderBy order: BeerRequestOrderParam? = nil) {
-        guard let url = requestBuilder.buildRequest(params, orderParam: order?.rawValue) where params.count != 0 else {
-            return nil
-        }
-        
-        requestParams = params
-        orderParameter = order
-        request = url
-    }
     
-    public func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
-        NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard let returnedData = data,
-                let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
-                    completionHandler(beers: nil)
-                    return
-            }
-            
-            let jsonParser = JSONParser<Beer>(rawData: returnedData)
-            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
-
-            }.resume()
-    }
-    
-    public func loadNextPageWithCompletionHandler(completionHandler: (beers: [Beer]?)->Void) {
-        let newPageNumber = pageNumber + 1
-        
-        var newParams = requestParams
-        newParams[.PageNumber] = "\(newPageNumber)"
-        pageNumber = newPageNumber
-        
-        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter?.rawValue) else {
-            completionHandler(beers: nil)
-            return
-        }
-        
-        request = url
-        
-        loadBeersWithCompletionHandler(completionHandler)
-    }
+//    private var pageNumber = 0
+//    private let requestBuilder = RequestBuilder(endPoint: .Beers)
+//    private var request: NSURLRequest
+//    
+//    public let requestParams: [BeerRequestParam: String]
+//    public var orderParameter: BeerRequestOrderParam? = nil
+//    public var requestURL: NSURLRequest {
+//        return request
+//    }
+//    public var currentPageNumber: Int {
+//        return pageNumber
+//    }
+//    
+//    public init?(requestParams params: [BeerRequestParam: String]?, orderBy order: BeerRequestOrderParam? = nil) {
+//        guard let url = requestBuilder.buildRequest(params, orderParam: order?.rawValue) where params.count != 0 else {
+//            return nil
+//        }
+//        
+//        requestParams = params
+//        orderParameter = order
+//        request = url
+//    }
+//    
+//    public func loadBeersWithCompletionHandler(completionHandler: ((beers: [Beer]?)->Void)) {
+//        NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+//            guard let returnedData = data,
+//                let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
+//                    completionHandler(beers: nil)
+//                    return
+//            }
+//            
+//            let jsonParser = JSONParser<Beer>(rawData: returnedData)
+//            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
+//
+//            }.resume()
+//    }
+//    
+//    public func loadNextPageWithCompletionHandler(completionHandler: (beers: [Beer]?)->Void) {
+//        let newPageNumber = pageNumber + 1
+//        
+//        var newParams = requestParams
+//        newParams[.PageNumber] = "\(newPageNumber)"
+//        pageNumber = newPageNumber
+//        
+//        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter?.rawValue) else {
+//            completionHandler(beers: nil)
+//            return
+//        }
+//        
+//        request = url
+//        
+//        loadBeersWithCompletionHandler(completionHandler)
+//    }
 }
 
-extension BeerRequest: CustomStringConvertible {
-    public var description: String {
-        var items = ""
-        
-        for param in requestParams {
-            items += param.1
-        }
-        
-        return items
-    }
-}
+//extension BeerRequest: CustomStringConvertible {
+//    public var description: String {
+//        var items = ""
+//        
+//        for param in requestParams {
+//            items += param.1
+//        }
+//        
+//        return items
+//    }
+//}
