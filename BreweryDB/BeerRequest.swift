@@ -40,7 +40,7 @@ public struct BeerRequest {
         return .Beers
     }
     
-    init(params: [BeerRequestParam: String]? = nil, orderBy: BeerRequestOrderParam? = nil) {
+    public init(params: [BeerRequestParam: String]? = nil, orderBy: BeerRequestOrderParam? = nil) {
         self.params = params
         self.orderBy = orderBy
     }
