@@ -54,14 +54,11 @@ class RequestBuilderTests: XCTestCase {
         let requestBuilder = RequestBuilder(endPoint: .Beers)
         let param = [BeerRequestParam.Identifier: "beerIdentifier", BeerRequestParam.Name: "beerName"]
         
-        let baseURL = BreweryDBBaseURL.absoluteString + "/" + RequestEndPoint.Beers.rawValue
-        let withKey = baseURL + "?key=" + String(BreweryDBApiKey!)
-        let urlWithFirstParam =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=" + param[.Identifier]!
-        let expected =  urlWithFirstParam + "&" + BeerRequestParam.Name.rawValue + "=" + param[.Name]!
-        
         let url = requestBuilder.buildRequest(BeerRequest(params: param, orderBy: nil))
         
-        XCTAssertEqual(url?.URL?.absoluteString, expected)
+        let components = NSURLComponents(URL: url!.URL!, resolvingAgainstBaseURL: false)
+        XCTAssertTrue(components!.queryItems!.contains(NSURLQueryItem(name: "ids", value: "beerIdentifier")))
+        XCTAssertTrue(components!.queryItems!.contains(NSURLQueryItem(name: "name", value: "beerName")))
     }
     
     func testRequestBuilderWithNoAPIKeyReturnNil() {
