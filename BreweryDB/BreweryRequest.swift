@@ -45,6 +45,11 @@ public struct BreweryRequest {
     public var endpoint: RequestEndPoint{
         return .Breweries
     }
+    
+    init(params: [BreweryRequestParam: String]? = nil, orderBy: BreweryRequestOrderParam? = nil) {
+        self.params = params
+        self.orderBy = orderBy
+    }
 }
 
 extension BreweryRequest: BreweryDBRequest {
