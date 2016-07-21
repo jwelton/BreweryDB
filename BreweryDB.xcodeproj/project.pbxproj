@@ -19,9 +19,11 @@
 		238646061CD3F6FD00170B2D /* BreweryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646051CD3F6FD00170B2D /* BreweryRequest.swift */; };
 		238646091CD3F81100170B2D /* BreweryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238646081CD3F81100170B2D /* BreweryTests.swift */; };
 		2386460D1CD3FBB100170B2D /* BreweryRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */; };
-		2398559C1CE100A0001CA4AC /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398559B1CE100A0001CA4AC /* Available.swift */; };
 		239855981CE0F8EF001CA4AC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239855971CE0F8EF001CA4AC /* Style.swift */; };
 		2398559A1CE0FE39001CA4AC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239855991CE0FE39001CA4AC /* Category.swift */; };
+		2398559C1CE100A0001CA4AC /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398559B1CE100A0001CA4AC /* Available.swift */; };
+		23BABBCF1D4133A900BF1FE0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */; };
+		23BABBD11D41471F00BF1FE0 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBD01D41471F00BF1FE0 /* RequestManagerTests.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
 		23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */; };
@@ -58,9 +60,11 @@
 		238646051CD3F6FD00170B2D /* BreweryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRequest.swift; sourceTree = "<group>"; };
 		238646081CD3F81100170B2D /* BreweryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryTests.swift; sourceTree = "<group>"; };
 		2386460C1CD3FBB100170B2D /* BreweryRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRequestTests.swift; sourceTree = "<group>"; };
-		2398559B1CE100A0001CA4AC /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
 		239855971CE0F8EF001CA4AC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		239855991CE0FE39001CA4AC /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2398559B1CE100A0001CA4AC /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
+		23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		23BABBD01D41471F00BF1FE0 /* RequestManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				23FF53C51C397A7B0094249C /* BreweryDB.h */,
 				23FF53C71C397A7B0094249C /* Info.plist */,
+				23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
 				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				23FF53D11C397A7B0094249C /* BreweryDBTests.swift */,
+				23BABBD01D41471F00BF1FE0 /* RequestManagerTests.swift */,
 				23FF53D31C397A7B0094249C /* Info.plist */,
 				238646021CD3F47700170B2D /* BeerTests */,
 				2386460E1CD3FE1D00170B2D /* BreweryTests */,
@@ -371,6 +377,7 @@
 			files = (
 				23849A8E1CD6ECFE00C72F24 /* ImageURLSet.swift in Sources */,
 				238646061CD3F6FD00170B2D /* BreweryRequest.swift in Sources */,
+				23BABBCF1D4133A900BF1FE0 /* RequestManager.swift in Sources */,
 				233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */,
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
@@ -396,6 +403,7 @@
 				233BF36E1CD4880A00A536AB /* BeerJSONParserTests.swift in Sources */,
 				233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */,
 				23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */,
+				23BABBD11D41471F00BF1FE0 /* RequestManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
