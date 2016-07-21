@@ -42,7 +42,9 @@ public enum BreweryRequestOrderParam: String {
 public struct BreweryRequest {
     public var params: [BreweryRequestParam: String]?
     public var orderBy: BreweryRequestOrderParam?
-    public var endpoint = RequestEndPoint.Breweries
+    public var endpoint: RequestEndPoint{
+        return .Breweries
+    }
 }
 
 extension BreweryRequest: BreweryDBRequest {

@@ -44,7 +44,7 @@ class RequestBuilderTests: XCTestCase {
         let withKey = baseURL + "?key=" + String(BreweryDBApiKey!)
         let expected =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=beerIdentifier"
         
-        let url = requestBuilder.buildRequest(param)
+        let url = requestBuilder.buildRequest(BeerRequest(params: param, orderBy: nil))
         url?.URL?.absoluteString
         
         XCTAssertEqual(url?.URL?.absoluteString, expected)
@@ -59,7 +59,7 @@ class RequestBuilderTests: XCTestCase {
         let urlWithFirstParam =  withKey + "&" + BeerRequestParam.Identifier.rawValue + "=" + param[.Identifier]!
         let expected =  urlWithFirstParam + "&" + BeerRequestParam.Name.rawValue + "=" + param[.Name]!
         
-        let url = requestBuilder.buildRequest(param)
+        let url = requestBuilder.buildRequest(BeerRequest(params: param, orderBy: nil))
         
         XCTAssertEqual(url?.URL?.absoluteString, expected)
     }
@@ -69,7 +69,7 @@ class RequestBuilderTests: XCTestCase {
         let param = [BeerRequestParam.Identifier: "beerIdentifier", BeerRequestParam.Name: "beerName"]
         BreweryDBApiKey = nil
         
-        let url = requestBuilder.buildRequest(param)
+        let url = requestBuilder.buildRequest(BeerRequest(params: param, orderBy: nil))
         
         XCTAssertNil(url)
     }
