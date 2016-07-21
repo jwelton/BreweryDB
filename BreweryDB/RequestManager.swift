@@ -10,8 +10,10 @@ import Foundation
 
 public protocol BreweryDBRequest {
     var endpoint: RequestEndPoint { get }
-    var params: [String: String]? { get set }
-    var orderBy: String? { get }
+    var rawParams: [String: String]? { get }
+    var rawOrderBy: String? { get }
+    
+    mutating func setPageNumber(number: Int)
 }
 
 public class RequestManager<Type: JSONParserEntity> {
@@ -54,7 +56,7 @@ public class RequestManager<Type: JSONParserEntity> {
     public func loadNextPageWithCompletionHandler(completionHandler: (items: [Type]?)->Void) {
         let newPageNumber = pageNumber + 1
         
-        request.params?["p"] = "\(newPageNumber)"
+        request.setPageNumber(newPageNumber)
         pageNumber = newPageNumber
         
         guard let url = requestBuilder.buildRequest(request) else {

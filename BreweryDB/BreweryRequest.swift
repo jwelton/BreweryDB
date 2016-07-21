@@ -39,70 +39,26 @@ public enum BreweryRequestOrderParam: String {
     case Random = "random"
 }
 
-public class BreweryRequest {
-//    private var pageNumber = 0
-//    private let requestBuilder = RequestBuilder(endPoint: .Breweries)
-//    private var request: NSURLRequest
-//    
-//    public let requestParams: [BreweryRequestParam: String]
-//    public var orderParameter: BreweryRequestOrderParam?
-//    public var requestURL: NSURLRequest {
-//        return request
-//    }
-//    public var currentPageNumber: Int {
-//        return pageNumber
-//    }
-//    
-//    public init?(requestParams params: [BreweryRequestParam: String], orderBy order: BreweryRequestOrderParam? = nil) {
-//        guard let url = requestBuilder.buildRequest(params, orderParam: order?.rawValue) where params.count != 0 else {
-//            return nil
-//        }
-//        
-//        requestParams = params
-//        orderParameter = order
-//        request = url
-//    }
-//    
-//    public func loadBreweriesWithCompletionHandler(completionHandler: ((breweries: [Brewery]?)->Void)) {
-//        NSURLSession.sharedSession().dataTaskWithRequest(requestURL) { data, response, error in
-//            guard let returnedData = data,
-//                let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
-//                    completionHandler(breweries: nil)
-//                    return
-//            }
-//            
-//            let jsonParser = JSONParser<Brewery>(rawData: returnedData)
-//            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
-//            
-//            }.resume()
-//    }
-//    
-//    public func loadNextPageWithCompletionHandler(completionHandler: (breweries: [Brewery]?)->Void) {
-//        let newPageNumber = pageNumber + 1
-//        
-//        var newParams = requestParams
-//        newParams[.PageNumber] = "\(newPageNumber)"
-//        pageNumber = newPageNumber
-//        
-//        guard let url = requestBuilder.buildRequest(newParams, orderParam: orderParameter?.rawValue) else {
-//            completionHandler(breweries: nil)
-//            return
-//        }
-//        
-//        request = url
-//        
-//        loadBreweriesWithCompletionHandler(completionHandler)
-//    }
+public struct BreweryRequest {
+    public var params: [BreweryRequestParam: String]?
+    public var orderBy: BreweryRequestOrderParam?
+    public var endpoint = RequestEndPoint.Breweries
 }
 
-//extension BreweryRequest: CustomStringConvertible {
-//    public var description: String {
-//        var items = ""
-//        
-//        for param in requestParams {
-//            items += param.1
-//        }
-//        
-//        return items
-//    }
-//}
+extension BreweryRequest: BreweryDBRequest {
+    public var rawParams: [String: String]? {
+        return params?.reduce([String: String]()) { previous, item in
+            var temp = previous
+            temp[item.0.rawValue] = item.1
+            return temp
+        }
+    }
+    
+    public var rawOrderBy: String? {
+        return orderBy?.rawValue
+    }
+    
+    mutating public func setPageNumber(number: Int) {
+        params?[.PageNumber] = String(number)
+    }
+}

@@ -38,14 +38,14 @@ public class RequestBuilder {
         let components = NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: false)
         components?.queryItems = [apiKeyQueryItem]
         
-        if let params = request.params {
+        if let params = request.rawParams {
             for param in params {
                 let queryItem = NSURLQueryItem(name: param.0, value: param.1)
                 components?.queryItems?.append(queryItem)
             }
         }
         
-        if let orderParam = request.orderBy {
+        if let orderParam = request.rawOrderBy {
             let queryItem = NSURLQueryItem(name: "order", value: orderParam)
             components?.queryItems?.append(queryItem)
         }
