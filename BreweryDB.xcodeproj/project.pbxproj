@@ -24,6 +24,7 @@
 		2398559C1CE100A0001CA4AC /* Available.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398559B1CE100A0001CA4AC /* Available.swift */; };
 		23BABBCF1D4133A900BF1FE0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */; };
 		23BABBD11D41471F00BF1FE0 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBD01D41471F00BF1FE0 /* RequestManagerTests.swift */; };
+		23BABBD41D42949000BF1FE0 /* CategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBD31D42949000BF1FE0 /* CategoryRequest.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
 		23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */; };
@@ -65,6 +66,7 @@
 		2398559B1CE100A0001CA4AC /* Available.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Available.swift; sourceTree = "<group>"; };
 		23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		23BABBD01D41471F00BF1FE0 /* RequestManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
+		23BABBD31D42949000BF1FE0 /* CategoryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRequest.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
@@ -150,6 +152,15 @@
 			name = BreweryTests;
 			sourceTree = "<group>";
 		};
+		23BABBD21D42947600BF1FE0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				239855991CE0FE39001CA4AC /* Category.swift */,
+				23BABBD31D42949000BF1FE0 /* CategoryRequest.swift */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		23FF53B81C397A7B0094249C = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +194,7 @@
 				23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */,
 				2398559B1CE100A0001CA4AC /* Available.swift */,
 				239855971CE0F8EF001CA4AC /* Style.swift */,
-				239855991CE0FE39001CA4AC /* Category.swift */,
+				23BABBD21D42947600BF1FE0 /* Category */,
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
 			);
@@ -384,6 +395,7 @@
 				23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
 				238646041CD3F4CC00170B2D /* Brewery.swift in Sources */,
+				23BABBD41D42949000BF1FE0 /* CategoryRequest.swift in Sources */,
 				23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */,
 				2398559C1CE100A0001CA4AC /* Available.swift in Sources */,
 				239855981CE0F8EF001CA4AC /* Style.swift in Sources */,
