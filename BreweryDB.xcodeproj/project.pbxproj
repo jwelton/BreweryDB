@@ -27,6 +27,7 @@
 		23BABBD41D42949000BF1FE0 /* CategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBD31D42949000BF1FE0 /* CategoryRequest.swift */; };
 		23BABBDA1D4295F700BF1FE0 /* StyleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBD91D4295F700BF1FE0 /* StyleRequest.swift */; };
 		23BABBE01D42977F00BF1FE0 /* GlassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBDF1D42977F00BF1FE0 /* GlassRequest.swift */; };
+		23BABBE21D4299CF00BF1FE0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BABBE11D4299CF00BF1FE0 /* Search.swift */; };
 		23DF758B1C5D0E9C00D5D218 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */; };
 		23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */; };
 		23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */; };
@@ -71,6 +72,7 @@
 		23BABBD31D42949000BF1FE0 /* CategoryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRequest.swift; sourceTree = "<group>"; };
 		23BABBD91D4295F700BF1FE0 /* StyleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleRequest.swift; sourceTree = "<group>"; };
 		23BABBDF1D42977F00BF1FE0 /* GlassRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlassRequest.swift; sourceTree = "<group>"; };
+		23BABBE11D4299CF00BF1FE0 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
 				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
+				23BABBE11D4299CF00BF1FE0 /* Search.swift */,
 				23BABBDE1D42977600BF1FE0 /* Glass */,
 				23BABBDB1D4296F100BF1FE0 /* Available */,
 				23BABBD81D4295EC00BF1FE0 /* Style */,
@@ -420,6 +423,7 @@
 				23BABBDA1D4295F700BF1FE0 /* StyleRequest.swift in Sources */,
 				23849A8E1CD6ECFE00C72F24 /* ImageURLSet.swift in Sources */,
 				238646061CD3F6FD00170B2D /* BreweryRequest.swift in Sources */,
+				23BABBE21D4299CF00BF1FE0 /* Search.swift in Sources */,
 				23BABBCF1D4133A900BF1FE0 /* RequestManager.swift in Sources */,
 				233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */,
 				23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */,
