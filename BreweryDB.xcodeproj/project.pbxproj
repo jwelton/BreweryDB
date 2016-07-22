@@ -216,11 +216,11 @@
 			children = (
 				23FF53C51C397A7B0094249C /* BreweryDB.h */,
 				23FF53C71C397A7B0094249C /* Info.plist */,
-				23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */,
 				23FF53E31C39831B0094249C /* BreweryDB.swift */,
+				23BABBCE1D4133A900BF1FE0 /* RequestManager.swift */,
+				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
 				233CB5C11CD47E10000E36B7 /* JSONParser.swift */,
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
-				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
 				23BABBDE1D42977600BF1FE0 /* Glass */,
 				23BABBDB1D4296F100BF1FE0 /* Available */,
 				23BABBD81D4295EC00BF1FE0 /* Style */,
