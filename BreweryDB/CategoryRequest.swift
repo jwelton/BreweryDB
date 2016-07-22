@@ -16,7 +16,7 @@ public enum CategoryRequestParam: String {
 public struct CategoryRequest {
     public var params: [CategoryRequestParam: String]?
     public var endpoint: RequestEndPoint{
-        return .Beers
+        return .Categories
     }
     
     public init(params: [CategoryRequestParam: String]? = nil) {
