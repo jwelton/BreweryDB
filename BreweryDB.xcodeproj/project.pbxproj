@@ -172,6 +172,14 @@
 			name = Style;
 			sourceTree = "<group>";
 		};
+		23BABBDB1D4296F100BF1FE0 /* Available */ = {
+			isa = PBXGroup;
+			children = (
+				2398559B1CE100A0001CA4AC /* Available.swift */,
+			);
+			name = Available;
+			sourceTree = "<group>";
+		};
 		23FF53B81C397A7B0094249C = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +211,7 @@
 				23DF758A1C5D0E9C00D5D218 /* RequestBuilder.swift */,
 				23849A8D1CD6ECFE00C72F24 /* ImageURLSet.swift */,
 				23ECAC2A1CDF9B1100DCAB08 /* Glass.swift */,
-				2398559B1CE100A0001CA4AC /* Available.swift */,
+				23BABBDB1D4296F100BF1FE0 /* Available */,
 				23BABBD81D4295EC00BF1FE0 /* Style */,
 				23BABBD21D42947600BF1FE0 /* Category */,
 				238646011CD3F47000170B2D /* Beer */,
