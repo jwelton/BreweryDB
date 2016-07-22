@@ -14,6 +14,7 @@ public enum RequestEndPoint: String {
     case Categories = "categories"
     case Styles = "styles"
     case Glassware = "glassware"
+    case Search = "search"
 }
 
 public extension NSURL {
