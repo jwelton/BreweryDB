@@ -68,4 +68,8 @@ public class RequestManager<Type: JSONParserEntity> {
         
         loadWithCompletionHandler(completionHandler)
     }
+    
+    public func cancelCurrentRequest() {
+        NSURLSession.sharedSession().invalidateAndCancel()
+    }
 }
