@@ -17,7 +17,7 @@ public enum BeerRequestParam: String {
     case HasLabels = "hasLabels"
     case Since = "since"
     case Status = "status"
-    case RandomCount = "order"
+    case RandomCount = "randomCount"
     case PageNumber = "p"
     case StyleId = "styleId"
 }
