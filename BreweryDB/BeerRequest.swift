@@ -20,6 +20,7 @@ public enum BeerRequestParam: String {
     case RandomCount = "randomCount"
     case PageNumber = "p"
     case StyleId = "styleId"
+    case WithBreweries = "withBreweries"
 }
 
 public enum BeerRequestOrderParam: String {
