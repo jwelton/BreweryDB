@@ -25,7 +25,7 @@ public class Beer {
     public var glass: Glass?
     public var available: Available?
     public var style: Style?
-    public var breweries: [Brewery]?
+    public var breweries = [Brewery]()
     
     public init(identifier: String) {
         self.identifier = identifier
