@@ -80,7 +80,7 @@ extension Beer: JSONParserEntity {
         if let rawBreweries = rawBeer["breweries"] as? [JSON] {
             rawBreweries.forEach{ rawBrewery in
                 guard let brewery = Brewery.mapJSONToObject(rawBrewery) as? Brewery else { return }
-                beer.breweries?.append(brewery)
+                beer.breweries.append(brewery)
             }
         }
         
