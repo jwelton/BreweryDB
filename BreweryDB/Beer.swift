@@ -25,6 +25,7 @@ public class Beer {
     public var glass: Glass?
     public var available: Available?
     public var style: Style?
+    public var breweries = [Brewery]()
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -74,6 +75,13 @@ extension Beer: JSONParserEntity {
         
         if let style = rawBeer["style"] as? JSON {
             beer.style = Style.mapJSONToObject(style) as? Style
+        }
+        
+        if let rawBreweries = rawBeer["breweries"] as? [JSON] {
+            rawBreweries.forEach{ rawBrewery in
+                guard let brewery = Brewery.mapJSONToObject(rawBrewery) as? Brewery else { print("Failed mapping of brewery \(beer.name)"); return }
+                beer.breweries.append(brewery)
+            }
         }
         
         return beer
