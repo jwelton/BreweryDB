@@ -9,16 +9,16 @@
 import Foundation
 
 public enum SearchRequestParam: String {
-    case SearchTerm = "q"
-    case Type = "type"
-    case PageNumber = "p"
-    case WithBreweries = "withBreweries"
+    case searchTerm = "q"
+    case resultType = "type"
+    case pageNumber = "p"
+    case withBreweries = "withBreweries"
 }
 
 public struct SearchRequest {
     public var params: [SearchRequestParam: String]?
     public var endpoint: RequestEndPoint{
-        return .Search
+        return .search
     }
     
     public init(params: [SearchRequestParam: String]? = nil) {
@@ -39,7 +39,16 @@ extension SearchRequest: BreweryDBRequest {
         return nil
     }
     
-    mutating public func setPageNumber(number: Int) {
-        params?[.PageNumber] = String(number)
+    public var pageNumber: Int {
+        get {
+            guard let rawPageNumber = params?[.pageNumber] else {
+                return 0
+            }
+            
+            return Int(rawPageNumber) ?? 0
+        }
+        set {
+            params?[.pageNumber] = String(newValue)
+        }
     }
 }

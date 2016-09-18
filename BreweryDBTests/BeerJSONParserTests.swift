@@ -10,14 +10,14 @@ import XCTest
 @testable import BreweryDB
 
 class BeerJSONParserTests: XCTestCase {
-    var testData: NSData!
+    var testData: Data!
     var parser: JSONParser<Beer>!
     
     override func setUp() {
         super.setUp()
         
-        let testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBeerJSON", withExtension: "json")!
-        testData = NSData(contentsOfURL: testFileLocation)
+        let testFileLocation = Bundle(for: type(of: self)).url(forResource: "testBeerJSON", withExtension: "json")!
+        testData = try? Data(contentsOf: testFileLocation)
         parser = JSONParser<Beer>(rawData: testData)
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,15 +28,15 @@ class BeerJSONParserTests: XCTestCase {
         super.tearDown()
     }
     
-    func performJSONExtractAndWait(description: String, completionHandler: (([Beer]?)->Void)) {
-        let expectation = expectationWithDescription(description)
+    func performJSONExtractAndWait(_ description: String, completionHandler: @escaping (([Beer]?)->Void)) {
+        let expectation = self.expectation(description: description)
         
-        parser.extractObjectsWithCompletionHandler() { beers in
+        parser.extractObjects() { beers in
             expectation.fulfill()
             completionHandler(beers)
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
@@ -46,7 +46,7 @@ class BeerJSONParserTests: XCTestCase {
     }
     
     func testJSONParserFailsInitializationWithInvalidData() {
-        let parser = JSONParser<Beer>(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
+        let parser = JSONParser<Beer>(rawData: "invalid data".data(using: .utf8)!)
         XCTAssertNil(parser)
     }
     
@@ -140,19 +140,19 @@ class BeerJSONParserTests: XCTestCase {
     
     func testBeerJSONParserExtractsFirstBeerIconImage() {
         performJSONExtractAndWait("Parser should extract first beer icon image") { beers in
-            XCTAssertEqual(beers?[0].imageURLSet?.icon, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-icon.png"))
+            XCTAssertEqual(beers?[0].imageURLSet?.icon, URL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-icon.png"))
         }
     }
     
     func testBeerJSONParserExtractsFirstBeerMediumImage() {
         performJSONExtractAndWait("Parser should extract first beer icon image") { beers in
-            XCTAssertEqual(beers?[0].imageURLSet?.medium, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-medium.png"))
+            XCTAssertEqual(beers?[0].imageURLSet?.medium, URL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-medium.png"))
         }
     }
     
     func testBeerJSONParserExtractsFirstBeerLargeImage() {
         performJSONExtractAndWait("Parser should extract first beer large image") { beers in
-            XCTAssertEqual(beers?[0].imageURLSet?.large, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-large.png"))
+            XCTAssertEqual(beers?[0].imageURLSet?.large, URL(string: "https://s3.amazonaws.com/brewerydbapi/beer/thTbY7/upload_jxcOpY-large.png"))
         }
     }
     

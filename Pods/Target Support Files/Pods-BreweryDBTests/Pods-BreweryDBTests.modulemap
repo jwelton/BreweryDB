@@ -1,6 +1,0 @@
-framework module Pods_BreweryDBTests {
-  umbrella header "Pods-BreweryDBTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

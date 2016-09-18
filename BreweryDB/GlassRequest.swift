@@ -9,13 +9,13 @@
 import Foundation
 
 public enum GlassRequestParam: String {
-    case PageNumber = "p"
+    case pageNumber = "p"
 }
 
 public struct GlassRequest {
     public var params: [GlassRequestParam: String]?
     public var endpoint: RequestEndPoint{
-        return .Glassware
+        return .glassware
     }
     
     public init(params: [GlassRequestParam: String]? = nil) {
@@ -36,7 +36,16 @@ extension GlassRequest: BreweryDBRequest {
         return nil
     }
     
-    mutating public func setPageNumber(number: Int) {
-        params?[.PageNumber] = String(number)
+    public var pageNumber: Int {
+        get {
+            guard let rawPageNumber = params?[.pageNumber] else {
+                return 0
+            }
+            
+            return Int(rawPageNumber) ?? 0
+        }
+        set {
+            params?[.pageNumber] = String(newValue)
+        }
     }
 }

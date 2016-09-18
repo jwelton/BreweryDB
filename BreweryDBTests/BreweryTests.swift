@@ -67,7 +67,7 @@ class BreweryTests: XCTestCase {
     }
     
     func testBeerCanSetWebsite() {
-        let testData = NSURL(string: "http://www.brewerydb.com")
+        let testData = URL(string: "http://www.brewerydb.com")
         
         let brewery = Brewery(identifier: "Brewery identifier")
         brewery.website = testData
@@ -75,7 +75,7 @@ class BreweryTests: XCTestCase {
     }
     
     func testBeerCanSetmailingListURL() {
-        let testData = NSURL(string: "http://www.brewerydb.com")
+        let testData = URL(string: "http://www.brewerydb.com")
         
         let brewery = Brewery(identifier: "Brewery identifier")
         brewery.mailingListURL = testData

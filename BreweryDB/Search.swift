@@ -9,13 +9,13 @@
 import Foundation
 
 enum SearchResultType: String {
-    case Beer = "beer"
-    case Brewery = "brewery"
+    case beer = "beer"
+    case brewery = "brewery"
 }
 
-public class Search {
-    public let beer: Beer?
-    public let brewery: Brewery?
+open class Search {
+    open let beer: Beer?
+    open let brewery: Brewery?
     
     public init(beer: Beer? = nil, brewery: Brewery? = nil) {
         self.beer = beer
@@ -24,17 +24,17 @@ public class Search {
 }
 
 extension Search: JSONParserEntity {
-    public static func mapJSONToObject(json: JSON) -> AnyObject? {
+    public static func map(json: json) -> AnyObject? {
         guard let rawType = json["type"] as? String,
             let type = SearchResultType(rawValue: rawType) else {
                 return nil
         }
         
         switch type {
-        case .Beer:
-            return Search(beer: Beer.mapJSONToObject(json) as? Beer)
-        case .Brewery:
-            return Search(brewery: Brewery.mapJSONToObject(json) as? Brewery)
+        case .beer:
+            return Search(beer: Beer.map(json: json) as? Beer)
+        case .brewery:
+            return Search(brewery: Brewery.map(json: json) as? Brewery)
         }
     }
 }

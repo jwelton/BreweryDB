@@ -10,7 +10,7 @@ import Foundation
 
 public struct StyleRequest {
     public var endpoint: RequestEndPoint{
-        return .Styles
+        return .styles
     }
     
     public init() {}
@@ -25,7 +25,12 @@ extension StyleRequest: BreweryDBRequest {
         return nil
     }
     
-    mutating public func setPageNumber(number: Int) {
-        // Do nothing - styles are all on one page
+    public var pageNumber: Int {
+        get {
+            return 0
+        }
+        set {
+            // Do nothing
+        }
     }
 }

@@ -12,19 +12,19 @@ import XCTest
 class BreweryRequestTests: XCTestCase {
     func testBreweryCanBeInitialized() {
         let requestParams = [
-            BreweryRequestParam.Name: "breweryName"
+            BreweryRequestParam.name: "breweryName"
         ]
         
-        let request: BreweryRequest? = BreweryRequest(params: requestParams, orderBy: .Name)
+        let request: BreweryRequest? = BreweryRequest(params: requestParams, orderBy: .name)
         XCTAssertNotNil(request)
     }
     
     func testBreweryRequestCanBeDeinitialized() {
         let requestParams = [
-            BreweryRequestParam.Name: "breweryName"
+            BreweryRequestParam.name: "breweryName"
         ]
         
-        var request: BreweryRequest? = BreweryRequest(params: requestParams, orderBy: .Name)
+        var request: BreweryRequest? = BreweryRequest(params: requestParams, orderBy: .name)
         request = nil
         XCTAssertNil(request)
     }

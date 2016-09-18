@@ -12,20 +12,18 @@ public protocol BreweryDBRequest {
     var endpoint: RequestEndPoint { get }
     var rawParams: [String: String]? { get }
     var rawOrderBy: String? { get }
-    
-    mutating func setPageNumber(number: Int)
+    var pageNumber: Int { get set }
 }
 
-public class RequestManager<Type: JSONParserEntity> {
-    private var pageNumber = 0
-    private let requestBuilder: RequestBuilder
-    private var urlRequest: NSURLRequest
-    public var request: BreweryDBRequest
-    public var requestURL: NSURLRequest {
+open class RequestManager<Type: JSONParserEntity> {
+    fileprivate let requestBuilder: RequestBuilder
+    fileprivate var urlRequest: URLRequest
+    open var request: BreweryDBRequest
+    open var requestURL: URLRequest {
         return urlRequest
     }
-    public var currentPageNumber: Int {
-        return pageNumber
+    open var currentPageNumber: Int {
+        return request.pageNumber
     }
     
     public init?(request: BreweryDBRequest) {
@@ -39,37 +37,34 @@ public class RequestManager<Type: JSONParserEntity> {
         urlRequest = url
     }
     
-    public func loadWithCompletionHandler(completionHandler: ((items: [Type]?)->Void)) {
-        NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { data, response, error in
+    open func fetch(using completionHandler: @escaping ([Type]?)->Void) {
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
             guard let returnedData = data,
-                let response = response as? NSHTTPURLResponse where response.statusCode == 200 else {
-                    completionHandler(items: nil)
+                let response = response as? HTTPURLResponse , response.statusCode == 200 else {
+                    completionHandler(nil)
                     return
             }
             
             let jsonParser = JSONParser<Type>(rawData: returnedData)
-            jsonParser?.extractObjectsWithCompletionHandler(completionHandler)
+            jsonParser?.extractObjects(using: completionHandler)
             
-            }.resume()
+            }) .resume()
     }
     
-    public func loadNextPageWithCompletionHandler(completionHandler: (items: [Type]?)->Void) {
-        let newPageNumber = pageNumber + 1
-        
-        request.setPageNumber(newPageNumber)
-        pageNumber = newPageNumber
+    open func fetchNextPage(using completionHandler: @escaping ([Type]?)->Void) {
+        request.pageNumber += 1
         
         guard let url = requestBuilder.buildRequest(request) else {
-            completionHandler(items: nil)
+            completionHandler(nil)
             return
         }
         
         urlRequest = url
         
-        loadWithCompletionHandler(completionHandler)
+        fetch(using: completionHandler)
     }
     
-    public func cancelCurrentRequest() {
-        NSURLSession.sharedSession().invalidateAndCancel()
+    open func cancel() {
+        URLSession.shared.invalidateAndCancel()
     }
 }

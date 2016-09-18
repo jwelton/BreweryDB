@@ -8,24 +8,24 @@
 
 import Foundation
 
-public typealias JSON = [String: AnyObject]
+public typealias json = [String: AnyObject]
 
 public protocol JSONParserEntity {
-    static func mapJSONToObject(json: JSON) -> AnyObject?
+    static func map(json: json) -> AnyObject?
 }
 
-public class JSONParser<T where T: JSONParserEntity>{
-    public let rawData: NSData
-    public let decodedData: JSON
-    public var currentPage: Int?
-    public var totalNumberOfPages: Int?
-    public var totalResults: Int?
-    public var extractedEntities = [T]()
+open class JSONParser<T> where T: JSONParserEntity{
+    open let rawData: Data
+    open let decodedData: json
+    open var currentPage: Int?
+    open var totalNumberOfPages: Int?
+    open var totalResults: Int?
+    open var extractedEntities = [T]()
     
-    public init?(rawData data: NSData) {
+    public init?(rawData data: Data) {
         rawData = data
         
-        guard let decodedJSON = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? JSON else {
+        guard let decodedJSON = (try? JSONSerialization.jsonObject(with: data, options: [])) as? json else {
             print("BreweryDB: Invalid data. Unable to decode data into object.")
             return nil
         }
@@ -33,24 +33,24 @@ public class JSONParser<T where T: JSONParserEntity>{
         decodedData = decodedJSON
     }
     
-    public func extractObjectsWithCompletionHandler(completionHandler: (([T]?)->Void)) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+    open func extractObjects(using completionHandler: @escaping (([T]?)->Void)) {
+        DispatchQueue.global(qos: .background).async {
             self.currentPage = self.decodedData["currentPage"] as? Int
             self.totalNumberOfPages = self.decodedData["numberOfPages"] as? Int
             self.totalResults = self.decodedData["totalResults"] as? Int
             
-            guard let extractedData = self.decodedData["data"] as? [JSON] else {
+            guard let extractedData = self.decodedData["data"] as? [json] else {
                 completionHandler(nil)
                 return
             }
             
             for rawEntity in extractedData {
-                if let newObject = T.mapJSONToObject(rawEntity) as? T {
+                if let newObject = T.map(json: rawEntity) as? T {
                     self.extractedEntities.append(newObject)
                 }
             }
             
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 completionHandler(self.extractedEntities)
             }
         }

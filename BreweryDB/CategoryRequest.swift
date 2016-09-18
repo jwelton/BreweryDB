@@ -9,14 +9,14 @@
 import Foundation
 
 public enum CategoryRequestParam: String {
-    case Identifier = "ids"
-    case Name = "name"
+    case identifier = "ids"
+    case name = "name"
 }
 
 public struct CategoryRequest {
     public var params: [CategoryRequestParam: String]?
     public var endpoint: RequestEndPoint{
-        return .Categories
+        return .categories
     }
     
     public init(params: [CategoryRequestParam: String]? = nil) {
@@ -37,7 +37,12 @@ extension CategoryRequest: BreweryDBRequest {
         return nil
     }
     
-    mutating public func setPageNumber(number: Int) {
-        // Do nothing - Categories have only 1 page
+    public var pageNumber: Int {
+        get {
+            return 0
+        }
+        set {
+            // Do nothing
+        }
     }
 }

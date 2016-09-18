@@ -9,41 +9,41 @@
 import Foundation
 
 public enum BreweryRequestParam: String {
-    case Identifier = "ids"
-    case Name = "name"
-    case Abv = "abv"
-    case Ibu = "ibu"
-    case GlasswareId = "glasswareId"
-    case SrmId = "srmId"
-    case AvaliableId = "availableId"
-    case StyleId = "styleId"
-    case IsOrganic = "isOrganic"
-    case HasLabels = "hasLabels"
-    case Year = "year"
-    case Since = "since"
-    case Status = "status"
-    case RandomCount = "order"
-    case PageNumber = "p"
+    case identifier = "ids"
+    case name = "name"
+    case abv = "abv"
+    case ibu = "ibu"
+    case glasswareId = "glasswareId"
+    case srmId = "srmId"
+    case avaliableId = "availableId"
+    case styleId = "styleId"
+    case isOrganic = "isOrganic"
+    case hasLabels = "hasLabels"
+    case year = "year"
+    case since = "since"
+    case status = "status"
+    case randomCount = "order"
+    case pageNumber = "p"
 }
 
 public enum BreweryRequestOrderParam: String {
-    case Name = "name"
-    case Description = "description"
-    case Website = "website"
-    case Established = "established"
-    case MailingListURL = "mailingListURL"
-    case IsOrganic = "isOrganic"
-    case Status = "status"
-    case CreateDate = "createDate"
-    case UpdateDate = "updateDate"
-    case Random = "random"
+    case name = "name"
+    case description = "description"
+    case website = "website"
+    case established = "established"
+    case mailingListURL = "mailingListURL"
+    case isOrganic = "isOrganic"
+    case status = "status"
+    case createDate = "createDate"
+    case updateDate = "updateDate"
+    case random = "random"
 }
 
 public struct BreweryRequest {
     public var params: [BreweryRequestParam: String]?
     public var orderBy: BreweryRequestOrderParam?
     public var endpoint: RequestEndPoint{
-        return .Breweries
+        return .breweries
     }
     
     public init(params: [BreweryRequestParam: String]? = nil, orderBy: BreweryRequestOrderParam? = nil) {
@@ -65,7 +65,16 @@ extension BreweryRequest: BreweryDBRequest {
         return orderBy?.rawValue
     }
     
-    mutating public func setPageNumber(number: Int) {
-        params?[.PageNumber] = String(number)
+    public var pageNumber: Int {
+        get {
+            guard let rawPageNumber = params?[.pageNumber] else {
+                return 0
+            }
+            
+            return Int(rawPageNumber) ?? 0
+        }
+        set {
+            params?[.pageNumber] = String(newValue)
+        }
     }
 }

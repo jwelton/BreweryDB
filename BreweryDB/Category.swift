@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Category {
-    public let identifier: Int
-    public var name: String?
+open class Category {
+    open let identifier: Int
+    open var name: String?
     
     public init(identifier: Int) {
         self.identifier = identifier
@@ -18,7 +18,7 @@ public class Category {
 }
 
 extension Category: JSONParserEntity {
-    public static func mapJSONToObject(json: JSON) -> AnyObject? {
+    public static func map(json: json) -> AnyObject? {
         guard let identifier = json["id"] as? Int else {
             return nil
         }

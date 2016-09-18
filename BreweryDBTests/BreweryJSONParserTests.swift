@@ -10,14 +10,14 @@ import XCTest
 @testable import BreweryDB
 
 class BreweryJSONParserTests: XCTestCase {
-    var testData: NSData!
+    var testData: Data!
     var parser: JSONParser<Brewery>!
     
     override func setUp() {
         super.setUp()
         
-        let testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBreweryJSON", withExtension: "json")!
-        testData = NSData(contentsOfURL: testFileLocation)
+        let testFileLocation = Bundle(for: type(of: self)).url(forResource: "testBreweryJSON", withExtension: "json")!
+        testData = try? Data(contentsOf: testFileLocation)
         parser = JSONParser<Brewery>(rawData: testData)
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,15 +28,15 @@ class BreweryJSONParserTests: XCTestCase {
         super.tearDown()
     }
     
-    func performJSONExtractAndWait(description: String, completionHandler: (([Brewery]?)->Void)) {
-        let expectation = expectationWithDescription(description)
+    func performJSONExtractAndWait(_ description: String, completionHandler: @escaping (([Brewery]?)->Void)) {
+        let expectation = self.expectation(description: description)
         
-        parser.extractObjectsWithCompletionHandler() { breweries in
+        parser.extractObjects() { breweries in
             expectation.fulfill()
             completionHandler(breweries)
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
@@ -46,7 +46,7 @@ class BreweryJSONParserTests: XCTestCase {
     }
     
     func testJSONParserFailsInitializationWithInvalidData() {
-        let parser = JSONParser<Beer>(rawData: "invalid data".dataUsingEncoding(.allZeros)!)
+        let parser = JSONParser<Beer>(rawData: "invalid data".data(using: .utf8)!)
         XCTAssertNil(parser)
     }
     
@@ -104,43 +104,43 @@ class BreweryJSONParserTests: XCTestCase {
     
     func testBreweryJSONParserExtractsBreweryWebsite() {
         performJSONExtractAndWait("Parser should extract brewery website") { breweries in
-            XCTAssertEqual(breweries?[0].website, NSURL(string: "http://bastone.net/")!)
+            XCTAssertEqual(breweries?[0].website, URL(string: "http://bastone.net/")!)
         }
     }
     
     func testBreweryJSONParserExtractsBreweryMailingListURL() {
         performJSONExtractAndWait("Parser should extract brewery mailing list URL") { breweries in
-            XCTAssertEqual(breweries?[0].mailingListURL, NSURL(string: "http://mailing.bastone.net/")!)
+            XCTAssertEqual(breweries?[0].mailingListURL, URL(string: "http://mailing.bastone.net/")!)
         }
     }
     
     func testBreweryJSONParserExtractsFirstBreweryIconImage() {
         performJSONExtractAndWait("Parser should extract first brewery icon image") { breweries in
-            XCTAssertEqual(breweries?[0].imageURLSet?.icon, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-icon.png"))
+            XCTAssertEqual(breweries?[0].imageURLSet?.icon, URL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-icon.png"))
         }
     }
     
     func testBreweryJSONParserExtractsFirstBreweryMediumImage() {
         performJSONExtractAndWait("Parser should extract first brewery medium image") { breweries in
-            XCTAssertEqual(breweries?[0].imageURLSet?.medium, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-medium.png"))
+            XCTAssertEqual(breweries?[0].imageURLSet?.medium, URL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-medium.png"))
         }
     }
     
     func testBreweryJSONParserExtractsFirstBreweryLargeImage() {
         performJSONExtractAndWait("Parser should extract first brewery large image") { breweries in
-            XCTAssertEqual(breweries?[0].imageURLSet?.large, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-large.png"))
+            XCTAssertEqual(breweries?[0].imageURLSet?.large, URL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-large.png"))
         }
     }
     
     func testBreweryJSONParserExtractsFirstBrewerySquareMediumImage() {
         performJSONExtractAndWait("Parser should extract first brewery square medium image") { breweries in
-            XCTAssertEqual(breweries?[0].imageURLSet?.squareMedium, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-squareMedium.png"))
+            XCTAssertEqual(breweries?[0].imageURLSet?.squareMedium, URL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-squareMedium.png"))
         }
     }
     
     func testBreweryJSONParserExtractsFirstBrewerySquareLargeImage() {
         performJSONExtractAndWait("Parser should extract first brewery square large image") { breweries in
-            XCTAssertEqual(breweries?[0].imageURLSet?.squareLarge, NSURL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-squareLarge.png"))
+            XCTAssertEqual(breweries?[0].imageURLSet?.squareLarge, URL(string: "https://s3.amazonaws.com/brewerydbapi/brewery/sPZjl6/upload_bPzu2H-squareLarge.png"))
         }
     }
 

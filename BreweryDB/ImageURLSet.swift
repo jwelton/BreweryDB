@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class ImageURLSet {
-    public let icon: NSURL?
-    public let medium: NSURL?
-    public let large: NSURL?
-    public let squareMedium: NSURL?
-    public let squareLarge: NSURL?
+open class ImageURLSet {
+    open let icon: URL?
+    open let medium: URL?
+    open let large: URL?
+    open let squareMedium: URL?
+    open let squareLarge: URL?
     
-    public init(icon: NSURL?, medium: NSURL?, large: NSURL?, squareMedium: NSURL?, squareLarge: NSURL?) {
+    public init(icon: URL?, medium: URL?, large: URL?, squareMedium: URL?, squareLarge: URL?) {
         self.icon = icon
         self.medium = medium
         self.large = large
@@ -25,31 +25,31 @@ public class ImageURLSet {
 }
 
 extension ImageURLSet: JSONParserEntity {
-    public static func mapJSONToObject(json: JSON) -> AnyObject? {
-        var icon: NSURL?
-        var medium: NSURL?
-        var large: NSURL?
-        var squareMedium: NSURL?
-        var squareLarge: NSURL?
+    public static func map(json: json) -> AnyObject? {
+        var icon: URL?
+        var medium: URL?
+        var large: URL?
+        var squareMedium: URL?
+        var squareLarge: URL?
         
         if let url = json["icon"] as? String {
-            icon = NSURL(string: url)
+            icon = URL(string: url)
         }
         
         if let url = json["medium"] as? String {
-            medium = NSURL(string: url)
+            medium = URL(string: url)
         }
         
         if let url = json["large"] as? String {
-            large = NSURL(string: url)
+            large = URL(string: url)
         }
         
         if let url = json["squareMedium"] as? String {
-            squareMedium = NSURL(string: url)
+            squareMedium = URL(string: url)
         }
         
         if let url = json["squareLarge"] as? String {
-            squareLarge = NSURL(string: url)
+            squareLarge = URL(string: url)
         }
         
         return ImageURLSet(icon: icon, medium: medium, large: large, squareMedium: squareMedium, squareLarge: squareLarge)

@@ -9,37 +9,37 @@
 import Foundation
 
 public enum BeerRequestParam: String {
-    case Identifier = "ids"
-    case Name = "name"
-    case Abv = "abv"
-    case Ibu = "ibu"
-    case IsOrganic = "isOrganic"
-    case HasLabels = "hasLabels"
-    case Since = "since"
-    case Status = "status"
-    case RandomCount = "randomCount"
-    case PageNumber = "p"
-    case StyleId = "styleId"
-    case WithBreweries = "withBreweries"
+    case identifier = "ids"
+    case name = "name"
+    case abv = "abv"
+    case ibu = "ibu"
+    case isOrganic = "isOrganic"
+    case hasLabels = "hasLabels"
+    case since = "since"
+    case status = "status"
+    case randomCount = "randomCount"
+    case pageNumber = "p"
+    case styleId = "styleId"
+    case withBreweries = "withBreweries"
 }
 
 public enum BeerRequestOrderParam: String {
-    case Name = "name"
-    case Description = "description"
-    case Abv = "abv"
-    case Ibu = "ibu"
-    case IsOrganic = "isOrganic"
-    case Status = "status"
-    case CreateDate = "createDate"
-    case UpdateDate = "updateDate"
-    case Random = "random"
+    case name = "name"
+    case description = "description"
+    case abv = "abv"
+    case ibu = "ibu"
+    case isOrganic = "isOrganic"
+    case status = "status"
+    case createDate = "createDate"
+    case updateDate = "updateDate"
+    case random = "random"
 }
 
 public struct BeerRequest {
     public var params: [BeerRequestParam: String]?
     public var orderBy: BeerRequestOrderParam?
     public var endpoint: RequestEndPoint{
-        return .Beers
+        return .beers
     }
     
     public init(params: [BeerRequestParam: String]? = nil, orderBy: BeerRequestOrderParam? = nil) {
@@ -61,7 +61,16 @@ extension BeerRequest: BreweryDBRequest {
         return orderBy?.rawValue
     }
     
-    mutating public func setPageNumber(number: Int) {
-        params?[.PageNumber] = String(number)
+    public var pageNumber: Int {
+        get {
+            guard let rawPageNumber = params?[.pageNumber] else {
+                return 0
+            }
+            
+            return Int(rawPageNumber) ?? 0
+        }
+        set {
+            params?[.pageNumber] = String(newValue)
+        }
     }
 }

@@ -8,18 +8,19 @@
 
 import Foundation
 import XCTest
+import OHHTTPStubs
 
 @testable import BreweryDB
 
 class RequestManagerTests: XCTestCase {
     let returnData = "Test Data"
-    var testFileLocation: NSURL!
+    var testFileLocation: URL!
     
     override func setUp() {
         super.setUp()
         
-        BreweryDBApiKey = "testKey"
-        testFileLocation = NSBundle(forClass: self.dynamicType).URLForResource("testBreweryJSON", withExtension: "json")!
+        breweryDBApiKey = "testKey"
+        testFileLocation = Bundle(for: type(of: self)).url(forResource: "testBreweryJSON", withExtension: "json")!
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -32,7 +33,7 @@ class RequestManagerTests: XCTestCase {
     
     func testRequestManagerCanBeInitialized() {
         let requestParams = [
-            BreweryRequestParam.Name: "breweryName"
+            BreweryRequestParam.name: "breweryName"
         ]
         
         let manager: RequestManager? = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil))
@@ -41,7 +42,7 @@ class RequestManagerTests: XCTestCase {
     
     func testRequestManagerRequestCanBeDeinitialized() {
         let requestParams = [
-            BreweryRequestParam.Name: "breweryName"
+            BreweryRequestParam.name: "breweryName"
         ]
         
         var manager: RequestManager? = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil))
@@ -50,32 +51,32 @@ class RequestManagerTests: XCTestCase {
     }
 
     func testRequestManagerRequestLoadBreweryWithBreweryIdReturnsSuccessful() {
-        stub(isHost("api.brewerydb.com")) { _ in
-            return OHHTTPStubsResponse(fileAtPath: self.testFileLocation.path!, statusCode: 200, headers: nil)
+        let _ = stub(condition: isHost("api.brewerydb.com")) { _ in
+            return OHHTTPStubsResponse(fileAtPath: self.testFileLocation.path, statusCode: 200, headers: nil)
         }
         
-        let expectation = expectationWithDescription("URL request should return within 5 seconds")
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let expectation = self.expectation(description: "URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
         guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil)) else {
             XCTFail("Brewery request initialisation should not fail")
             return
         }
         
-        manager.loadWithCompletionHandler() { breweries in
+        manager.fetch() { breweries in
             XCTAssertEqual(breweries![0].identifier, "sPZjl6")
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
 
     func testRequestManagerRequestLoadBreweriesWithNilAPIKeyReturnsNil() {
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
-        BreweryDBApiKey = nil
+        breweryDBApiKey = nil
         
         let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil))
         
@@ -83,37 +84,37 @@ class RequestManagerTests: XCTestCase {
     }
 
     func testBreweriesRequestLoadBreweriesWithNoConnectionReturnsNil() {
-        stub(isHost("api.brewerydb.com")) { _ in
-            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+        let _ = stub(condition: isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
             return OHHTTPStubsResponse(error:notConnectedError)
         }
         
-        let expectation = expectationWithDescription("URL request should return within 5 seconds")
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let expectation = self.expectation(description: "URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
         guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil)) else {
             XCTFail("Brewery request initialisation should not fail")
             return
         }
         
-        manager.loadWithCompletionHandler() { breweries in
+        manager.fetch() { breweries in
             XCTAssertNil(breweries)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
 
     func testRequestManagerRequestLoadNextPageIncrementsPageNumber() {
-        stub(isHost("api.brewerydb.com")) { _ in
-            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+        let _ = stub(condition: isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
             return OHHTTPStubsResponse(error:notConnectedError)
         }
         
-        let expectation = expectationWithDescription("URL request should return within 5 seconds")
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let expectation = self.expectation(description: "URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
         guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil)) else {
             XCTFail("Brewery request initialisation should not fail")
@@ -122,24 +123,24 @@ class RequestManagerTests: XCTestCase {
         
         XCTAssertEqual(manager.currentPageNumber, 0)
         
-        manager.loadNextPageWithCompletionHandler { _ in
+        manager.fetchNextPage { _ in
             XCTAssertEqual(manager.currentPageNumber, 1)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
 
     func testRequestManagerRequestLoadNextPageAttachesPageNumberToURL() {
-        stub(isHost("api.brewerydb.com")) { _ in
-            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+        let _ = stub(condition: isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
             return OHHTTPStubsResponse(error:notConnectedError)
         }
         
-        let expectation = expectationWithDescription("URL request should return within 5 seconds")
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let expectation = self.expectation(description: "URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
         guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: nil)) else {
             XCTFail("Brewery request initialisation should not fail")
@@ -148,42 +149,42 @@ class RequestManagerTests: XCTestCase {
         
         XCTAssertEqual(manager.currentPageNumber, 0)
         
-        manager.loadNextPageWithCompletionHandler { _ in
-            let components = NSURLComponents(URL: manager.requestURL.URL!, resolvingAgainstBaseURL: false)
+        manager.fetchNextPage { _ in
+            let components = NSURLComponents(url: manager.requestURL.url!, resolvingAgainstBaseURL: false)
             let doesParamExist = components?.queryItems?.contains{ $0.name == "p" && $0.value == "1" }
             XCTAssertTrue(doesParamExist!)
             
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }
 
     func testRequestManagerRequestAttachesOrderToURL() {
-        stub(isHost("api.brewerydb.com")) { _ in
-            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue), userInfo:nil)
+        let _ = stub(condition: isHost("api.brewerydb.com")) { _ in
+            let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
             return OHHTTPStubsResponse(error:notConnectedError)
         }
         
-        let expectation = expectationWithDescription("URL request should return within 5 seconds")
-        let requestParams = [ BreweryRequestParam.Identifier: "NTrt0Z" ]
+        let expectation = self.expectation(description: "URL request should return within 5 seconds")
+        let requestParams = [ BreweryRequestParam.identifier: "NTrt0Z" ]
         
-        guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: .Name)) else {
+        guard let manager = RequestManager<Brewery>(request: BreweryRequest(params: requestParams, orderBy: .name)) else {
             XCTFail("Brewery request initialisation should not fail")
             return
         }
         
-        manager.loadNextPageWithCompletionHandler { _ in
-            let components = NSURLComponents(URL: manager.requestURL.URL!, resolvingAgainstBaseURL: false)
+        manager.fetchNextPage { _ in
+            let components = NSURLComponents(url: manager.requestURL.url!, resolvingAgainstBaseURL: false)
             let doesParamExist = components?.queryItems?.contains{ $0.name == "order" && $0.value == "name" }
             XCTAssertTrue(doesParamExist!)
             
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             XCTAssertNil(error)
         }
     }

@@ -1,5 +1,11 @@
 language: objective-c
-osx_image: xcode7.3
-xcode_workspace: BreweryDB.xcworkspace
+osx_image: xcode8
+xcode_project: BreweryDB.xcodeproj
 xcode_scheme: BreweryDB
-xcode_sdk: iphonesimulator9.3
+xcode_sdk: iphonesimulator10.0
+before_install:
+  - gem install xcpretty
+script:
+   - set -o pipefail
+   - carthage bootstrap --platform ios
+   - xcodebuild -project $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -destination 'name=iPhone 7' test | xcpretty -c

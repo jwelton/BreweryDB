@@ -8,5 +8,5 @@
 
 import Foundation
 
-public var BreweryDBApiKey: String? = nil
-public let BreweryDBBaseURL = NSURL(string: "https://api.brewerydb.com/v2")!
+public var breweryDBApiKey: String? = nil
+public let breweryDBBaseURL = URL(string: "https://api.brewerydb.com/v2")!

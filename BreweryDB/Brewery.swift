@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class Brewery {
-    public let identifier: String
-    public var name: String?
-    public var established: Int?
-    public var isOrganic: Bool?
-    public var breweryDescription: String?
-    public var website: NSURL?
-    public var mailingListURL: NSURL?
-    public var imageURLSet: ImageURLSet?
+open class Brewery {
+    open let identifier: String
+    open var name: String?
+    open var established: Int?
+    open var isOrganic: Bool?
+    open var breweryDescription: String?
+    open var website: URL?
+    open var mailingListURL: URL?
+    open var imageURLSet: ImageURLSet?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -24,31 +24,31 @@ public class Brewery {
 }
 
 extension Brewery: JSONParserEntity {
-    public static func mapJSONToObject(rawBrewery: JSON) -> AnyObject? {
-        guard let identifier = rawBrewery["id"] as? String else {
+    public static func map(json: json) -> AnyObject? {
+        guard let identifier = json["id"] as? String else {
             return nil
         }
         
         let brewery = Brewery(identifier: identifier)
-        brewery.name = rawBrewery["name"] as? String
+        brewery.name = json["name"] as? String
         
-        if let established = rawBrewery["established"] as? String {
+        if let established = json["established"] as? String {
             brewery.established = Int(established)
         }
         
-        brewery.isOrganic = rawBrewery["isOrganic"] as? String == "Y"
-        brewery.breweryDescription = rawBrewery["description"] as? String
+        brewery.isOrganic = json["isOrganic"] as? String == "Y"
+        brewery.breweryDescription = json["description"] as? String
         
-        if let websiteURL = rawBrewery["website"] as? String {
-            brewery.website = NSURL(string: websiteURL)
+        if let websiteURL = json["website"] as? String {
+            brewery.website = URL(string: websiteURL)
         }
         
-        if let mailingListURL = rawBrewery["mailingListURL"] as? String {
-            brewery.mailingListURL = NSURL(string: mailingListURL)
+        if let mailingListURL = json["mailingListURL"] as? String {
+            brewery.mailingListURL = URL(string: mailingListURL)
         }
         
-        if let labels = rawBrewery["images"] as? JSON {
-            brewery.imageURLSet = ImageURLSet.mapJSONToObject(labels) as? ImageURLSet
+        if let labels = json["images"] as? json {
+            brewery.imageURLSet = ImageURLSet.map(json: labels) as? ImageURLSet
         }
         
         return brewery

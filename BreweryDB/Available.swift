@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class Available {
-    public let identifier: Int
-    public var name: String?
-    public var description: String?
+open class Available {
+    open let identifier: Int
+    open var name: String?
+    open var description: String?
     
     public init(identifier: Int) {
         self.identifier = identifier
@@ -19,7 +19,7 @@ public class Available {
 }
 
 extension Available: JSONParserEntity {
-    public static func mapJSONToObject(json: JSON) -> AnyObject? {
+    public static func map(json: json) -> AnyObject? {
         guard let identifier = json["id"] as? Int else {
             return nil
         }

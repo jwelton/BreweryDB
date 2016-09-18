@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		233BF36E1CD4880A00A536AB /* BeerJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */; };
+		233C40411D8E8F0B004E4737 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C40401D8E8F0B004E4737 /* OHHTTPStubs.framework */; };
 		233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233CB5C11CD47E10000E36B7 /* JSONParser.swift */; };
 		233CB5CD1CD48520000E36B7 /* testBeerJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 233CB5CC1CD48520000E36B7 /* testBeerJSON.json */; };
 		233ECF031C4063A40050971B /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233ECF021C4063A40050971B /* BeerRequest.swift */; };
@@ -38,7 +39,6 @@
 		23FF53E41C39831B0094249C /* BreweryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E31C39831B0094249C /* BreweryDB.swift */; };
 		23FF53E61C3985660094249C /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E51C3985660094249C /* Beer.swift */; };
 		23FF53E81C3985760094249C /* BeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FF53E71C3985760094249C /* BeerTests.swift */; };
-		39300FC8453F9B4B9A1322F5 /* Pods_BreweryDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerJSONParserTests.swift; sourceTree = "<group>"; };
+		233C40401D8E8F0B004E4737 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		233CB5C11CD47E10000E36B7 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		233CB5CC1CD48520000E36B7 /* testBeerJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testBeerJSON.json; sourceTree = "<group>"; };
 		233ECF021C4063A40050971B /* BeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
@@ -87,9 +88,6 @@
 		23FF53E31C39831B0094249C /* BreweryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDB.swift; sourceTree = "<group>"; };
 		23FF53E51C3985660094249C /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		23FF53E71C3985760094249C /* BeerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerTests.swift; sourceTree = "<group>"; };
-		6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.release.xcconfig"; sourceTree = "<group>"; };
-		9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreweryDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreweryDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,17 +103,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				23FF53CD1C397A7B0094249C /* BreweryDB.framework in Frameworks */,
-				39300FC8453F9B4B9A1322F5 /* Pods_BreweryDBTests.framework in Frameworks */,
+				233C40411D8E8F0B004E4737 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A96B4A1A4D76C91CDA2DBA /* Frameworks */ = {
+		233C403F1D8E8F0B004E4737 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8B9A98A1C0E7F897267F299 /* Pods_BreweryDBTests.framework */,
+				233C40401D8E8F0B004E4737 /* OHHTTPStubs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,8 +208,7 @@
 				23FF53C41C397A7B0094249C /* BreweryDB */,
 				23FF53D01C397A7B0094249C /* BreweryDBTests */,
 				23FF53C31C397A7B0094249C /* Products */,
-				301A9BEC1D3A337499F5A2A8 /* Pods */,
-				05A96B4A1A4D76C91CDA2DBA /* Frameworks */,
+				233C403F1D8E8F0B004E4737 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,15 +256,6 @@
 			path = BreweryDBTests;
 			sourceTree = "<group>";
 		};
-		301A9BEC1D3A337499F5A2A8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */,
-				6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -289,7 +277,6 @@
 				23FF53BD1C397A7B0094249C /* Sources */,
 				23FF53BE1C397A7B0094249C /* Frameworks */,
 				23FF53BF1C397A7B0094249C /* Headers */,
-				23FF53C01C397A7B0094249C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -304,12 +291,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23FF53D91C397A7B0094249C /* Build configuration list for PBXNativeTarget "BreweryDBTests" */;
 			buildPhases = (
-				9A97658A2D048E026AB9384C /* Check Pods Manifest.lock */,
 				23FF53C81C397A7B0094249C /* Sources */,
 				23FF53C91C397A7B0094249C /* Frameworks */,
 				23FF53CA1C397A7B0094249C /* Resources */,
-				D7EAC6DCD8DF39174CA9FB7D /* Embed Pods Frameworks */,
-				0917E24DA1233F0CC99E6991 /* Copy Pods Resources */,
+				233C403E1D8E8E06004E4737 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -328,15 +313,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Jake Welton";
 				TargetAttributes = {
 					23FF53C11C397A7B0094249C = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 5SLHXDMNZ3;
+						LastSwiftMigration = 0800;
 					};
 					23FF53CB1C397A7B0094249C = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -359,13 +346,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		23FF53C01C397A7B0094249C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		23FF53CA1C397A7B0094249C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,50 +358,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0917E24DA1233F0CC99E6991 /* Copy Pods Resources */ = {
+		233C403E1D8E8E06004E4737 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
-			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A97658A2D048E026AB9384C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D7EAC6DCD8DF39174CA9FB7D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreweryDBTests/Pods-BreweryDBTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -491,8 +440,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -539,8 +490,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -560,6 +513,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -572,7 +526,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -587,6 +541,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -595,7 +550,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -609,14 +564,19 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		23FF53DA1C397A7B0094249C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DE5DF23C3227D92002200AE /* Pods-BreweryDBTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -624,20 +584,26 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BreweryDBTests/BreweryDBTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		23FF53DB1C397A7B0094249C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D6E09977C417B5C266478E3 /* Pods-BreweryDBTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BreweryDBTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakewelton.BreweryDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BreweryDBTests/BreweryDBTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
