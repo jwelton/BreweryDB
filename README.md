@@ -1,4 +1,4 @@
-![BreweryDB](http://www.brewerydb.com/img/badge.png)
+BreweryDB
 
 [![Build Status](https://travis-ci.org/jwelton/BreweryDB.svg)](https://travis-ci.org/jwelton/BreweryDB)
 ![Test Coverage](https://img.shields.io/badge/coverage-70.86%25-green.svg)
