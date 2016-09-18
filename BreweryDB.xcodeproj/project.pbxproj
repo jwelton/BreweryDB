@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2314F59B1D8EE27E0019AFAD /* GlassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314F59A1D8EE27E0019AFAD /* GlassTests.swift */; };
+		2314F59D1D8EE34F0019AFAD /* GlassRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314F59C1D8EE34F0019AFAD /* GlassRequestTests.swift */; };
+		2314F59F1D8EE3E10019AFAD /* GlassJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314F59E1D8EE3E10019AFAD /* GlassJSONParserTests.swift */; };
+		2314F5A11D8EE49D0019AFAD /* testGlassJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2314F5A01D8EE49D0019AFAD /* testGlassJSON.json */; };
 		233BF36E1CD4880A00A536AB /* BeerJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */; };
 		233C40411D8E8F0B004E4737 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233C40401D8E8F0B004E4737 /* OHHTTPStubs.framework */; };
 		233CB5C21CD47E10000E36B7 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233CB5C11CD47E10000E36B7 /* JSONParser.swift */; };
@@ -52,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2314F59A1D8EE27E0019AFAD /* GlassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlassTests.swift; sourceTree = "<group>"; };
+		2314F59C1D8EE34F0019AFAD /* GlassRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlassRequestTests.swift; sourceTree = "<group>"; };
+		2314F59E1D8EE3E10019AFAD /* GlassJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlassJSONParserTests.swift; sourceTree = "<group>"; };
+		2314F5A01D8EE49D0019AFAD /* testGlassJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testGlassJSON.json; sourceTree = "<group>"; };
 		233BF36D1CD4880A00A536AB /* BeerJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerJSONParserTests.swift; sourceTree = "<group>"; };
 		233C40401D8E8F0B004E4737 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		233CB5C11CD47E10000E36B7 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -110,6 +118,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2314F5A21D8EE54B0019AFAD /* Glass Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2314F59A1D8EE27E0019AFAD /* GlassTests.swift */,
+				2314F59C1D8EE34F0019AFAD /* GlassRequestTests.swift */,
+				2314F5A01D8EE49D0019AFAD /* testGlassJSON.json */,
+				2314F59E1D8EE3E10019AFAD /* GlassJSONParserTests.swift */,
+			);
+			name = "Glass Tests";
+			sourceTree = "<group>";
+		};
 		233C403F1D8E8F0B004E4737 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +269,7 @@
 				23FF53D31C397A7B0094249C /* Info.plist */,
 				238646021CD3F47700170B2D /* BeerTests */,
 				2386460E1CD3FE1D00170B2D /* BreweryTests */,
+				2314F5A21D8EE54B0019AFAD /* Glass Tests */,
 				23DF758C1C5D14D700D5D218 /* RequestBuilderTests.swift */,
 				23561F2D1C70EB8F00B2454A /* BreweryDBTests-Bridging-Header.h */,
 			);
@@ -350,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2314F5A11D8EE49D0019AFAD /* testGlassJSON.json in Resources */,
 				23849A8C1CD6DD2900C72F24 /* testBreweryJSON.json in Resources */,
 				233CB5CD1CD48520000E36B7 /* testBeerJSON.json in Resources */,
 			);
@@ -405,13 +426,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2386460D1CD3FBB100170B2D /* BreweryRequestTests.swift in Sources */,
+				2314F59F1D8EE3E10019AFAD /* GlassJSONParserTests.swift in Sources */,
 				23849A8A1CD6DAC800C72F24 /* BreweryJSONParserTests.swift in Sources */,
 				238646091CD3F81100170B2D /* BreweryTests.swift in Sources */,
 				23FF53D21C397A7B0094249C /* BreweryDBTests.swift in Sources */,
 				23FF53E81C3985760094249C /* BeerTests.swift in Sources */,
 				233BF36E1CD4880A00A536AB /* BeerJSONParserTests.swift in Sources */,
+				2314F59B1D8EE27E0019AFAD /* GlassTests.swift in Sources */,
 				233ECF051C4063CC0050971B /* BeerRequestTests.swift in Sources */,
 				23DF758D1C5D14D700D5D218 /* RequestBuilderTests.swift in Sources */,
+				2314F59D1D8EE34F0019AFAD /* GlassRequestTests.swift in Sources */,
 				23BABBD11D41471F00BF1FE0 /* RequestManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
