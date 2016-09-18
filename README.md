@@ -1,11 +1,15 @@
-# BreweryDB
-[![Build Status](https://travis-ci.org/jwelton/BreweryDB.svg)](https://travis-ci.org/jwelton/BreweryDB)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![BreweryDB](http://www.brewerydb.com/img/badge.png)
 
-A Swift library for communicating with the BreweryDB api (v2). This library simplifies the task of sending and receiving data between your app and the BreweryDB server. It has been developed using Swift 2 and uses a simple block interface for maximum readability. This framework is heavily unit tested to provide a stable service. If you find any issues or have any requests, please open an issue :smiley:
+[![Build Status](https://travis-ci.org/jwelton/BreweryDB.svg)](https://travis-ci.org/jwelton/BreweryDB)
+![Test Coverage](https://img.shields.io/badge/coverage-70.86%25-green.svg)
+![](https://img.shields.io/badge/language-Swift%203-brightgreen.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jwelton/BreweryDB/master/LICENSE)
+
+
+An iOS Swift library for communicating with the BreweryDB api (v2). This library simplifies the task of sending and receiving data between your app and the BreweryDB server. This library is able to construct correct BreweryDB URL's, perform the network request and then serialise the response JSON into objects ready for use in your app.
 
 ## Installation
-Currently there is only one supported method of installation, which is via Carthage (although manual installation is also possible, instructions for doing so will not be listed here). Please see below for a basic overview of installing via Carthage.
 
 #### Carthage
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. Full instructions for integrating frameworks using Carthage are avaliable within the readme.md on their [GitHub Repository](https://github.com/Carthage/Carthage).
@@ -15,9 +19,9 @@ You can install Carthage with [Homebrew](http://brew.sh/) using the following co
 $ brew update
 $ brew install carthage
 ```
-To integrate Alamofire into your Xcode project using Carthage, specify it in your Cartfile:
+To integrate BreweryDB into your Xcode project using Carthage, specify it in your Cartfile:
 ```
-github "jwelton/BreweryDB" ~> 1.0
+github "jwelton/BreweryDB"
 ```
 Run carthage update to build the framework and drag the built BreweryDB.framework into your Xcode project. (you also need to add a custom run script too, please see the Carthage instructions for details on this)
 
@@ -27,7 +31,7 @@ The interface within this library is designed to be simple and easy to use. Belo
 Before attempting any requests, you need to set your API key (you will need to register on the [BreweryDB](https://www.brewerydb.com/) website to get this). You only need to set this once and its done as follows:
 
 ``` swift
-BreweryDBApiKey = "MyKeyHere"
+breweryDBApiKey = "MyKeyHere"
 ```
 
 We recommend setting this in the AppDelegate, so it has always been called before any request might take place.
@@ -35,71 +39,142 @@ We recommend setting this in the AppDelegate, so it has always been called befor
 #### Beer
 ###### Request
 ``` swift
-let request = BeerRequest(requestParams: [.Abv: "5"])
-request?.loadBeersWithCompletionHandler() { beers in
-  /// Access your array of beers here (or nil if nothing was found)
+let beerRequest = BeerRequest(params: [.identifier: "cBLTUw"])
+let requestMan = RequestManager<Beer>(request: beerRequest)
+    
+requestMan?.fetch() { beers in
+    /// Access your array of beers here (or nil if nothing was found)
 }
 ```
 
 ###### Request With Ordering
 ``` swift
-let request = BeerRequest(requestParams: [.Abv: "5"], orderBy: .Name)
-request?.loadBeersWithCompletionHandler() { beers in
-  /// Access your array of beers here (or nil if nothing was found)
+let beerRequest = BeerRequest(params: [.identifier: "cBLTUw"], orderBy: .name)
+let requestMan = RequestManager<Beer>(request: beerRequest)
+    
+requestMan?.fetch() { beers in
+    /// Access your array of beers here (or nil if nothing was found)
 }
 ```
 
 ###### Parameters
 ``` swift
 public enum BeerRequestParam: String {
-  case Identifier = "ids"
-  case Name = "name"
-  case Abv = "abv"
-  case Ibu = "ibu"
-  case IsOrganic = "isOrganic"
-  case HasLabels = "hasLabels"
-  case Since = "since"
-  case Status = "status"
-  case RandomCount = "order"
+	case identifier
+	case name
+	case abv
+	case ibu
+	case isOrganic
+	case hasLabels
+	case since
+	case status
+	case randomCount
+	case pageNumber
+	case styleId
+	case withBreweries
+}
+```
+
+###### Order Parameters
+``` swift
+public enum BeerRequestOrderParam : String {
+	case name
+	case description
+	case abv
+	case ibu
+	case isOrganic
+	case status
+	case createDate
+	case updateDate
+	case random
 }
 ```
 
 #### Brewery
 ###### Request
 ``` swift
-let request = BreweryRequest(requestParams: [.Name: "Brewery"])
-request?.loadBreweriesWithCompletionHandler() { breweries in
-  /// Access your array of breweries here (or nil if nothing was found)
+let breweryRequest = BreweryRequest(params: [.identifier: "YXDiJk"])
+let requestMan = RequestManager<Beer>(request: breweryRequest)
+    
+requestMan?.fetch() { breweries in
+    /// Access your array of breweries here (or nil if nothing was found)
 }
 ```
 
 ###### Request With Ordering
 ``` swift
-let request = BreweryRequest(requestParams: [.Name: "Brewery"], orderBy: .Name)
-request?.loadBreweriesWithCompletionHandler() { breweries in
-  /// Access your array of breweries here (or nil if nothing was found)
+let breweryRequest = BreweryRequest(params: [.identifier: "YXDiJk"], orderBy: .name)
+let requestMan = RequestManager<Beer>(request: breweryRequest)
+    
+requestMan?.fetch() { breweries in
+    /// Access your array of breweries here (or nil if nothing was found)
 }
 ```
 
 ###### Parameters
 ``` swift
 public enum BreweryRequestParam: String {
-  case Identifier = "ids"
-  case Name = "name"
-  case Abv = "abv"
-  case Ibu = "ibu"
-  case GlasswareId = "glasswareId"
-  case SrmId = "srmId"
-  case AvaliableId = "availableId"
-  case StyleId = "styleId"
-  case IsOrganic = "isOrganic"
-  case HasLabels = "hasLabels"
-  case Year = "year"
-  case Since = "since"
-  case Status = "status"
-  case RandomCount = "order"
+	case identifier
+	case name
+	case abv
+	case ibu
+	case glasswareId
+	case srmId
+	case avaliableId
+	case styleId
+	case isOrganic
+	case hasLabels
+	case year
+	case since
+	case status
+	case randomCount
+	case pageNumber
 }
 ```
+
+###### Order Parameters
+``` swift
+public enum BreweryRequestOrderParam : String {
+    case name
+    case description
+    case website
+    case established
+    case mailingListURL
+    case isOrganic
+    case status
+    case createDate
+    case updateDate
+    case random
+}
+```
+
+#### Search
+###### Request
+``` swift
+let searchRequest = SearchRequest(params: [.searchTerm: "Dead Pony", .resultType: "beer", .withBreweries: "Y"])
+let requestMan = RequestManager<Search>(request: searchRequest)
+    
+requestMan?.fetch() { results in
+    /// Access your array of results here (or nil if nothing was found)
+}
+```
+
+###### Parameters
+``` swift
+public enum SearchRequestParam : String {
+	case searchTerm
+	case resultType
+	case pageNumber
+	case withBreweries
+}
+```
+
+#### Other Request Types
+Other request types (which work in the same way as above) include:
+
+- Glass Request
+- Style Request
+- Category Request
 
 ## Contributing
 Contributing is easy, simply decide on a bug you want to fix or feature you want to implement (or preferably pick one from the issues list) then follow the instructions below:
