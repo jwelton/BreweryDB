@@ -1,0 +1,255 @@
+{
+  "currentPage": 1,
+  "numberOfPages": 1248,
+  "totalResults": 62378,
+  "data": [
+    {
+      "id": "tmEthz",
+      "name": "\"Admiral\" Stache",
+      "nameDisplay": "\"Admiral\" Stache",
+      "description": "Milwaukee Brewing Co’s take on a classic European style. Baltic Porters are the stronger lager fermented cousin of the classic London Porter. The higher strength and cold fermentation help to create a smooth, less fruity porter, rich in roasted malt flavors and aromas. The “Admiral” Stache has a deep brown hue with a light caramel head. Toffee and milk chocolate dominate the flavor with subtle hints of dried fruit. One month of aging in Bourbon Barrels imparted a layer of vanilla and oak.\r\n\r\nWe first developed this beer in 2007. Our first attempted batch of beer at the 2nd street location was a Baltic Porter. What we ended up with became known as “Shake Down Nut Brown”. You can guess what went wrong from there… But, so many things right! Every year that has gone by, the beer has gotten a little bit stronger, in flavor and alcohol.\r\n\r\nWe use a black malt for the dark rich color and an extra special malt for the dried fruit flavors. Baltic Porters are fermented cold with a lager yeast. That long slow maturation creates a smooth flavor profile. The anticipation of the bourbon barrel aging it the most exciting part of this brew process. We want that oak character with hints of bourbon, we use 3rd run barrels for this result. Each batch has been slightly different from the last.",
+      "abv": "7",
+      "ibu": "23",
+      "glasswareId": 5,
+      "srmId": 37,
+      "availableId": 4,
+      "styleId": 104,
+      "isOrganic": "N",
+      "labels": {
+        "icon": "https://s3.amazonaws.com/brewerydbapi/beer/tmEthz/upload_3Jl1St-icon.png",
+        "medium": "https://s3.amazonaws.com/brewerydbapi/beer/tmEthz/upload_3Jl1St-medium.png",
+        "large": "https://s3.amazonaws.com/brewerydbapi/beer/tmEthz/upload_3Jl1St-large.png"
+      },
+      "status": "verified",
+      "statusDisplay": "Verified",
+      "originalGravity": "1.071",
+      "createDate": "2012-09-09 13:35:27",
+      "updateDate": "2016-11-11 14:23:06",
+      "glass": {
+        "id": 5,
+        "name": "Pint",
+        "createDate": "2012-01-03 02:41:33"
+      },
+      "srm": {
+        "id": 37,
+        "name": "37",
+        "hex": "3F0708"
+      },
+      "available": {
+        "id": 4,
+        "name": "Seasonal",
+        "description": "Available at the same time of year, every year."
+      },
+      "style": {
+        "id": 104,
+        "categoryId": 9,
+        "category": {
+          "id": 9,
+          "name": "Other Lager",
+          "createDate": "2012-03-21 20:06:46"
+        },
+        "name": "Baltic-Style Porter",
+        "shortName": "Baltic Porter",
+        "description": "A true smooth cold-fermented and cold lagered beer, brewed with lager yeast. Black to very deep ruby/garnet in color. Overall, Baltic Porters have a very smooth lagered character with distinctive caramelized sugars, licorice and chocolate-like character of roasted malts and dark sugars. Roasted dark malts should not contribute bitterness, or astringent roast character. A low degree of smokiness from malt may be evident. Debitterized roast malts are best used for this style. Because of its alcoholic strength, aroma may include gentle (low) lager fruitiness (berries, grapes, plums, not banana; ale-like fruitiness from warm temperature fermentation is not appropriate), complex alcohols, cocoa-like, roast malt (and sometimes coffee-like roast barley, yet not bitter). Hop aroma is very low, though a hint of floral or sweet hop aroma can complement aromatics and flavor without dominance. Baltic Porters are not hop bitter dominated and expressed as low to medium-low. Baltic porters range from having medium to full body complemented with a medium-low to medium level of malty sweetness. No butterscotch-like diacetyl or sweet corn-like dimethylsulfide (DMS) should be apparent in aroma or flavor.",
+        "ibuMin": "35",
+        "ibuMax": "40",
+        "abvMin": "7.5",
+        "abvMax": "9",
+        "srmMin": "40",
+        "srmMax": "40",
+        "ogMin": "1.072",
+        "fgMin": "1.016",
+        "fgMax": "1.022",
+        "createDate": "2012-03-21 20:06:46",
+        "updateDate": "2015-04-07 15:41:46"
+      },
+      "ingredients": {
+        "hops": [
+          {
+            "id": 98,
+            "name": "Perle (American)",
+            "description": "Bred in Germany from Northern Brewer, Perle was an attempt at a higher-alpha replacement for Hallertauer Mittelfr?her. It has a pleasant aroma with a minty character. American versions have a very different profile than those grown in Germany.",
+            "countryOfOrigin": "US",
+            "alphaAcidMin": 7,
+            "betaAcidMin": 4,
+            "betaAcidMax": 5,
+            "humuleneMin": 28,
+            "humuleneMax": 33,
+            "caryophylleneMin": 10,
+            "caryophylleneMax": 12,
+            "cohumuloneMin": 27,
+            "cohumuloneMax": 32,
+            "myrceneMin": 45,
+            "myrceneMax": 55,
+            "farneseneMax": 1,
+            "category": "hop",
+            "categoryDisplay": "Hops",
+            "createDate": "2013-06-24 16:07:34",
+            "updateDate": "2013-06-24 16:10:37",
+            "country": {
+              "isoCode": "US",
+              "name": "UNITED STATES",
+              "displayName": "United States",
+              "isoThree": "USA",
+              "numberCode": 840,
+              "createDate": "2012-01-03 02:41:33"
+            }
+          },
+          {
+            "id": 113,
+            "name": "Saaz (American)",
+            "description": "Some American growers also grow a version of the Czech Saazer hop, although American versions are usually considered to lack true noble hop character, with higher myrcene and total oil than true Saaz Saazer. Saaz is a difficult hop to grow in the United States due to inconsistent yields and susceptibility to disease.",
+            "countryOfOrigin": "US",
+            "alphaAcidMin": 3,
+            "betaAcidMin": 3,
+            "betaAcidMax": 4.5,
+            "humuleneMin": 35,
+            "humuleneMax": 40,
+            "caryophylleneMin": 9,
+            "caryophylleneMax": 11,
+            "cohumuloneMin": 24,
+            "cohumuloneMax": 28,
+            "myrceneMin": 25,
+            "myrceneMax": 30,
+            "farneseneMin": 9,
+            "farneseneMax": 13,
+            "category": "hop",
+            "categoryDisplay": "Hops",
+            "createDate": "2013-06-24 16:07:35",
+            "updateDate": "2013-06-24 16:10:38",
+            "country": {
+              "isoCode": "US",
+              "name": "UNITED STATES",
+              "displayName": "United States",
+              "isoThree": "USA",
+              "numberCode": 840,
+              "createDate": "2012-01-03 02:41:33"
+            }
+          }
+        ],
+        "malt": [
+          {
+            "id": 1947,
+            "name": "Barley - Malted",
+            "category": "malt",
+            "categoryDisplay": "Malts, Grains, & Fermentables",
+            "createDate": "2013-06-24 16:07:58"
+          },
+          {
+            "id": 429,
+            "name": "Chocolate Malt",
+            "description": "A dark malt that gives a rich red or brown color and a nutty flavor, used in brown ales, porters, and some stouts.",
+            "countryOfOrigin": "US",
+            "srmId": 41,
+            "srmPrecise": 350,
+            "moistureContent": 4,
+            "coarseFineDifference": 1.5,
+            "dryYield": 60,
+            "potential": 1.028,
+            "protein": 13.2,
+            "maxInBatch": 10,
+            "requiresMashing": "N",
+            "characteristics": [
+              {
+                "id": 6,
+                "name": "Chocolate",
+                "description": "Imparts a chocolate quality upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              },
+              {
+                "id": 7,
+                "name": "Coffee",
+                "description": "Imparts a coffee flavor upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              },
+              {
+                "id": 11,
+                "name": "Nutty",
+                "description": "Imparts a nutty flavor upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              },
+              {
+                "id": 15,
+                "name": "Toasted",
+                "description": "Imparts a toasted flavor upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              }
+            ],
+            "category": "malt",
+            "categoryDisplay": "Malts, Grains, & Fermentables",
+            "createDate": "2013-06-24 16:07:47",
+            "updateDate": "2013-06-24 16:10:14",
+            "srm": {
+              "id": 41,
+              "name": "Over 40",
+              "hex": "000000"
+            },
+            "country": {
+              "isoCode": "US",
+              "name": "UNITED STATES",
+              "displayName": "United States",
+              "isoThree": "USA",
+              "numberCode": 840,
+              "createDate": "2012-01-03 02:41:33"
+            }
+          },
+          {
+            "id": 650,
+            "name": "Munich Malt",
+            "description": "Munich Malt has a malty sweet flavor characteristic and adds a reddish amber color to the beer. It has enough diastatic power to convert itself, but needs help from another malt, such as 2-row malt, to convert other grains.",
+            "countryOfOrigin": "DE",
+            "srmId": 9,
+            "srmPrecise": 9,
+            "moistureContent": 5,
+            "coarseFineDifference": 1.3,
+            "diastaticPower": 72,
+            "dryYield": 80,
+            "potential": 1.037,
+            "protein": 11.5,
+            "maxInBatch": 80,
+            "requiresMashing": "Y",
+            "characteristics": [
+              {
+                "id": 10,
+                "name": "Malty",
+                "description": "Imparts a malty flavor upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              },
+              {
+                "id": 14,
+                "name": "Sweet",
+                "description": "Imparts a sweet flavor upon the beer.",
+                "createDate": "2013-06-24 16:07:26"
+              }
+            ],
+            "category": "malt",
+            "categoryDisplay": "Malts, Grains, & Fermentables",
+            "createDate": "2013-06-24 16:07:52",
+            "updateDate": "2013-06-24 16:10:14",
+            "srm": {
+              "id": 9,
+              "name": "9",
+              "hex": "E58500"
+            },
+            "country": {
+              "isoCode": "DE",
+              "name": "GERMANY",
+              "displayName": "Germany",
+              "isoThree": "DEU",
+              "numberCode": 276,
+              "createDate": "2012-01-03 02:41:33"
+            }
+          },
+          {
+            "id": 536,
+            "name": "Oats - Flaked",
+            "category": "malt",
+            "categoryDisplay": "Malts, Grains, & Fermentables",
+            "createDate": "2013-06-24 16:07:50"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "success"
+}

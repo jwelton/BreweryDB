@@ -13,6 +13,7 @@ public enum SearchRequestParam: String {
     case resultType = "type"
     case pageNumber = "p"
     case withBreweries = "withBreweries"
+    case withIngredients = "withIngredients"
 }
 
 public struct SearchRequest {

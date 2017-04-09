@@ -26,6 +26,7 @@ open class Beer {
     open var available: Available?
     open var style: Style?
     open var breweries = [Brewery]()
+    open var ingredientSet: IngredientSet?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -82,6 +83,14 @@ extension Beer: JSONParserEntity {
                 guard let brewery = Brewery.map(json: rawBrewery) as? Brewery else { print("Failed mapping of brewery \(beer.name)"); return }
                 beer.breweries.append(brewery)
             }
+        }
+        
+        if let rawIngredients = json["ingredients"] as? json {
+            let rawHops = rawIngredients["hops"] as? [json] ?? []
+            let rawMalts = rawIngredients["malt"] as? [json] ?? []
+            let rawMisc = rawIngredients["misc"] as? [json] ?? []
+            
+            beer.ingredientSet = IngredientSet(rawHops: rawHops, rawMalts: rawMalts, rawMisc: rawMisc)
         }
         
         return beer
