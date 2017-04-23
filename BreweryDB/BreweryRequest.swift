@@ -24,6 +24,8 @@ public enum BreweryRequestParam: String {
     case status = "status"
     case randomCount = "order"
     case pageNumber = "p"
+    case withBreweries = "withBreweries"
+    case withIngredients = "withIngredients"
 }
 
 public enum BreweryRequestOrderParam: String {
@@ -42,13 +44,21 @@ public enum BreweryRequestOrderParam: String {
 public struct BreweryRequest {
     public var params: [BreweryRequestParam: String]?
     public var orderBy: BreweryRequestOrderParam?
+    public var brewery: Brewery?
+    public var endPoint: RequestEndPoint.BreweryEndPoint?
     public var endpoint: RequestEndPoint{
-        return .breweries
+        guard let brewery = brewery, let endPoint = endPoint else {
+            return .breweries
+        }
+        
+        return .brewery(brewery.identifier, endPoint)
     }
     
-    public init(params: [BreweryRequestParam: String]? = nil, orderBy: BreweryRequestOrderParam? = nil) {
+    public init(brewery: Brewery? = nil, endPoint: RequestEndPoint.BreweryEndPoint? = nil, params: [BreweryRequestParam: String]? = nil, orderBy: BreweryRequestOrderParam? = nil) {
         self.params = params
         self.orderBy = orderBy
+        self.brewery = brewery
+        self.endPoint = endPoint
     }
 }
 

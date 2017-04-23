@@ -8,18 +8,35 @@
 
 import Foundation
 
-public enum RequestEndPoint: String {
-    case beers = "beers"
-    case breweries = "breweries"
-    case categories = "categories"
-    case styles = "styles"
-    case glassware = "glassware"
-    case search = "search"
+public enum RequestEndPoint {
+    case beers
+    case breweries
+    case categories
+    case styles
+    case glassware
+    case search
+    case brewery(String, BreweryEndPoint)
+    
+    public enum BreweryEndPoint: String {
+        case beers = "beers"
+    }
+    
+    var path: String {
+        switch self {
+        case .beers: return "beers"
+        case .breweries: return "breweries"
+        case .categories: return "categories"
+        case .styles: return "styles"
+        case .glassware: return "glassware"
+        case .search: return "search"
+        case .brewery(let id, let specificEndpoint): return "brewery/\(id)/\(specificEndpoint)"
+        }
+    }
 }
 
 public extension URL {
     func appendingPathComponent(_ endPoint: RequestEndPoint) -> URL {
-        return appendingPathComponent(endPoint.rawValue)
+        return appendingPathComponent(endPoint.path)
     }
 }
 

@@ -40,7 +40,7 @@ class RequestBuilderTests: XCTestCase {
         let requestBuilder = RequestBuilder(endPoint: .beers)
         let param = [BeerRequestParam.identifier: "beerIdentifier"]
         
-        let baseURL = breweryDBBaseURL.absoluteString + "/" + RequestEndPoint.beers.rawValue
+        let baseURL = breweryDBBaseURL.absoluteString + "/" + RequestEndPoint.beers.path
         let withKey = baseURL + "?key=" + String(breweryDBApiKey!)
         let expected =  withKey + "&" + BeerRequestParam.identifier.rawValue + "=beerIdentifier"
         
