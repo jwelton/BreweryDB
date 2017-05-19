@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Location {
+public class Location {
     public let identifier: String
     public var name: String?
     public var streetAddress: String?

@@ -17,6 +17,7 @@ open class Brewery {
     open var website: URL?
     open var mailingListURL: URL?
     open var imageURLSet: ImageURLSet?
+    public var locations: [Location]?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -49,6 +50,10 @@ extension Brewery: JSONParserEntity {
         
         if let labels = json["images"] as? json {
             brewery.imageURLSet = ImageURLSet.map(json: labels) as? ImageURLSet
+        }
+        
+        if let rawLocations = json["locations"] as? [json] {
+            brewery.locations = rawLocations.flatMap{ Location.map(json: $0) as? Location }
         }
         
         return brewery
