@@ -26,6 +26,7 @@ public enum BreweryRequestParam: String {
     case pageNumber = "p"
     case withBreweries = "withBreweries"
     case withIngredients = "withIngredients"
+    case withLocations = "withLocations"
 }
 
 public enum BreweryRequestOrderParam: String {

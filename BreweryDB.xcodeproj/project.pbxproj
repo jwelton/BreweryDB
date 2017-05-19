@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23100A921ECF6F340040AE99 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23100A911ECF6F340040AE99 /* Location.swift */; };
 		231060A61E990E0E007B6F91 /* IngredientJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231060A51E990E0E007B6F91 /* IngredientJSONParserTests.swift */; };
 		231060A81E990E72007B6F91 /* testBeerIngredientJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 231060A71E990E72007B6F91 /* testBeerIngredientJSON.json */; };
 		2314F59B1D8EE27E0019AFAD /* GlassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314F59A1D8EE27E0019AFAD /* GlassTests.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23100A911ECF6F340040AE99 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		231060A51E990E0E007B6F91 /* IngredientJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientJSONParserTests.swift; sourceTree = "<group>"; };
 		231060A71E990E72007B6F91 /* testBeerIngredientJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testBeerIngredientJSON.json; sourceTree = "<group>"; };
 		2314F59A1D8EE27E0019AFAD /* GlassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlassTests.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23100A931ECF6F380040AE99 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				23100A911ECF6F340040AE99 /* Location.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		231060A91E990E8D007B6F91 /* Ingredient Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 				238646011CD3F47000170B2D /* Beer */,
 				238646071CD3F7D200170B2D /* Brewery */,
 				236DECE71E846A5400CCEE00 /* Ingredient */,
+				23100A931ECF6F380040AE99 /* Location */,
 			);
 			path = BreweryDB;
 			sourceTree = "<group>";
@@ -442,6 +453,7 @@
 				236DECE61E846A5100CCEE00 /* Ingredient.swift in Sources */,
 				23FF53E61C3985660094249C /* Beer.swift in Sources */,
 				23ECAC2B1CDF9B1100DCAB08 /* Glass.swift in Sources */,
+				23100A921ECF6F340040AE99 /* Location.swift in Sources */,
 				233ECF031C4063A40050971B /* BeerRequest.swift in Sources */,
 				238646041CD3F4CC00170B2D /* Brewery.swift in Sources */,
 				23BABBD41D42949000BF1FE0 /* CategoryRequest.swift in Sources */,
