@@ -16,7 +16,7 @@ public class Location {
     public var region: String?
     public var postalCode: String?
     public var phone: String?
-    public var website: String?
+    public var websiteUrl: URL?
     public var latitude: Double?
     public var longitude: Double?
     public var isPrimary: Bool?
@@ -28,6 +28,7 @@ public class Location {
     public var countryIsoCode: String?
     public var status: String?
     public var statusDisplay: String?
+    public var yearOpened: String?
     
     public init(identifier: String) {
         self.identifier = identifier
@@ -47,7 +48,6 @@ extension Location: JSONParserEntity {
         location.region = json["region"] as? String
         location.postalCode = json["postalCode"] as? String
         location.phone = json["phone"] as? String
-        location.website = json["website"] as? String
         location.locationType = json["locationType"] as? String
         location.locationTypeDisplay = json["locationTypeDisplay"] as? String
         location.countryIsoCode = json["countryIsoCode"] as? String
@@ -59,6 +59,11 @@ extension Location: JSONParserEntity {
         location.inPlanning = json["inPlanning"] as? String == "Y"
         location.isClosed = json["isClosed"] as? String == "Y"
         location.openToPublic = json["openToPublic"] as? String == "Y"
+        location.yearOpened = json["yearOpened"] as? String
+        
+        if let websiteString = json["website"] as? String {
+            location.websiteUrl = URL(string: websiteString)
+        }
         
         return location
     }
