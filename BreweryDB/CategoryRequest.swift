@@ -39,7 +39,7 @@ extension CategoryRequest: BreweryDBRequest {
     
     public var pageNumber: Int {
         get {
-            return 0
+            return 1
         }
         set {
             // Do nothing

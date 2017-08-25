@@ -44,10 +44,10 @@ extension SearchRequest: BreweryDBRequest {
     public var pageNumber: Int {
         get {
             guard let rawPageNumber = params?[.pageNumber] else {
-                return 0
+                return 1
             }
             
-            return Int(rawPageNumber) ?? 0
+            return Int(rawPageNumber) ?? 1
         }
         set {
             params?[.pageNumber] = String(newValue)
