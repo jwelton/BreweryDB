@@ -15,14 +15,14 @@ public protocol BreweryDBRequest {
     var pageNumber: Int { get set }
 }
 
-open class RequestManager<Type: JSONParserEntity> {
+public class RequestManager<Type: JSONParserEntity> {
     fileprivate let requestBuilder: RequestBuilder
     fileprivate var urlRequest: URLRequest
-    open var request: BreweryDBRequest
-    open var requestURL: URLRequest {
+    public var request: BreweryDBRequest
+    public var requestURL: URLRequest {
         return urlRequest
     }
-    open var currentPageNumber: Int {
+    public var currentPageNumber: Int {
         return request.pageNumber
     }
     
@@ -37,7 +37,7 @@ open class RequestManager<Type: JSONParserEntity> {
         urlRequest = url
     }
     
-    open func fetch(using completionHandler: @escaping ([Type]?)->Void) {
+    public func fetch(using completionHandler: @escaping ([Type]?)->Void) {
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
             guard let returnedData = data,
                 let response = response as? HTTPURLResponse , response.statusCode == 200 else {
@@ -51,7 +51,7 @@ open class RequestManager<Type: JSONParserEntity> {
             }) .resume()
     }
     
-    open func fetchNextPage(using completionHandler: @escaping ([Type]?)->Void) {
+    public func fetchNextPage(using completionHandler: @escaping ([Type]?)->Void) {
         request.pageNumber += 1
         
         guard let url = requestBuilder.buildRequest(request) else {
@@ -64,7 +64,7 @@ open class RequestManager<Type: JSONParserEntity> {
         fetch(using: completionHandler)
     }
     
-    open func cancel() {
+    public func cancel() {
         URLSession.shared.invalidateAndCancel()
     }
 }

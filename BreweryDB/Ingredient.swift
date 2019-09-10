@@ -8,26 +8,26 @@
 
 import Foundation
 
-open class Ingredient {
-    open let identifier: Int
-    open var category: String?
-    open var categoryDisplay: String?
-    open var name: String?
-    open var summary: String?
-    open var countryOfOrigin: String?
-    open var alphaAcidMin: Float?
-    open var betaAcidMin: Float?
-    open var betaAcidMax: Float?
-    open var humuleneMin: Float?
-    open var humuleneMax: Float?
-    open var caryophylleneMin: Float?
-    open var caryophylleneMax: Float?
-    open var cohumuloneMin: Float?
-    open var cohumuloneMax: Float?
-    open var myrceneMin: Float?
-    open var myrceneMax: Float?
-    open var farneseneMin: Float?
-    open var farneseneMax: Float?
+public class Ingredient {
+    public let identifier: Int
+    public var category: String?
+    public var categoryDisplay: String?
+    public var name: String?
+    public var summary: String?
+    public var countryOfOrigin: String?
+    public var alphaAcidMin: Float?
+    public var betaAcidMin: Float?
+    public var betaAcidMax: Float?
+    public var humuleneMin: Float?
+    public var humuleneMax: Float?
+    public var caryophylleneMin: Float?
+    public var caryophylleneMax: Float?
+    public var cohumuloneMin: Float?
+    public var cohumuloneMax: Float?
+    public var myrceneMin: Float?
+    public var myrceneMax: Float?
+    public var farneseneMin: Float?
+    public var farneseneMax: Float?
     
     public init(identifier: Int) {
         self.identifier = identifier

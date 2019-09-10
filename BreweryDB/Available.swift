@@ -8,10 +8,10 @@
 
 import Foundation
 
-open class Available {
-    open let identifier: Int
-    open var name: String?
-    open var description: String?
+public class Available {
+    public let identifier: Int
+    public var name: String?
+    public var description: String?
     
     public init(identifier: Int) {
         self.identifier = identifier

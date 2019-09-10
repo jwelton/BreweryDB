@@ -8,9 +8,9 @@
 
 import Foundation
 
-open class Glass {
-    open let identifier: Int
-    open var name: String?
+public class Glass {
+    public let identifier: Int
+    public var name: String?
     
     public init(identifier: Int) {
         self.identifier = identifier

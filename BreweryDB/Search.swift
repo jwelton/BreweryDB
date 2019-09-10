@@ -13,9 +13,9 @@ enum SearchResultType: String {
     case brewery = "brewery"
 }
 
-open class Search {
-    open let beer: Beer?
-    open let brewery: Brewery?
+public class Search {
+    public let beer: Beer?
+    public let brewery: Brewery?
     
     public init(beer: Beer? = nil, brewery: Brewery? = nil) {
         self.beer = beer

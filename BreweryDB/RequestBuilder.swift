@@ -40,7 +40,7 @@ public extension URL {
     }
 }
 
-open class RequestBuilder {
+public class RequestBuilder {
     let apiKeyQueryItem = URLQueryItem(name: "key", value: breweryDBApiKey)
     let endPoint: RequestEndPoint
     
@@ -48,7 +48,7 @@ open class RequestBuilder {
         self.endPoint = endPoint
     }
     
-    open func buildRequest(_ request: BreweryDBRequest) -> URLRequest? {
+    public func buildRequest(_ request: BreweryDBRequest) -> URLRequest? {
         guard let _ = breweryDBApiKey else {
             print("BreweryDB: No Brewery API key set. Please set a valid API key before attempting to perform a request.")
             return nil

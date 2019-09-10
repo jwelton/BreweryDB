@@ -8,12 +8,12 @@
 
 import Foundation
 
-open class ImageURLSet {
-    open let icon: URL?
-    open let medium: URL?
-    open let large: URL?
-    open let squareMedium: URL?
-    open let squareLarge: URL?
+public class ImageURLSet {
+    public let icon: URL?
+    public let medium: URL?
+    public let large: URL?
+    public let squareMedium: URL?
+    public let squareLarge: URL?
     
     public init(icon: URL?, medium: URL?, large: URL?, squareMedium: URL?, squareLarge: URL?) {
         self.icon = icon

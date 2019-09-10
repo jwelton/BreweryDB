@@ -8,25 +8,25 @@
 
 import Foundation
 
-open class Beer {
-    open let identifier: String
-    open var name: String?
-    open var beerDescription: String?
-    open var originalGravity: Float?
-    open var abv: Float?
-    open var ibu: Float?
-    open var isOrganic: Bool?
-    open var servingTemperature: String?
-    open var servingTemperatureDisplay: String?
-    open var status: String?
-    open var statusDisplay: String?
-    open var imageURLSet: ImageURLSet?
-    open var year: Int?
-    open var glass: Glass?
-    open var available: Available?
-    open var style: Style?
-    open var breweries = [Brewery]()
-    open var ingredientSet: IngredientSet?
+public class Beer {
+    public let identifier: String
+    public var name: String?
+    public var beerDescription: String?
+    public var originalGravity: Float?
+    public var abv: Float?
+    public var ibu: Float?
+    public var isOrganic: Bool?
+    public var servingTemperature: String?
+    public var servingTemperatureDisplay: String?
+    public var status: String?
+    public var statusDisplay: String?
+    public var imageURLSet: ImageURLSet?
+    public var year: Int?
+    public var glass: Glass?
+    public var available: Available?
+    public var style: Style?
+    public var breweries = [Brewery]()
+    public var ingredientSet: IngredientSet?
     
     public init(identifier: String) {
         self.identifier = identifier

@@ -14,13 +14,13 @@ public protocol JSONParserEntity {
     static func map(json: json) -> AnyObject?
 }
 
-open class JSONParser<T> where T: JSONParserEntity{
-    open let rawData: Data
-    open let decodedData: json
-    open var currentPage: Int?
-    open var totalNumberOfPages: Int?
-    open var totalResults: Int?
-    open var extractedEntities = [T]()
+public class JSONParser<T> where T: JSONParserEntity{
+    public let rawData: Data
+    public let decodedData: json
+    public var currentPage: Int?
+    public var totalNumberOfPages: Int?
+    public var totalResults: Int?
+    public var extractedEntities = [T]()
     
     public init?(rawData data: Data) {
         rawData = data
@@ -33,7 +33,7 @@ open class JSONParser<T> where T: JSONParserEntity{
         decodedData = decodedJSON
     }
     
-    open func extractObjects(using completionHandler: @escaping (([T]?)->Void)) {
+    public func extractObjects(using completionHandler: @escaping (([T]?)->Void)) {
         DispatchQueue.global(qos: .background).async {
             self.currentPage = self.decodedData["currentPage"] as? Int
             self.totalNumberOfPages = self.decodedData["numberOfPages"] as? Int

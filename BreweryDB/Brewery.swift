@@ -8,15 +8,15 @@
 
 import Foundation
 
-open class Brewery {
-    open let identifier: String
-    open var name: String?
-    open var established: Int?
-    open var isOrganic: Bool?
-    open var breweryDescription: String?
-    open var website: URL?
-    open var mailingListURL: URL?
-    open var imageURLSet: ImageURLSet?
+public class Brewery {
+    public let identifier: String
+    public var name: String?
+    public var established: Int?
+    public var isOrganic: Bool?
+    public var breweryDescription: String?
+    public var website: URL?
+    public var mailingListURL: URL?
+    public var imageURLSet: ImageURLSet?
     public var locations: [Location]?
     
     public init(identifier: String) {

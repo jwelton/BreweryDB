@@ -8,22 +8,22 @@
 
 import Foundation
 
-open class Style {
-    open let identifier: Int
-    open var category: Category?
-    open var name: String?
-    open var shortName: String?
-    open var description: String?
-    open var ibuMin: Float?
-    open var ibuMax: Float?
-    open var abvMin: Float?
-    open var abvMax: Float?
-    open var srmMin: Float?
-    open var srmMax: Float?
-    open var ogMin: Float?
-    open var ogMax: Float?
-    open var fgMin: Float?
-    open var fgMax: Float?
+public class Style {
+    public let identifier: Int
+    public var category: Category?
+    public var name: String?
+    public var shortName: String?
+    public var description: String?
+    public var ibuMin: Float?
+    public var ibuMax: Float?
+    public var abvMin: Float?
+    public var abvMax: Float?
+    public var srmMin: Float?
+    public var srmMax: Float?
+    public var ogMin: Float?
+    public var ogMax: Float?
+    public var fgMin: Float?
+    public var fgMax: Float?
     
     public init(identifier: Int) {
         self.identifier = identifier
